@@ -482,7 +482,7 @@
         let autoCarousel = function () {
             carouselIntervalId = setInterval(function () {
                 coverSlider.carousel('next');
-            }, 5000);
+            }, 1000);
         };
         autoCarousel();
         
@@ -494,6 +494,16 @@
             
         };
 
+        
+        // prev and next cover post.
+        $('#prev-cover').click(function () {
+            coverSlider.carousel('prev');
+            restartPlay();
+        });
+        $('#next-cover').click(function () {
+            coverSlider.carousel('next');
+            restartPlay();
+        });
         
     });
 </script>
@@ -549,15 +559,15 @@
                 <div class="post-categories">
                     
                         
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category">机器学习</a>
+                            <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="category">人工智能</a>
                         
                     
                 </div>
-                <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B1%5D%E7%BB%AA%E8%AE%BA%EF%BC%9A%E5%88%9D%E5%A7%8B%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                    <h3 class="post-title">绪论：初始机器学习</h3>
+                <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5BMA%5D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                    <h3 class="post-title">人工智能之机器学习</h3>
                 </a>
                 <p class="post-description">机器学习专门研究计算机怎样模拟或实现人类的学习行为，以获取新的知识或技能，重新组织已有的知识结构使之不断改善自身的性能</p>
-                <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B1%5D%E7%BB%AA%E8%AE%BA%EF%BC%9A%E5%88%9D%E5%A7%8B%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
+                <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5BMA%5D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
                     <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -584,12 +594,12 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B1%5D%E7%BB%AA%E8%AE%BA%EF%BC%9A%E5%88%9D%E5%A7%8B%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5BMA%5D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="绪论：初始机器学习">
+                            <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="人工智能之机器学习">
                             
-                            <span class="card-title">绪论：初始机器学习</span>
+                            <span class="card-title">人工智能之机器学习</span>
                         </div>
                     </a>
 
@@ -607,8 +617,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                                <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="post-category">
+                                    人工智能
                                 </a>
                                 
                                 
@@ -630,19 +640,19 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B2%5D%E5%8D%95%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
+                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5BD2%5D%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="单变量线性回归">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="《汇编语言》">
                             
-                            <span class="card-title">单变量线性回归</span>
+                            <span class="card-title">《汇编语言》</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                因为只含有一个特征/输入变量,因此这样的问题叫作单变量线性回归
+                                汇编语言是直接在硬件之上工作的编程语言，首先要了解硬件系统的结构，才能有效的应用汇编语言对其编程。
                             
                         </div>
                         <div class="publish-info">
@@ -653,8 +663,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                                <a href="/categories/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8/" class="post-category">
+                                    网络空间安全
                                 </a>
                                 
                                 
@@ -665,8 +675,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                            <span class="chip bg-color">基础知识</span>
+                        <a href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">
+                            <span class="chip bg-color">大学课程</span>
                         </a>
                         
                     </div>
@@ -676,19 +686,19 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B3%5D%E5%A4%9A%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
+                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5BD2%5D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
                         <div class="card-image">
                             
-                            <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="多变量线性回归">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="《计算机组成原理》">
                             
-                            <span class="card-title">多变量线性回归</span>
+                            <span class="card-title">《计算机组成原理》</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                适用于多个变量或者特征量，Multiple features（多维特征）
+                                机器学习专门研究计算机怎样模拟或实现人类的学习行为，以获取新的知识或技能，重新组织已有的知识结构使之不断改善自身的性能
                             
                         </div>
                         <div class="publish-info">
@@ -699,8 +709,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                                <a href="/categories/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8/" class="post-category">
+                                    网络空间安全
                                 </a>
                                 
                                 
@@ -711,284 +721,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                            <span class="chip bg-color">基础知识</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B4%5D%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9B%9E%E9%A1%BE/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="线性代数回顾">
-                            
-                            <span class="card-title">线性代数回顾</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                在大一学过的线性代数
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                            <span class="chip bg-color">基础知识</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B5%5D%E9%85%8D%E7%BD%AE/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="Octave/Matlab安装">
-                            
-                            <span class="card-title">Octave/Matlab安装</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                软件配置
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                            <span class="chip bg-color">基础知识</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B6%5DLogistic%E5%9B%9E%E5%BD%92/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="Logistic回归">
-                            
-                            <span class="card-title">Logistic回归</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                预测的变量 y 是一个离散的值情况下的分类问题
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                            <span class="chip bg-color">基础知识</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B7%5D%E6%AD%A3%E5%88%99%E5%8C%96/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="正则化">
-                            
-                            <span class="card-title">正则化</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                解决过拟合问题
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                            <span class="chip bg-color">基础知识</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B8%5D%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="神经网络学习">
-                            
-                            <span class="card-title">神经网络学习</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                神经网络，它在解决复杂的非线性分类问题上，被证明是是一种好得多的算法，即使你的输入特征空间或输入的特征维数 n 很大，也能轻松搞定
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                            <span class="chip bg-color">基础知识</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5B9%5D%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%82%E6%95%B0%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="神经网络参数的反向传播算法">
-                            
-                            <span class="card-title">神经网络参数的反向传播算法</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                神经网络，它在解决复杂的非线性分类问题上，被证明是是一种好得多的算法，即使你的输入特征空间或输入的特征维数 n 很大，也能轻松搞定
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                            <span class="chip bg-color">基础知识</span>
+                        <a href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">
+                            <span class="chip bg-color">大学课程</span>
                         </a>
                         
                     </div>
@@ -1290,8 +1024,9 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-    
+
     <script src="/js/cursor.js"></script>
+    <script src="/js/snow.js"></script>
 </body>
 
 </html>
