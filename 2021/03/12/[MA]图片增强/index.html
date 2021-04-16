@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="网络空间安全导论, GWorld">
+    <meta name="keywords" content="图像预处理-暗光图像优化, GWorld">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>网络空间安全导论 | GWorld</title>
+    <title>图像预处理-暗光图像优化 | GWorld</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">网络空间安全导论</h1>
+                    <h1 class="description center-align post-title">图像预处理-暗光图像优化</h1>
                 </div>
             </div>
         </div>
@@ -433,8 +433,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">
-                                <span class="chip bg-color">大学课程</span>
+                            <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95/">
+                                <span class="chip bg-color">基础拓展</span>
                             </a>
                         
                     </div>
@@ -445,8 +445,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8/" class="post-category">
-                                网络空间安全
+                            <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="post-category">
+                                人工智能
                             </a>
                         
                     </div>
@@ -458,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-06
+                    2021-03-12
                 </div>
                 
 
@@ -467,14 +467,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    14 分
                 </div>
                 
 
@@ -494,7 +494,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="Chapter-0-摘要"><a href="#Chapter-0-摘要" class="headerlink" title="Chapter 0 - 摘要"></a>Chapter 0 - 摘要</h2><p>　　本文提出了一种新的神经网络来增强曝光不足的照片。</p>
+<ul>
+<li>没有像以前那样直接学习图像到图像的映射，而是在<strong>网络中引入中间光照</strong>，将输入与预期的增强结果相关联，从而增强了网络从经过专家修饰的输入/输出图像对学习复杂的摄影调整的能力。</li>
+<li>在此模型的基础上，构造了一个<strong>对光照采用约束和先验的损失函数</strong>，<strong>准备了3000对低曝光图像对的新数据集</strong>，训练网络有效地学习多种光照条件下的各种调节。通过这些方法，网络能够在增强结果中恢复清晰的细节、鲜明的对比和自然的颜色。</li>
+<li>对基准的MIT-Adobe FiveK数据集和我们的新数据集进行了广泛的实验，并表明我们的网络能够有效地处理以前具有挑战性的图像。</li>
+</ul>
+<h2 id="Chapter-1-Introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 - Introduction"></a>Chapter 1 - Introduction</h2><p>　　由于低光和背光，捕捉到的照片可能会曝光不足.这样的照片不仅看起来不好看，不能捕捉到用户想要的，而且挑战了许多基本的计算机视觉任务，比如分割，目标检测和跟踪，因为曝光不足的区域有几乎不可见的细节和相对较低的对比度，以及暗淡的颜色。<br>　　严重曝光不足的照片增强是一项具有挑战性的任务，因为曝光不足的区域通常是难以察觉的，增强过程是高度非线性和主观的。虽然存在允许用户交互调整照片的软件，但对于非专业人士来说，这是相当乏味和困难的，因为它需要同时操纵颜色和对比度等控件，同时精细地调整照片中的各种对象和细节。最近的一些工具为用户提供了一个自动化的功能，用户只需点击一下就可以增强照片，例如iPhone上的“自动增强”和照片管理软件中的“自动色彩补偿功能”。这些工具不会很大地改变图像的对比度(和曝光率)，而且由于在调整时自动平衡各种因素的固有困难，在曝光严重不足的图像上可能会失败。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-1.png" alt="包含了更多的细节，明显的对比，和更自然的颜色"><br>　　另一方面，学术界也提出了各种方法来解决这一问题。早期的工作主要关注<strong>对比度增强</strong>，这可能<strong>不足以恢复图像的细节和颜色</strong>。最近的研究采用<strong>数据驱动</strong>的方法，同时学习色彩、对比度、亮度和饱和度方面的调整，以产生更具表现力的结果。我们注意到现有的方法对严重曝光不足的图像仍有各自的局限性;参见图2。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-2.png" alt="各种结果都存在图像细节不清晰、色彩失真、对比度弱、亮度异常、白平衡不自然等问题"><br>　　本文提出了一种新的<strong>端到端图像增强网络</strong>。明确地说，我们没有直接学习图像到图像的映射，而是<strong>设计我们的网络，首先估计用于建模各种光照条件的图像到光照映射，然后使用光照映射照亮曝光不足的照片</strong>。通过这种方法，我们使学习过程有效，推断出丰富多样的摄影调整。此外，为了降低计算成本，我们采用了<strong>基于双边网格</strong>的上采样，并设计了一个<strong>在光照上采用各种约束条件和先验的损失函数</strong>，使我们能够有效地恢复自然曝光、对比度合适、细节清晰、色彩鲜艳的低曝光照片。我们还准备了一个新的数据集，包含3000张曝光不足的照片，涵盖了不同的照明条件，以补充现有的基准数据。下面，我们总结一下这项工作的主要贡献:<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/e-1.png" alt="双边网格"></p>
+<ul>
+<li>提出了一种基于图像到光照映射的低曝光图像增强网络，并基于光照约束和先验设计了一种新的损失函数；</li>
+<li>准备了一个新的数据集，包含3000张曝光不足的图像，每一张都有经过专家润色的参考图像；</li>
+<li>利用已有的和新的数据集对该方法进行了评价，定性和定量地证明了该方法的优越性。</li>
+</ul>
+<h2 id="Chapter-2-RelatedWork"><a href="#Chapter-2-RelatedWork" class="headerlink" title="Chapter 2 - RelatedWork"></a>Chapter 2 - RelatedWork</h2><p>　　图像增强在计算机视觉和图像处理领域有着悠久的历史。其中一个开创性的方法是著名的直方图均衡化，它扩大了动态范围，增加了图像对比度。它的局限性是在整个图像中明显的全局调整对比度。<br>　　<strong>基于Retinex理论的增强算法</strong>（Retinex-based Methods）：假设图像可以分解为反射率和光照(或阴影)的像素级乘积，基于Retinex理论的方法将反射率分量视为增强图像的似是而非的近似。因此，照片增强可以表述为光照估计问题，其中光照估计用于增强曝光不足的照片。然而，由于颜色通道的非线性和数据的复杂性，现有的方法对颜色的增强能力有限，因为颜色很容易在局部失真。我们的工作也考虑到照明估计，但它在两个方面提高了技术水平。首先，神经网络利用大量的照片在不同的光照条件下学习光照，并对各种摄影调整进行建模。其次，我们的方法能够从多通道照明中使非线性色彩增强。<br>　　<strong>基于学习的方法</strong>（Learning-based Methods）：最近在照片增强方面的努力主要是基于学习。例如，Bychkovsky等人的提供了第一个和最大的数据集MIT-Adobe FiveK，其中输入和专家润色的图像对用于色调调整。Yan等人提出了一种用于自动增强照片颜色的机器学习排序方法。Yan等人构建了语义图来实现语义感知的照片增强。Lore等提出了一种基于深度自编码的微光图像增强方法，Gharbi等则引入了双边学习的实时性能。Yang等人使用深度往复HDR变换对LDR图像进行校正。Cai等人从多次曝光的图像中学习了对比度增强器。最近，Chen等人开发了一种基于双向生成对抗网络(GANs)的非配对学习模型，Ignatov等人设计了一种基于弱监督的图像到图像GAN网络。此外，Deng等人的通过对抗学习实现了审美驱动的图像增强，而Chen等人的则通过使用新数据集直接操作原始传感器数据来处理极端微光成像。<br>　　增强学习也被用来增强图像的调整过程。我们的方法在<strong>两个方面</strong>补充了现有的基于学习的方法。首先，我们估计光照映射，不像其他基于图像到图像的回归。其次，我们的新数据集正好适合曝光不足的照片增强，它补充了其他基准数据集，并在不同的光照条件下提供了更多的实际例子。</p>
+<h2 id="Chapter-3-Methodology"><a href="#Chapter-3-Methodology" class="headerlink" title="Chapter 3 - Methodology"></a>Chapter 3 - Methodology</h2><h3 id="3-1-Image-Enhancement-Model"><a href="#3-1-Image-Enhancement-Model" class="headerlink" title="3.1 Image Enhancement Model"></a>3.1 Image Enhancement Model</h3><p>　　从根本上讲,图像增强的任务可以被看作是寻求一个映射函数F,由输入图像I增强得到$(\check{I})$。在最近的基于Retinex理论的图像增强方法中，通常将F的逆函数建模为光照映射S，它与反射率图像$(\check{I})$以像素级的方式相乘，生成所观察到的图像I:<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-3.png" alt="*表示以像素级的方式相乘"><br>　　我们也将反射率分量$(\check{I})$作为曝光良好的图像，因此在我们的模型中，我们将$(\check{I})$作为增强结果，I作为观测到的低曝光图像。一旦S已知，就可以通过$F(I) = {I^{-1}} ∗ I$得到增强结果$(\check{I})$。与现有的工作不同，我们将S建模为一个多通道(R, G, B)数据，而不是单通道数据，以提高其建模颜色增强的能力，特别是处理不同颜色通道之间的非线性。<br>　　<strong>为什么这么做有效呢？</strong><br>　　通过在网络中引入中间光照，我们训练网络学习图像到光照(而不是图像到图像)的映射。其主要优点是自然图像的光照映射通常具有相对简单的形式和已知的先验。因此，该网络具有较强的泛化能力，能够有效地训练，学习复杂的摄影调整，适应不同的光照条件。此外，该模型可以通过制定光照约束来定制增强结果。例如，可以通过强制局部平滑照明来增强对比度，或者通过限制光照强度来设置首选曝光级别。</p>
+<h3 id="3-2-Network-Architecture"><a href="#3-2-Network-Architecture" class="headerlink" title="3.2 Network Architecture"></a>3.2 Network Architecture</h3><p>　　<strong>有效学习</strong>：增强曝光不足的照片需要同时调整局部特征(如对比度、细节锐度、阴影和高光)和全局特征(如颜色分布、平均亮度和场景类别)。我们从编码器网络产生的特性来考虑局部和全局环境;参见图3(顶部)。为了驱动网络从输入的低曝光图像$(I_i)$和相应的专家修饰的图像$(\check{I_i})$中学习光照映射，我们设计了一个损失函数，该函数对光照具有先验的平滑性，对增强图像具有重建和颜色损失;参见图3(底部)。这些策略从中有效地学习S，通过丰富的摄影调整来恢复增强后的图像。<br>　　<strong>高效运行</strong>：我们在低分辨率领域学习了图像到光照映射预测的局部和全局特征，并进行了基于双边网格的上采样，将低分辨率预测放大到全分辨率;参见图3。因此，大部分网络计算都是在低分辨率领域进行的，能够实时处理高分辨率图像。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-4.png" alt="展示了网络的传递途径，具有光照映射的有效学习和网络计算的高效两大优势"></p>
+<h3 id="3-3-Loss-Function"><a href="#3-3-Loss-Function" class="headerlink" title="3.3 Loss Function"></a>3.3 Loss Function</h3><p>　　我们从N对图像中学习光照映射，它产生S和增强结果$(\check{I})$，在网络训练过程中，我们设计了一个由三个部分组成的损失函数，并将其最小化。它表示为:<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-5.png"><br>　　其中$L{^i_r}$,$L{^i_s}$和$L{^i_c}$都是损失部分，$w{_r}$,$w{_s}$和$w{_c}$都是相应的权重。根据经验我们设置$w{_r}=1$，$w{_s}=2$，$w{_c}=3$。<br>　　<strong>重建的损失</strong>：为了得到预测的光照S，我们定义测量重建误差的(L_2)误差度量为<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-6.png"><br>　　其中(I_i)和(\check{I_i})中的所有像素通道归一化为[0,1]，（）c∈{r,g,b}表示像素颜色通道，小于等一1的三项是多通道光照范围约束，因为要避免超出色域的颜色，而将1设置为S的上界可以避免错误地使曝光不足的区域变暗。<br>　　消融研究结果显示了不同组分对损耗函数的影响。对比图中第二幅和第三幅图像，通过最小化重建损失，我们可以看到更清晰的细节和更好的对比度。它比单纯的图像到图像的回归有明显的优势，后者直接回归输出图像，而不估计我们网络中的中间光照(见图3)。虽然经过重构损失增强后的图像与经过专家润色后的图像更加相似，但仍然存在无法产生正确对比度细节和鲜艳颜色的风险(图4中的第3和第6张图像)，因此我们也引入了平滑度和颜色损失。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-7.png" alt="消融研究结果"><br>　　<strong>平滑度损失</strong>：根据先验光滑性，自然图像中的光照一般为局部光滑。在我们的网络中采用这种优先级有两个优点。首先，它有助于减少过拟合，提高网络的泛化能力。其次，它增强了图像的对比度。当相邻像素p和q的光照值相似时，增强后图像的对比度可以估计为<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-8.png"><br>　　它也应该被扩大，因为S≤1。 因此，我们将图3中预测的全分辨率光照S的平滑度损失定义为：<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-9.png"><br>　　我们对所有像素的所有通道（c）求和，(∂_x)和(∂_y)是图像空间中水平方向和垂直方向的偏导数；左侧两项是空间变化(每通道)平滑度权重,表示为<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-10.png"><br>　　<strong>直观地说，平滑度损失鼓励光照在小梯度的像素上是平滑的</strong>，而在大梯度的像素上是不连续的。有趣的是，对于曝光不足的照片，图像内容和细节往往很弱。较大的渐变更可能是由不一致的光照造成的。如第4幅图像所示，通过进一步加入平滑度损失，我们恢复了良好的图像对比度，与仅重建损失的结果相比，细节更加清晰。<br>　　<strong>颜色损失</strong>：接下来，我们制定颜色损失使生成的图像中的颜色与相应的专家润色图像中的颜色匹配。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-11.png"><br>　　$()_p$表示一个像素，$∠(,)$是一个运算符，它将RGB颜色作为三维向量计算两种颜色之间的夹角。公式对每个像素对的颜色向量夹角求和。<br>　　我们在其他颜色空间中使用这个简单的公式而不是L2距离的原因如下。首先，重构损失已经隐含地测量了L2色差。其次，由于L2度量标准仅用数值方法测量色差，因此不能保证颜色向量具有相同的方向。因此，这个度量标准可能会导致明显的颜色不匹配。这可以通过对比图4中有和没有颜色丢失的第4和第5个结果来观察。最后，该公式对网络计算简单、快速。</p>
+<h3 id="3-4-Training-Dataset"><a href="#3-4-Training-Dataset" class="headerlink" title="3.4 Training Dataset"></a>3.4 Training Dataset</h3><p>　　我们准备了一个包含3000张图片的新数据集。我们用它来训练我们的网络，而不是MIT-Adobe FiveK dataset，原因有两个。首先，FiveK数据集主要用于增强普通照片，而不是曝光不足的照片;它只包含非常小的一部分(大约4%)曝光不足的图像。其次，基准数据集中曝光不足的图像覆盖了有限的光照条件;它缺乏挑战性的情况，如夜间图像和非均匀照明的图像。<br>　　为了准备我们的数据集，我们首先使用Canon EOS 5D Mark III和索尼ILCE-7捕捉分辨率为6000*4000的图像，然后通过搜索关键字“曝光不足”、“弱光”和“背光”从Flickr进一步收集了大约15%的图像。然后，我们从摄影学院招募了三名专家，使用Adobe Lightroom为每个收集到的图像准备一个经过修饰的参考图像。我们的数据集是多样化的;它涵盖了广泛的照明条件，场景，主题和风格。有关一些图像对，请参见图5。最后，我们将数据集中的图像随机分为两个子集:2750张用于训练的图像和测试的图像。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-12.png" alt="用于训练的图像和测试的图像"></p>
+<h2 id="Chapter-4-Experimental-Results"><a href="#Chapter-4-Experimental-Results" class="headerlink" title="Chapter 4 - Experimental Results"></a>Chapter 4 - Experimental Results</h2><p>　　我们将我们的方法与以下五种最先进的图像增强方法进行了比较:(i)最新的基于Retinex理论的方法，JieP [4]，(ii)-(v) HDRNet[13]、DPE[9]、白盒[15]和畸变恢复[22]四种最新的基于深度编码的方法。为了进行公平的比较，我们使用作者提供的具有推荐参数设置的公开可用的实现来生成它们的结果。对于这四种基于学习的方法，我们进一步在我们的数据集和MIT-Adobe FiveK数据集上重新训练它们的模型，以产生最佳的可能结果。我们的比较是三倍的。</p>
+<h2 id="Chapter-5-Conclusion"><a href="#Chapter-5-Conclusion" class="headerlink" title="Chapter 5 - Conclusion"></a>Chapter 5 - Conclusion</h2>
                 
             </div>
             <hr/>
@@ -520,7 +538,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://stblog.tk/2021/03/06/%5BD2%5D%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E5%AF%BC%E8%AE%BA/">http://stblog.tk/2021/03/06/%5BD2%5D%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E5%AF%BC%E8%AE%BA/</a>
+                    <a href="http://stblog.tk/2021/03/12/%5BMA%5D%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/">http://stblog.tk/2021/03/12/%5BMA%5D%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -558,8 +576,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">
-                                    <span class="chip bg-color">大学课程</span>
+                                <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95/">
+                                    <span class="chip bg-color">基础拓展</span>
                                 </a>
                             
                         </div>
@@ -875,30 +893,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/06/%5BD2%5D%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+                <a href="/2021/03/20/%5BUP%5D%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="汇编语言">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Python3 爬虫入门">
                         
-                        <span class="card-title">汇编语言</span>
+                        <span class="card-title">Python3 爬虫入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            汇编语言是直接在硬件之上工作的编程语言，首先要了解硬件系统的结构，才能有效的应用汇编语言对其编程。
+                            网络爬虫，是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8/" class="post-category">
-                                    网络空间安全
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
                                 </a>
                             
                             
@@ -908,8 +926,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">
-                        <span class="chip bg-color">大学课程</span>
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95/">
+                        <span class="chip bg-color">基础拓展</span>
                     </a>
                     
                 </div>
@@ -923,30 +941,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/06/%5BD2%5D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                <a href="/2021/03/12/%5BMA%5DYOLO%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="计算机组成原理">
+                        <img src="/medias/featureimages/3.png" class="responsive-img" alt="YOLO算法原理">
                         
-                        <span class="card-title">计算机组成原理</span>
+                        <span class="card-title">YOLO算法原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            机器学习专门研究计算机怎样模拟或实现人类的学习行为，以获取新的知识或技能，重新组织已有的知识结构使之不断改善自身的性能
+                            目标检测是计算机视觉中的核心问题。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8/" class="post-category">
-                                    网络空间安全
+                            <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="post-category">
+                                    人工智能
                                 </a>
                             
                             
@@ -956,8 +974,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">
-                        <span class="chip bg-color">大学课程</span>
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">基础知识</span>
                     </a>
                     
                 </div>
@@ -1125,6 +1143,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

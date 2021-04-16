@@ -30,8 +30,8 @@
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -312,7 +312,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -467,14 +467,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    142
+                    864
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -494,7 +494,66 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Chapter-1-Urlib"><a href="#Chapter-1-Urlib" class="headerlink" title="Chapter 1 - Urlib"></a>Chapter 1 - Urlib</h2><blockquote>
+                <h2 id="Chapter-0-概念与依赖"><a href="#Chapter-0-概念与依赖" class="headerlink" title="Chapter 0 - 概念与依赖"></a>Chapter 0 - 概念与依赖</h2><blockquote>
+<p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
+</blockquote>
+<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><ul>
+<li><p>常用的请求头信息：</p>
+<ul>
+<li>User-Agent：请求载体的身份标识</li>
+<li>X-Requested-With: XMLHttpRequest 代表通过ajax方式进行访问</li>
+<li>accept:浏览器通过这个头告诉服务器，它所支持的数据类型</li>
+<li>Accept-Charset: 浏览器通过这个头告诉服务器，它支持哪种字符集</li>
+<li>Accept-Encoding：浏览器通过这个头告诉服务器，支持的压缩格式</li>
+<li>Accept-Language：浏览器通过这个头告诉服务器，它的语言环境</li>
+<li>Host：浏览器通过这个头告诉服务器，想访问哪台主机</li>
+<li>If-Modified-Since: 浏览器通过这个头告诉服务器，缓存数据的时间</li>
+<li>Referer：浏览器通过这个头告诉服务器，客户机是哪个页面来的 防盗链</li>
+<li>Connection：浏览器通过这个头告诉服务器，请求完后是断开链接还是何持链接</li>
+</ul>
+</li>
+<li><p>常见的响应头信息：</p>
+<ul>
+<li>Location: 服务器通过这个头，来告诉浏览器跳到哪里</li>
+<li>Server：服务器通过这个头，告诉浏览器服务器的型号</li>
+<li>Content-Encoding：服务器通过这个头，告诉浏览器，数据的压缩格式</li>
+<li>Content-Length: 服务器通过这个头，告诉浏览器回送数据的长度</li>
+<li>Content-Language: 服务器通过这个头，告诉浏览器语言环境</li>
+<li>Content-Type：服务器通过这个头，告诉浏览器回送数据的类型</li>
+<li>Refresh：服务器通过这个头，告诉浏览器定时刷新</li>
+<li>Content-Disposition: 服务器通过这个头，告诉浏览器以下载方式打数据</li>
+<li>Transfer-Encoding：服务器通过这个头，告诉浏览器数据是以分块方式回送的</li>
+<li>Expires: -1 控制浏览器不要缓存</li>
+<li>Cache-Control: no-cache </li>
+<li>Pragma: no-cache</li>
+</ul>
+</li>
+</ul>
+<h3 id="https协议"><a href="#https协议" class="headerlink" title="https协议"></a>https协议</h3><blockquote>
+<p>HTTPS (Secure Hypertext Transfer Protocol)安全超文本传输协议，HTTPS是在HTTP上建立SSL加密层，并对传输数据进行加密，是HTTP协议的安全版。<br><img src="/2021/03/20/[UP]%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/1-1.png"></p>
+</blockquote>
+<h3 id="requests模块"><a href="#requests模块" class="headerlink" title="requests模块"></a>requests模块</h3><p>使用流程/编码流程：</p>
+<ul>
+<li>指定url</li>
+<li>基于requests模块发起请求</li>
+<li>获取响应对象中的数据值</li>
+<li>持久化存储</li>
+</ul>
+<p>第一个爬虫程序：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#导包</span>
+<span class="token keyword">import</span> requests
+<span class="token comment" spellcheck="true">#step_1:指定url</span>
+url <span class="token operator">=</span> <span class="token string">'https://www.sogou.com/'</span>
+<span class="token comment" spellcheck="true">#step_2:发起请求:使用get方法发起get请求，该方法会返回一个响应对象。参数url表示请求对应的url</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#step_3:获取响应数据:通过调用响应对象的text属性，返回响应对象中存储的字符串形式的响应数据（页面源码数据）</span>
+page_text <span class="token operator">=</span> response<span class="token punctuation">.</span>text
+<span class="token comment" spellcheck="true">#step_4:持久化存储</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'./sogou.html'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+    fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span>page_text<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'爬取数据完毕！！！'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Chapter-1-Urlib"><a href="#Chapter-1-Urlib" class="headerlink" title="Chapter 1 - Urlib"></a>Chapter 1 - Urlib</h2><blockquote>
 <p>在Python3.x中，我们可以使用urlib这个组件抓取网页。</p>
 </blockquote>
 <p>urllib是一个URL处理包，这个包中集合了一些处理URL的模块，如下：</p>
@@ -512,7 +571,7 @@
     html <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<h2 id="Chapter-0-http-amp-https协议"><a href="#Chapter-0-http-amp-https协议" class="headerlink" title="Chapter 0 - http&amp;https协议"></a>Chapter 0 - http&amp;https协议</h2>
                 
             </div>
             <hr/>
@@ -897,7 +956,7 @@
                 <a href="/2021/03/20/%5BUP%5D%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/3.png" class="responsive-img" alt="Python3 爬虫入门">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Python3 爬虫入门">
                         
                         <span class="card-title">Python3 爬虫入门</span>
                     </div>
@@ -943,18 +1002,18 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/12/%5BMA%5DYOLO%E7%AE%97%E6%B3%95/">
+                <a href="/2021/03/12/%5BMA%5D%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/3.png" class="responsive-img" alt="YOLO算法原理">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="图像预处理-暗光图像优化">
                         
-                        <span class="card-title">YOLO算法原理</span>
+                        <span class="card-title">图像预处理-暗光图像优化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            目标检测是计算机视觉中的核心问题。
+                            本文提出了一种新的神经网络来增强曝光不足的照片。
                         
                     </div>
                     <div class="publish-info">
@@ -976,8 +1035,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">基础知识</span>
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95/">
+                        <span class="chip bg-color">基础拓展</span>
                     </a>
                     
                 </div>

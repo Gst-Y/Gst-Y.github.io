@@ -30,8 +30,8 @@
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 
@@ -467,14 +467,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    9.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    36 分
                 </div>
                 
 
@@ -494,7 +494,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Abstract（引言）"><a href="#Abstract（引言）" class="headerlink" title="Abstract（引言）"></a>Abstract（引言）</h2><blockquote>
+                <h2 id="gt-YOLOv1"><a href="#gt-YOLOv1" class="headerlink" title="-&gt; YOLOv1"></a>-&gt; YOLOv1</h2><h2 id="Abstract（引言）"><a href="#Abstract（引言）" class="headerlink" title="Abstract（引言）"></a>Abstract（引言）</h2><blockquote>
 <p>先前的目标检测工作使用了执行检测的分类器，而YOLO目标检测方法将目标检测当作了一个回归问题，以在空间上分离的bounding boxes(边界盒？)和相关的class probabilities(类的概率)进行框架化。</p>
 </blockquote>
 <p>　　单个神经网络在一次评估中直接从完整图像预测bounding boxes和class probabilities,由于整个检测流水线是单个网络，因此可以直接在检测性能上进行端对端优化。</p>
@@ -573,8 +573,69 @@
 <p>　　YOLO在VOC 2007上具有良好的性能，并且当应用于艺术品时，其AP降解少于其他方法。相似的DPM，YOLO模拟目标的大小和形状，以及目标之间的关系以及目标通常出现的位置。图像和自然图像在像素级别上非常不同，但是它们在目标的大小和形状方面是相似的，因此YOLO仍然可以预测良好的边界框和检测。</p>
 <h2 id="5-Real-Time-Detection-In-The-Wild（野外实时检测）"><a href="#5-Real-Time-Detection-In-The-Wild（野外实时检测）" class="headerlink" title="5. Real-Time Detection In The Wild（野外实时检测）"></a>5. Real-Time Detection In The Wild（野外实时检测）</h2><p>　　YOLO是一个快速，精确的目标检测器，使其成为计算机视觉应用的理想选择。 我们将YOLO连接到网络摄像头，并验证其是否保持实时性能，包括从相机获取图像并显示检测结果的时间。</p>
 <p>　　结果系统是互动和参与。 虽然YOLO单独处理图像，但当连接到网络摄像头时，它的功能类似于跟踪系统，检测目标在移动时的外观变化。 系统演示和源代码可以在我们的项目网站上找到：http：//pjreddie.com/yolo/<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-9.png"></p>
-<h2 id="6-Conclusion（结论）"><a href="#6-Conclusion（结论）" class="headerlink" title="6. Conclusion（结论）"></a>6. Conclusion（结论）</h2><p>YOLO，一个统一的目标检测模型。 YOLO的模型很容易构建，可以直接在完整的图像上进行训练。 不同于基于分类器的方法，YOLO被训练的损失函数直接对应于检测性能，整个模型联合训练。</p>
-<p>快速YOLO是文献中最快的通用目标检测器，YOLO推动了实时目标检测中的最先进的技术。 YOLO也广泛适用于新的领域，使其成为依赖于快速，强大的目标检测的应用程序的理想选择。</p>
+<h2 id="6-Conclusion（结论）"><a href="#6-Conclusion（结论）" class="headerlink" title="6. Conclusion（结论）"></a>6. Conclusion（结论）</h2><p>　　YOLO，一个统一的目标检测模型。 YOLO的模型很容易构建，可以直接在完整的图像上进行训练。 不同于基于分类器的方法，YOLO被训练的损失函数直接对应于检测性能，整个模型联合训练。</p>
+<p>　　快速YOLO是文献中最快的通用目标检测器，YOLO推动了实时目标检测中的最先进的技术。 YOLO也广泛适用于新的领域，使其成为依赖于快速，强大的目标检测的应用程序的理想选择。</p>
+<h2 id="gt-YOLOv2"><a href="#gt-YOLOv2" class="headerlink" title="-&gt; YOLOv2"></a>-&gt; YOLOv2</h2><blockquote>
+<p>《YOLO9000:Better, Faster, Stronger》 by Joseph Redmon∗†, Ali Farhadi∗†</p>
+</blockquote>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>　　改进后的网络称为YOLO v2，在标准的检测任务中，比如PASCAL VOC和COCO，它也是一个先进的目标检测网络。<br>　　YOLO v2使用新颖的多尺度训练方法，相同的YOLOv2模型可以在不同的图像大小下运行，并在速度和准确度之间提供简单的权衡。<br>　　在VOC 2007数据集上，YOLOv2实现了67FPS和76.8mAP。在40FPS时，YOLOv2获得78.6mAP，优于最先进的方法，如使用ResNet和SSD的Faster R-CNN，同时运行速度明显更快。<br>　　论文提出了一个联合训练目标检测和分类任务的方法。使用这个方法，我们在COCO检测数据集和ImageNet分类数据集上同时训练YOLO9000网络。<br>　　<strong>我们的联合训练使得YOLO9000可以预测没有标签的检测数据的对象类别。</strong>ImageNet的检测任务验证了网络的有效性：YOLO9000在ImageNet检测验证集上获得了19.7mAP，尽管在200个类中只有44个类具有检测数据。在COCO不包含的156个类别中，YOLO9000获得了16.0 mAP。 但YOLO可以检测到超过200个类别; 它预测了超过9000种不同对象类别的检测。并且它仍然可以实时运行。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-1.png" alt="YOLO v1 与 YOLO v2的对比"></p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>　　通用目标检测应该是快速的，准确的并且能够识别各种各样的物体。由于神经网络的发展，检测网络已经变得越来越快速和准确。<strong>然而，大多数检测网络仍然受限于很少的物体范围内。</strong><br>　　与用于分类和标记等其他任务的数据集相比，当前目标检测数据集是有限的。最常见的检测数据集包含数千到数十万个具有数十到数百个标签的图像。而分类数据集具有数百万个具有数十或数十万个类别的图像。<br>　　我们希望检测能扩展到物体分类的级别。然而，用于检测的标签图像比用于分类或标记的标签要昂贵得多（标记通常是用户免费提供的）。因此，我们不太可能在不久的将来看到与分类数据集相同规模的检测数据集。<br>　　我们提出了一种新方法来利用我们已有的大量的分类数据，并用它来扩展当前检测系统的范围。<strong>我们的方法使用物体分类的分层视图，允许我们将不同的数据集组合在一起。</strong><br>　　我们还提出了一种联合训练算法，<strong>该算法允许我们在检测和分类数据上训练目标检测网络。我们的方法利用标记的检测图像来学习精确定位物体，同时使用分类图像来增加其词汇量和鲁棒性。</strong><br>　　使用这种方法，我们训练YOLO9000，一个可以检测超过9000种不同物体类别的实时目标检测网络。首先，我们改进了基础YOLO检测网络，以得到YOLOv2，这是一种先进的实时检测网络。然后我们使用<strong>数据集组合方法</strong>和<strong>联合训练算法</strong>来训练来自ImageNet以及COCO检测数据的超过9000个类的模型。</p>
+<h2 id="2-Better"><a href="#2-Better" class="headerlink" title="2. Better"></a>2. Better</h2><p>　　与先进的检测系统相比，YOLO存在各种缺点。与Fast R-CNN相比，YOLO的错误分析表明YOLO产生了大量的定位误差。 此外，与基于region proposal的方法相比，YOLO具有相对较低的召回率。 因此，我们主要关注改善召回率和定位，同时保持分类准确性。<br>　　计算机视觉通常趋向于更大，更深的网络。更好的性能通常取决于训练更大的网络或集合多个模型。但是，对于YOLOv2，我们需要更准确的检测，但速度仍然很快。我们没有扩展网络，而是简化网络，然后使特征表示更容易学习。我们将过去工作中的各种想法与我们自己的新思想结合起来，以提高YOLO的性能。</p>
+<ul>
+<li><font color="blue">关于召回率：Recall是被正确识别出来的样本个数与测试集中所有样本的个数的比值。</font></li>
+</ul>
+<h3 id="2-1-Batch-Normalization"><a href="#2-1-Batch-Normalization" class="headerlink" title="2.1 Batch Normalization"></a>2.1 Batch Normalization</h3><p>　　批量归一化导致收敛的显着改善，同时消除了对其他形式的正则化的需要。通过在YOLO中的所有卷积层上添加批量标准化，我们可以使mAP提高2％以上。批量标准化也有助于模型正则化。通过批量标准化，我们可以从模型中删除dropout而不会过度拟合。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/bc-1.png" alt="批量归一化原理"></p>
+<ul>
+<li><font color="blue">加入BN层的优点:<ul>
+<li>加快训练速度，这样我们就可以使用较大的学习率来训练网络。</li>
+<li>提高网络的泛化能力。</li>
+<li>BN层本质上是一个归一化网络层，可以替代局部响应归一化层（LRN层）。</li>
+<li>可以打乱样本训练顺序（这样就不可能出现同一张照片被多次选择用来训练）论文中提到可以提高1%的精度。</li></ul></font></li>
+</ul>
+
+
+<h3 id="2-2-High-Resolution-Classifier"><a href="#2-2-High-Resolution-Classifier" class="headerlink" title="2.2 High Resolution Classifier"></a>2.2 High Resolution Classifier</h3><p>　　所有最先进的检测方法都使用在ImageNet上预先训练的分类器。从AlexNet开始，大多数分类器在小于256 * 256的输入图像上运行。原始的YOLO训练分类器网络为<strong>224 * 224</strong>并增加分辨率为<strong>448 * 448</strong>进行检测。这意味着<strong>网络必须同时切换到学习目标检测并调整到新的输入分辨率</strong>。</p>
+<ul>
+<li><font color="blue">关于ImageNet：ImageNet项目是一个用于视觉对象识别软件研究的大型可视化数据库。超过1400万的图像URL被ImageNet手动注释，以指示图片中的对象;在至少一百万个图像中，还提供了边界框。ImageNet包含2万多个类别; [2]一个典型的类别，如“气球”或“草莓”，包含数百个图像。</font></li>
+</ul>
+<p>　　对于YOLOv2，我们首先在ImageNet上以<strong>完整的448 * 448分辨率</strong>微调分类网络10个epoch。这使网络有时间调整其卷积核，以便在更高分辨率的输入上更好地工作。然后我们在检测时对生成的网络进行微调。<strong>高分辨率分类网络使我们的mAP增加了近4％。</strong></p>
+<h3 id="2-3-Convolutional-With-Anchor-Boxes"><a href="#2-3-Convolutional-With-Anchor-Boxes" class="headerlink" title="2.3 Convolutional With Anchor Boxes"></a>2.3 Convolutional With Anchor Boxes</h3><p>　　YOLO直接使用卷积特征提取器顶部的全连接层预测边界框的坐标。而不是直接预测坐标的Faster R-CNN使用手工挑选的先验预测边界框。仅使用卷积层，Faster R-CNN中的区域提议网络（RPN）预测anchor boxes的偏移和置信度。由于预测层是卷积的，因此RPN在特征图中的每个位置预测这些偏移。预测偏移而不是坐标简化了问题，使网络更容易学习。<br>　　我们移除了YOLO网络中的全连接层并使用anchor boxes来预测边界框。首先，我们移除一个pooling层，使网络卷积层的输出分辨率更高。我们还缩小网络以在416 * 416输入图像而不是448 * 448上操作。我们这样做是因为我们想要在我们的特征图中有奇数个位置，所以只有一个中心单元格。物体，特别是大物体，往往占据图像的中心，因此最好在中心有一个位置来预测这些物体而不是附近的四个位置。YOLO的卷积层将图像缩小了32倍，因此通过使用416 * 416的输入图像，我们得到13 * 13的输出特征图。</p>
+<ul>
+<li><font color="blue">关于Anchor box：其实就是从训练集中将所有的矩形框的大小尺寸统计处最常出现的某几个矩形框，这里我们可以采用K-Means来得到。这样也就不难理解使用anchor的目的了：目标先验。即我们提前告诉模型，应该去用多大的矩形框去寻找目标，帮助模型快速收敛。</font></li>
+</ul>
+<p>　　当我们使用anchor boxes时，我们还将类预测机制与空间位置预测分离，而是预测每个anchor box的类和objectness（指anchor boxes中是否有物体）。同YOLO网络一样，objectness预测仍然预测真实框与预测框之间的IOU（Pr(Object) * IOU），并且类别预测在给定存在对象的情况下预测该类的条件概率（Pr(Class[i] | Object)）。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-2.png" alt="计算过程如图所示"><br>　　使用anchor boxes我们的准确性会<strong>略有下降</strong>。 YOLO仅预测每张图片98个boxes，但是使用anchor boxes我们的模型预测超过1000个boxes。没有anchor boxes，我们的中间模型获得69.5 mAP，召回率为81％。使用anchor boxes，我们的模型获得69.2 mAP，召回率为88％。<strong>虽然mAP减少，召回的增加也意味着我们的模型有更大的改进空间。</strong></p>
+<h3 id="2-4-Dimension-Clusters"><a href="#2-4-Dimension-Clusters" class="headerlink" title="2.4 Dimension Clusters"></a>2.4 Dimension Clusters</h3><p>　　在YOLO网络中使用anchor boxes时，我们遇到了两个问题。首先是box维度是手工挑选的。网络可以学会适当地调整框，如果我们从网络中选择更好的先验，我们可以让网络更容易学习预测好的检测。</p>
+<ul>
+<li><font color="blue">关于此处K-means的使用：在使用K-Means前，需要将标注数据转换获得每个bounding box(标注框)的高宽并归一化(假设你的标注数据是voc数据集的格式)，接下来就是使用K-Means算法将刚刚处理后的bounding box的高宽集合进行分类。K-Means中的距离计算使用1-IOU，每个bounding box的坐标由其高宽表示。记住：我们要寻找的是高宽相似的bounding box聚类后中心box作为anchor box。</font><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">def</span> <span class="token function">iou</span><span class="token punctuation">(</span>bbox<span class="token punctuation">,</span> clusters<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  "
+  计算某一个bounding box与当前的聚类中心框<span class="token punctuation">(</span>这里为<span class="token number">9</span>个<span class="token punctuation">)</span>的交并比。
+  <span class="token punctuation">:</span>param bbox<span class="token punctuation">:</span>单个待归类的bounding box
+  <span class="token punctuation">:</span>param clusters<span class="token punctuation">:</span>当前的聚类中心框
+  <span class="token punctuation">:</span><span class="token keyword">return</span><span class="token punctuation">:</span> 交并比
+  "
+  <span class="token comment" spellcheck="true"># 将clusters中的中心框宽限定不大于当前box的宽</span>
+  x <span class="token operator">=</span> np<span class="token punctuation">.</span>minimum<span class="token punctuation">(</span>clusters<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> box<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true"># 将clusters中的中心框高限定不大于当前box的高</span>
+  y <span class="token operator">=</span> np<span class="token punctuation">.</span>minimum<span class="token punctuation">(</span>clusters<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> box<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> np<span class="token punctuation">.</span>count_nonzero<span class="token punctuation">(</span>x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">or</span> np<span class="token punctuation">.</span>np<span class="token punctuation">.</span>count_nonzero<span class="token punctuation">(</span>y <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+      <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">'This box is invalid!'</span><span class="token punctuation">)</span>
+  intersection <span class="token operator">=</span> x <span class="token operator">*</span> y
+  box_area <span class="token operator">=</span> box<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> box<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+  clusters_area <span class="token operator">=</span> clusters<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> clusters<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+  <span class="token comment" spellcheck="true">#交并比公式</span>
+  box_iou <span class="token operator">=</span> intersection <span class="token operator">/</span> <span class="token punctuation">(</span>box_area <span class="token operator">+</span> cluster_area <span class="token operator">-</span> intersection<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> box_iou
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<font color="blue">解释一下上面的intersection，即我们用某一个box去和clusters中每一个中心框求交并比，所以主要地，也就是两个框的共同覆盖区域。那么，共同覆盖区域自然地也就是两者高宽中较小的，因此求得了任意两个框的共同覆盖区域=intersection。</font><br>　　我们不是手动选择先验，而是在训练集边界框上运行k-means聚类，以自动找到好的先验。 如果我们使用具有欧几里德距离的标准k-means，那么较大的框会产生比较小的框更多的误差。然而，我们真正想要的是能够获得良好IOU分数的先验，这与盒子boxes的大小无关。 因此，对于我们的距离度量，我们使用：<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-3.png"><br>　　我们为各种k值运行k-means并绘制具有最接近聚类中心的平均IOU，参见Figure2。我们选择k = 5作为模型复杂度和高召回率之间的良好权衡。<strong>聚类中心与与手工挑选的anchor boxes明显不同。宽，短的boxes更少，相反高，瘦的boxes更多。</strong><br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/v2-1.png" alt="Figure 2"><br>　　我们比较聚类策略和手工挑选anchor boxes的平均IOU，如Table 1所示。只有5个聚类中心时的性能与9个anchor boxes性能类似，即平均IOU为61.0 VS. 60.9。如果我们使用9个聚类中心，我们会看到更高的平均IOU (67.2)。<strong>这表明使用k-means生成我们的边界框会以更好的表示方式启动模型，使任务更容易学习。</strong></li>
+</ul>
+<h3 id="2-5-Direct-Location-Prediction"><a href="#2-5-Direct-Location-Prediction" class="headerlink" title="2.5  Direct Location Prediction"></a>2.5  Direct Location Prediction</h3><p>　　在YOLO网络中使用anchor boxes时，我们遇到了第二个问题：模型不稳定，特别是在早期迭代期间。大多数不稳定性来自于预测box的（x, y）位置。在区域提议网络RPN中，网络预测值 tx 和 ty，并且（x, y）中心坐标计算为：<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-4.png"><br>　　<strong>例如，tx = 1的预测会将框box向右移动anchor box的宽度，tx = -1的预测会将其向左移动相同的量。</strong><br>　　这个公式是不受约束的，因此任何anchor box都可以在图像中的任何位置结束，无论预测box的位置如何。随机初始化，模型需要很长时间才能稳定以预测合理的偏移。<br>　　我们不是预测偏移offset，而是遵循YOLO的方法，预测相对于网格单元的位置坐标。 这将真实框限制在0和1之间。我们使用逻辑激活logistics activation来约束网络预测落在此范围内。<br>　　网络在输出的feature map中预测每个单元格的5个边界框。网络预测每个边界框的 5 个坐标，tx，ty，tw，th和to。如果单元格从图像的左上角偏移（cx, cy）并且前面的边界框具有宽度和高度pw，ph，则预测对应于：<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-5.png"><br>　　由于我们约束位置进行预测，因此参数化更容易学习，使网络更稳定。<strong>使用维度聚类以及直接预测边界框中心位置可使YOLO比使用anchor boxes的版本提高近5％。</strong></p>
+<h3 id="2-6-Fine-Grained-Features"><a href="#2-6-Fine-Grained-Features" class="headerlink" title="2.6 Fine-Grained Features"></a>2.6 Fine-Grained Features</h3><p>　　改进后的YOLO在13 * 13特征图上预测检测。虽然这对于大型物体来说已足够，但它可能会受益于用于定位较小对象的更细粒度的特征。Faster R-CNN和SSD都在网络中的各种特征图上运行其提议网络RPN，以获得一系列分辨率。我们采用不同的方法，只需添加一个直通层passthrough layer，以26 * 26的分辨率从较早的层中获取特征。<br>　　直通层通过将相邻特征堆叠到不同的通道而不是空间位置，将较高分辨率的特征与低分辨率特征连接起来，类似于ResNet中的identity mappings。这将 26 * 26 * 512 特征图转换为 13 * 13 * 2048 特征图，可以与原始特征连接。我们的检测器运行在这个扩展的特征图之上，因此它可以访问细粒度的特征。这使得性能提高1％。</p>
+<ul>
+<li><font color="blue">关于直通层：本质其实就是特征重排，26x26x512的feature map分别按行和列隔点采样，可以得到4幅13x13x512的特征，把这4张特征按channel串联起来，就是最后的13x13x2048的feature map.还有就是，passthrough layer本身是不学习参数的，直接用前面的层的特征重排后拼接到后面的层，越在网络前面的层，感受野越小，有利于小目标的检测。</font></li>
+</ul>
+<h3 id="2-7-Multi-Scale-Training"><a href="#2-7-Multi-Scale-Training" class="headerlink" title="2.7 Multi-Scale Training"></a>2.7 Multi-Scale Training</h3><p>　　最初的YOLO使用输入分辨率为448 * 448。通过添加锚定框，我们将分辨率更改为416 * 416。但是，由于我们的模型<strong>仅使用卷积和池化层，因此可以动态调整大小</strong>。我们希望YOLOv2能够在<strong>不同尺寸的图像</strong>上运行，因此我们将其训练到模型中。<br>　　这种方式迫使网络学习如何在各种输入维度上做好预测。这意味着同一网络可以预测不同分辨率的检测。网络在较小的图像尺寸运行得更快，因此YOLOv2可在速度和精度之间轻松权衡。<br>　　<strong>在低分辨率下，YOLOv2作为相当精确的检测器运行。</strong>在288 * 288分辨率时，它的运行速度超过90 FPS，mAP几乎与Fast R-CNN一样好。这使其成为较小GPU，高帧率视频或多视频流的理想选择。<br>　　<strong>在高分辨率下，YOLOv2是最先进的检测器，在VOC 2007上具有78.6 mAP，同时仍然高于实时速度。</strong>有关YOLOv2与VOC 2007其他框架的比较，请参阅Table 3，Figure 4.<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/v2-2.png" alt="Figure 4"><br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/v2-3.png" alt="Table 3"></p>
+<h3 id="2-8-Further-Experiment"><a href="#2-8-Further-Experiment" class="headerlink" title="2.8 Further Experiment"></a>2.8 Further Experiment</h3><p>　　我们训练YOLOv2用于<strong>检测VOC 2012数据集</strong>。Table 4 展示了YOLOv2与其他最先进的检测系统的性能比较。YOLOv2达到73.4 mAP，同时检测速度比其它方法快得多。我们还在<strong>COCO数据集</strong>上进行训练并在Table 5 中的其他方法进行比较。在VOC指标（IOU = 0.5）上，YOLOv2达到44.0 mAP，与SSD和更快的R-CNN相当。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-6.png" alt="Table 4"><br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/v2-4.png" alt="Table 5"></p>
 
                 
             </div>
@@ -956,30 +1017,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/20/%5BUP%5D%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+                <a href="/2021/03/12/%5BMA%5D%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/3.png" class="responsive-img" alt="Python3 爬虫入门">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="图像预处理-暗光图像优化">
                         
-                        <span class="card-title">Python3 爬虫入门</span>
+                        <span class="card-title">图像预处理-暗光图像优化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            网络爬虫，是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。
+                            本文提出了一种新的神经网络来增强曝光不足的照片。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="post-category">
+                                    人工智能
                                 </a>
                             
                             
@@ -1004,18 +1065,18 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/06/%5BD2%5D%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E5%AF%BC%E8%AE%BA/">
+                <a href="/2021/03/06/%5BD2%5D%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="网络空间安全导论">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="汇编语言">
                         
-                        <span class="card-title">网络空间安全导论</span>
+                        <span class="card-title">汇编语言</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            机器学习专门研究计算机怎样模拟或实现人类的学习行为，以获取新的知识或技能，重新组织已有的知识结构使之不断改善自身的性能
+                            汇编语言是直接在硬件之上工作的编程语言，首先要了解硬件系统的结构，才能有效的应用汇编语言对其编程。
                         
                     </div>
                     <div class="publish-info">

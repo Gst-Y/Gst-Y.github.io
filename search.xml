@@ -5,7 +5,66 @@
     <entry>
       <title><![CDATA[Python3 爬虫入门]]></title>
       <url>/2021/03/20/%5BUP%5D%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/</url>
-      <content type="html"><![CDATA[<h2 id="Chapter-1-Urlib"><a href="#Chapter-1-Urlib" class="headerlink" title="Chapter 1 - Urlib"></a>Chapter 1 - Urlib</h2><blockquote>
+      <content type="html"><![CDATA[<h2 id="Chapter-0-概念与依赖"><a href="#Chapter-0-概念与依赖" class="headerlink" title="Chapter 0 - 概念与依赖"></a>Chapter 0 - 概念与依赖</h2><blockquote>
+<p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
+</blockquote>
+<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><ul>
+<li><p>常用的请求头信息：</p>
+<ul>
+<li>User-Agent：请求载体的身份标识</li>
+<li>X-Requested-With: XMLHttpRequest 代表通过ajax方式进行访问</li>
+<li>accept:浏览器通过这个头告诉服务器，它所支持的数据类型</li>
+<li>Accept-Charset: 浏览器通过这个头告诉服务器，它支持哪种字符集</li>
+<li>Accept-Encoding：浏览器通过这个头告诉服务器，支持的压缩格式</li>
+<li>Accept-Language：浏览器通过这个头告诉服务器，它的语言环境</li>
+<li>Host：浏览器通过这个头告诉服务器，想访问哪台主机</li>
+<li>If-Modified-Since: 浏览器通过这个头告诉服务器，缓存数据的时间</li>
+<li>Referer：浏览器通过这个头告诉服务器，客户机是哪个页面来的 防盗链</li>
+<li>Connection：浏览器通过这个头告诉服务器，请求完后是断开链接还是何持链接</li>
+</ul>
+</li>
+<li><p>常见的响应头信息：</p>
+<ul>
+<li>Location: 服务器通过这个头，来告诉浏览器跳到哪里</li>
+<li>Server：服务器通过这个头，告诉浏览器服务器的型号</li>
+<li>Content-Encoding：服务器通过这个头，告诉浏览器，数据的压缩格式</li>
+<li>Content-Length: 服务器通过这个头，告诉浏览器回送数据的长度</li>
+<li>Content-Language: 服务器通过这个头，告诉浏览器语言环境</li>
+<li>Content-Type：服务器通过这个头，告诉浏览器回送数据的类型</li>
+<li>Refresh：服务器通过这个头，告诉浏览器定时刷新</li>
+<li>Content-Disposition: 服务器通过这个头，告诉浏览器以下载方式打数据</li>
+<li>Transfer-Encoding：服务器通过这个头，告诉浏览器数据是以分块方式回送的</li>
+<li>Expires: -1 控制浏览器不要缓存</li>
+<li>Cache-Control: no-cache </li>
+<li>Pragma: no-cache</li>
+</ul>
+</li>
+</ul>
+<h3 id="https协议"><a href="#https协议" class="headerlink" title="https协议"></a>https协议</h3><blockquote>
+<p>HTTPS (Secure Hypertext Transfer Protocol)安全超文本传输协议，HTTPS是在HTTP上建立SSL加密层，并对传输数据进行加密，是HTTP协议的安全版。<br><img src="/2021/03/20/[UP]%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/1-1.png"></p>
+</blockquote>
+<h3 id="requests模块"><a href="#requests模块" class="headerlink" title="requests模块"></a>requests模块</h3><p>使用流程/编码流程：</p>
+<ul>
+<li>指定url</li>
+<li>基于requests模块发起请求</li>
+<li>获取响应对象中的数据值</li>
+<li>持久化存储</li>
+</ul>
+<p>第一个爬虫程序：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#导包</span>
+<span class="token keyword">import</span> requests
+<span class="token comment" spellcheck="true">#step_1:指定url</span>
+url <span class="token operator">=</span> <span class="token string">'https://www.sogou.com/'</span>
+<span class="token comment" spellcheck="true">#step_2:发起请求:使用get方法发起get请求，该方法会返回一个响应对象。参数url表示请求对应的url</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#step_3:获取响应数据:通过调用响应对象的text属性，返回响应对象中存储的字符串形式的响应数据（页面源码数据）</span>
+page_text <span class="token operator">=</span> response<span class="token punctuation">.</span>text
+<span class="token comment" spellcheck="true">#step_4:持久化存储</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'./sogou.html'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+    fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span>page_text<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'爬取数据完毕！！！'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Chapter-1-Urlib"><a href="#Chapter-1-Urlib" class="headerlink" title="Chapter 1 - Urlib"></a>Chapter 1 - Urlib</h2><blockquote>
 <p>在Python3.x中，我们可以使用urlib这个组件抓取网页。</p>
 </blockquote>
 <p>urllib是一个URL处理包，这个包中集合了一些处理URL的模块，如下：</p>
@@ -23,7 +82,7 @@
     html <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-]]></content>
+<h2 id="Chapter-0-http-amp-https协议"><a href="#Chapter-0-http-amp-https协议" class="headerlink" title="Chapter 0 - http&amp;https协议"></a>Chapter 0 - http&amp;https协议</h2>]]></content>
       
         <categories>
             
@@ -41,9 +100,47 @@
     </entry>
     
     <entry>
+      <title><![CDATA[图像预处理-暗光图像优化]]></title>
+      <url>/2021/03/12/%5BMA%5D%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/</url>
+      <content type="html"><![CDATA[<h2 id="Chapter-0-摘要"><a href="#Chapter-0-摘要" class="headerlink" title="Chapter 0 - 摘要"></a>Chapter 0 - 摘要</h2><p>　　本文提出了一种新的神经网络来增强曝光不足的照片。</p>
+<ul>
+<li>没有像以前那样直接学习图像到图像的映射，而是在<strong>网络中引入中间光照</strong>，将输入与预期的增强结果相关联，从而增强了网络从经过专家修饰的输入/输出图像对学习复杂的摄影调整的能力。</li>
+<li>在此模型的基础上，构造了一个<strong>对光照采用约束和先验的损失函数</strong>，<strong>准备了3000对低曝光图像对的新数据集</strong>，训练网络有效地学习多种光照条件下的各种调节。通过这些方法，网络能够在增强结果中恢复清晰的细节、鲜明的对比和自然的颜色。</li>
+<li>对基准的MIT-Adobe FiveK数据集和我们的新数据集进行了广泛的实验，并表明我们的网络能够有效地处理以前具有挑战性的图像。</li>
+</ul>
+<h2 id="Chapter-1-Introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 - Introduction"></a>Chapter 1 - Introduction</h2><p>　　由于低光和背光，捕捉到的照片可能会曝光不足.这样的照片不仅看起来不好看，不能捕捉到用户想要的，而且挑战了许多基本的计算机视觉任务，比如分割，目标检测和跟踪，因为曝光不足的区域有几乎不可见的细节和相对较低的对比度，以及暗淡的颜色。<br>　　严重曝光不足的照片增强是一项具有挑战性的任务，因为曝光不足的区域通常是难以察觉的，增强过程是高度非线性和主观的。虽然存在允许用户交互调整照片的软件，但对于非专业人士来说，这是相当乏味和困难的，因为它需要同时操纵颜色和对比度等控件，同时精细地调整照片中的各种对象和细节。最近的一些工具为用户提供了一个自动化的功能，用户只需点击一下就可以增强照片，例如iPhone上的“自动增强”和照片管理软件中的“自动色彩补偿功能”。这些工具不会很大地改变图像的对比度(和曝光率)，而且由于在调整时自动平衡各种因素的固有困难，在曝光严重不足的图像上可能会失败。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-1.png" alt="包含了更多的细节，明显的对比，和更自然的颜色"><br>　　另一方面，学术界也提出了各种方法来解决这一问题。早期的工作主要关注<strong>对比度增强</strong>，这可能<strong>不足以恢复图像的细节和颜色</strong>。最近的研究采用<strong>数据驱动</strong>的方法，同时学习色彩、对比度、亮度和饱和度方面的调整，以产生更具表现力的结果。我们注意到现有的方法对严重曝光不足的图像仍有各自的局限性;参见图2。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-2.png" alt="各种结果都存在图像细节不清晰、色彩失真、对比度弱、亮度异常、白平衡不自然等问题"><br>　　本文提出了一种新的<strong>端到端图像增强网络</strong>。明确地说，我们没有直接学习图像到图像的映射，而是<strong>设计我们的网络，首先估计用于建模各种光照条件的图像到光照映射，然后使用光照映射照亮曝光不足的照片</strong>。通过这种方法，我们使学习过程有效，推断出丰富多样的摄影调整。此外，为了降低计算成本，我们采用了<strong>基于双边网格</strong>的上采样，并设计了一个<strong>在光照上采用各种约束条件和先验的损失函数</strong>，使我们能够有效地恢复自然曝光、对比度合适、细节清晰、色彩鲜艳的低曝光照片。我们还准备了一个新的数据集，包含3000张曝光不足的照片，涵盖了不同的照明条件，以补充现有的基准数据。下面，我们总结一下这项工作的主要贡献:<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/e-1.png" alt="双边网格"></p>
+<ul>
+<li>提出了一种基于图像到光照映射的低曝光图像增强网络，并基于光照约束和先验设计了一种新的损失函数；</li>
+<li>准备了一个新的数据集，包含3000张曝光不足的图像，每一张都有经过专家润色的参考图像；</li>
+<li>利用已有的和新的数据集对该方法进行了评价，定性和定量地证明了该方法的优越性。</li>
+</ul>
+<h2 id="Chapter-2-RelatedWork"><a href="#Chapter-2-RelatedWork" class="headerlink" title="Chapter 2 - RelatedWork"></a>Chapter 2 - RelatedWork</h2><p>　　图像增强在计算机视觉和图像处理领域有着悠久的历史。其中一个开创性的方法是著名的直方图均衡化，它扩大了动态范围，增加了图像对比度。它的局限性是在整个图像中明显的全局调整对比度。<br>　　<strong>基于Retinex理论的增强算法</strong>（Retinex-based Methods）：假设图像可以分解为反射率和光照(或阴影)的像素级乘积，基于Retinex理论的方法将反射率分量视为增强图像的似是而非的近似。因此，照片增强可以表述为光照估计问题，其中光照估计用于增强曝光不足的照片。然而，由于颜色通道的非线性和数据的复杂性，现有的方法对颜色的增强能力有限，因为颜色很容易在局部失真。我们的工作也考虑到照明估计，但它在两个方面提高了技术水平。首先，神经网络利用大量的照片在不同的光照条件下学习光照，并对各种摄影调整进行建模。其次，我们的方法能够从多通道照明中使非线性色彩增强。<br>　　<strong>基于学习的方法</strong>（Learning-based Methods）：最近在照片增强方面的努力主要是基于学习。例如，Bychkovsky等人的提供了第一个和最大的数据集MIT-Adobe FiveK，其中输入和专家润色的图像对用于色调调整。Yan等人提出了一种用于自动增强照片颜色的机器学习排序方法。Yan等人构建了语义图来实现语义感知的照片增强。Lore等提出了一种基于深度自编码的微光图像增强方法，Gharbi等则引入了双边学习的实时性能。Yang等人使用深度往复HDR变换对LDR图像进行校正。Cai等人从多次曝光的图像中学习了对比度增强器。最近，Chen等人开发了一种基于双向生成对抗网络(GANs)的非配对学习模型，Ignatov等人设计了一种基于弱监督的图像到图像GAN网络。此外，Deng等人的通过对抗学习实现了审美驱动的图像增强，而Chen等人的则通过使用新数据集直接操作原始传感器数据来处理极端微光成像。<br>　　增强学习也被用来增强图像的调整过程。我们的方法在<strong>两个方面</strong>补充了现有的基于学习的方法。首先，我们估计光照映射，不像其他基于图像到图像的回归。其次，我们的新数据集正好适合曝光不足的照片增强，它补充了其他基准数据集，并在不同的光照条件下提供了更多的实际例子。</p>
+<h2 id="Chapter-3-Methodology"><a href="#Chapter-3-Methodology" class="headerlink" title="Chapter 3 - Methodology"></a>Chapter 3 - Methodology</h2><h3 id="3-1-Image-Enhancement-Model"><a href="#3-1-Image-Enhancement-Model" class="headerlink" title="3.1 Image Enhancement Model"></a>3.1 Image Enhancement Model</h3><p>　　从根本上讲,图像增强的任务可以被看作是寻求一个映射函数F,由输入图像I增强得到$(\check{I})$。在最近的基于Retinex理论的图像增强方法中，通常将F的逆函数建模为光照映射S，它与反射率图像$(\check{I})$以像素级的方式相乘，生成所观察到的图像I:<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-3.png" alt="*表示以像素级的方式相乘"><br>　　我们也将反射率分量$(\check{I})$作为曝光良好的图像，因此在我们的模型中，我们将$(\check{I})$作为增强结果，I作为观测到的低曝光图像。一旦S已知，就可以通过$F(I) = {I^{-1}} ∗ I$得到增强结果$(\check{I})$。与现有的工作不同，我们将S建模为一个多通道(R, G, B)数据，而不是单通道数据，以提高其建模颜色增强的能力，特别是处理不同颜色通道之间的非线性。<br>　　<strong>为什么这么做有效呢？</strong><br>　　通过在网络中引入中间光照，我们训练网络学习图像到光照(而不是图像到图像)的映射。其主要优点是自然图像的光照映射通常具有相对简单的形式和已知的先验。因此，该网络具有较强的泛化能力，能够有效地训练，学习复杂的摄影调整，适应不同的光照条件。此外，该模型可以通过制定光照约束来定制增强结果。例如，可以通过强制局部平滑照明来增强对比度，或者通过限制光照强度来设置首选曝光级别。</p>
+<h3 id="3-2-Network-Architecture"><a href="#3-2-Network-Architecture" class="headerlink" title="3.2 Network Architecture"></a>3.2 Network Architecture</h3><p>　　<strong>有效学习</strong>：增强曝光不足的照片需要同时调整局部特征(如对比度、细节锐度、阴影和高光)和全局特征(如颜色分布、平均亮度和场景类别)。我们从编码器网络产生的特性来考虑局部和全局环境;参见图3(顶部)。为了驱动网络从输入的低曝光图像$(I_i)$和相应的专家修饰的图像$(\check{I_i})$中学习光照映射，我们设计了一个损失函数，该函数对光照具有先验的平滑性，对增强图像具有重建和颜色损失;参见图3(底部)。这些策略从中有效地学习S，通过丰富的摄影调整来恢复增强后的图像。<br>　　<strong>高效运行</strong>：我们在低分辨率领域学习了图像到光照映射预测的局部和全局特征，并进行了基于双边网格的上采样，将低分辨率预测放大到全分辨率;参见图3。因此，大部分网络计算都是在低分辨率领域进行的，能够实时处理高分辨率图像。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-4.png" alt="展示了网络的传递途径，具有光照映射的有效学习和网络计算的高效两大优势"></p>
+<h3 id="3-3-Loss-Function"><a href="#3-3-Loss-Function" class="headerlink" title="3.3 Loss Function"></a>3.3 Loss Function</h3><p>　　我们从N对图像中学习光照映射，它产生S和增强结果$(\check{I})$，在网络训练过程中，我们设计了一个由三个部分组成的损失函数，并将其最小化。它表示为:<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-5.png"><br>　　其中$L{^i_r}$,$L{^i_s}$和$L{^i_c}$都是损失部分，$w{_r}$,$w{_s}$和$w{_c}$都是相应的权重。根据经验我们设置$w{_r}=1$，$w{_s}=2$，$w{_c}=3$。<br>　　<strong>重建的损失</strong>：为了得到预测的光照S，我们定义测量重建误差的(L_2)误差度量为<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-6.png"><br>　　其中(I_i)和(\check{I_i})中的所有像素通道归一化为[0,1]，（）c∈{r,g,b}表示像素颜色通道，小于等一1的三项是多通道光照范围约束，因为要避免超出色域的颜色，而将1设置为S的上界可以避免错误地使曝光不足的区域变暗。<br>　　消融研究结果显示了不同组分对损耗函数的影响。对比图中第二幅和第三幅图像，通过最小化重建损失，我们可以看到更清晰的细节和更好的对比度。它比单纯的图像到图像的回归有明显的优势，后者直接回归输出图像，而不估计我们网络中的中间光照(见图3)。虽然经过重构损失增强后的图像与经过专家润色后的图像更加相似，但仍然存在无法产生正确对比度细节和鲜艳颜色的风险(图4中的第3和第6张图像)，因此我们也引入了平滑度和颜色损失。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-7.png" alt="消融研究结果"><br>　　<strong>平滑度损失</strong>：根据先验光滑性，自然图像中的光照一般为局部光滑。在我们的网络中采用这种优先级有两个优点。首先，它有助于减少过拟合，提高网络的泛化能力。其次，它增强了图像的对比度。当相邻像素p和q的光照值相似时，增强后图像的对比度可以估计为<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-8.png"><br>　　它也应该被扩大，因为S≤1。 因此，我们将图3中预测的全分辨率光照S的平滑度损失定义为：<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-9.png"><br>　　我们对所有像素的所有通道（c）求和，(∂_x)和(∂_y)是图像空间中水平方向和垂直方向的偏导数；左侧两项是空间变化(每通道)平滑度权重,表示为<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-10.png"><br>　　<strong>直观地说，平滑度损失鼓励光照在小梯度的像素上是平滑的</strong>，而在大梯度的像素上是不连续的。有趣的是，对于曝光不足的照片，图像内容和细节往往很弱。较大的渐变更可能是由不一致的光照造成的。如第4幅图像所示，通过进一步加入平滑度损失，我们恢复了良好的图像对比度，与仅重建损失的结果相比，细节更加清晰。<br>　　<strong>颜色损失</strong>：接下来，我们制定颜色损失使生成的图像中的颜色与相应的专家润色图像中的颜色匹配。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-11.png"><br>　　$()_p$表示一个像素，$∠(,)$是一个运算符，它将RGB颜色作为三维向量计算两种颜色之间的夹角。公式对每个像素对的颜色向量夹角求和。<br>　　我们在其他颜色空间中使用这个简单的公式而不是L2距离的原因如下。首先，重构损失已经隐含地测量了L2色差。其次，由于L2度量标准仅用数值方法测量色差，因此不能保证颜色向量具有相同的方向。因此，这个度量标准可能会导致明显的颜色不匹配。这可以通过对比图4中有和没有颜色丢失的第4和第5个结果来观察。最后，该公式对网络计算简单、快速。</p>
+<h3 id="3-4-Training-Dataset"><a href="#3-4-Training-Dataset" class="headerlink" title="3.4 Training Dataset"></a>3.4 Training Dataset</h3><p>　　我们准备了一个包含3000张图片的新数据集。我们用它来训练我们的网络，而不是MIT-Adobe FiveK dataset，原因有两个。首先，FiveK数据集主要用于增强普通照片，而不是曝光不足的照片;它只包含非常小的一部分(大约4%)曝光不足的图像。其次，基准数据集中曝光不足的图像覆盖了有限的光照条件;它缺乏挑战性的情况，如夜间图像和非均匀照明的图像。<br>　　为了准备我们的数据集，我们首先使用Canon EOS 5D Mark III和索尼ILCE-7捕捉分辨率为6000*4000的图像，然后通过搜索关键字“曝光不足”、“弱光”和“背光”从Flickr进一步收集了大约15%的图像。然后，我们从摄影学院招募了三名专家，使用Adobe Lightroom为每个收集到的图像准备一个经过修饰的参考图像。我们的数据集是多样化的;它涵盖了广泛的照明条件，场景，主题和风格。有关一些图像对，请参见图5。最后，我们将数据集中的图像随机分为两个子集:2750张用于训练的图像和测试的图像。<br><img src="/2021/03/12/[MA]%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA/1-12.png" alt="用于训练的图像和测试的图像"></p>
+<h2 id="Chapter-4-Experimental-Results"><a href="#Chapter-4-Experimental-Results" class="headerlink" title="Chapter 4 - Experimental Results"></a>Chapter 4 - Experimental Results</h2><p>　　我们将我们的方法与以下五种最先进的图像增强方法进行了比较:(i)最新的基于Retinex理论的方法，JieP [4]，(ii)-(v) HDRNet[13]、DPE[9]、白盒[15]和畸变恢复[22]四种最新的基于深度编码的方法。为了进行公平的比较，我们使用作者提供的具有推荐参数设置的公开可用的实现来生成它们的结果。对于这四种基于学习的方法，我们进一步在我们的数据集和MIT-Adobe FiveK数据集上重新训练它们的模型，以产生最佳的可能结果。我们的比较是三倍的。</p>
+<h2 id="Chapter-5-Conclusion"><a href="#Chapter-5-Conclusion" class="headerlink" title="Chapter 5 - Conclusion"></a>Chapter 5 - Conclusion</h2>]]></content>
+      
+        <categories>
+            
+            <category> 人工智能 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基础拓展 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[YOLO算法原理]]></title>
       <url>/2021/03/12/%5BMA%5DYOLO%E7%AE%97%E6%B3%95/</url>
-      <content type="html"><![CDATA[<h2 id="Abstract（引言）"><a href="#Abstract（引言）" class="headerlink" title="Abstract（引言）"></a>Abstract（引言）</h2><blockquote>
+      <content type="html"><![CDATA[<h2 id="gt-YOLOv1"><a href="#gt-YOLOv1" class="headerlink" title="-&gt; YOLOv1"></a>-&gt; YOLOv1</h2><h2 id="Abstract（引言）"><a href="#Abstract（引言）" class="headerlink" title="Abstract（引言）"></a>Abstract（引言）</h2><blockquote>
 <p>先前的目标检测工作使用了执行检测的分类器，而YOLO目标检测方法将目标检测当作了一个回归问题，以在空间上分离的bounding boxes(边界盒？)和相关的class probabilities(类的概率)进行框架化。</p>
 </blockquote>
 <p>　　单个神经网络在一次评估中直接从完整图像预测bounding boxes和class probabilities,由于整个检测流水线是单个网络，因此可以直接在检测性能上进行端对端优化。</p>
@@ -122,8 +219,69 @@
 <p>　　YOLO在VOC 2007上具有良好的性能，并且当应用于艺术品时，其AP降解少于其他方法。相似的DPM，YOLO模拟目标的大小和形状，以及目标之间的关系以及目标通常出现的位置。图像和自然图像在像素级别上非常不同，但是它们在目标的大小和形状方面是相似的，因此YOLO仍然可以预测良好的边界框和检测。</p>
 <h2 id="5-Real-Time-Detection-In-The-Wild（野外实时检测）"><a href="#5-Real-Time-Detection-In-The-Wild（野外实时检测）" class="headerlink" title="5. Real-Time Detection In The Wild（野外实时检测）"></a>5. Real-Time Detection In The Wild（野外实时检测）</h2><p>　　YOLO是一个快速，精确的目标检测器，使其成为计算机视觉应用的理想选择。 我们将YOLO连接到网络摄像头，并验证其是否保持实时性能，包括从相机获取图像并显示检测结果的时间。</p>
 <p>　　结果系统是互动和参与。 虽然YOLO单独处理图像，但当连接到网络摄像头时，它的功能类似于跟踪系统，检测目标在移动时的外观变化。 系统演示和源代码可以在我们的项目网站上找到：http：//pjreddie.com/yolo/<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-9.png"></p>
-<h2 id="6-Conclusion（结论）"><a href="#6-Conclusion（结论）" class="headerlink" title="6. Conclusion（结论）"></a>6. Conclusion（结论）</h2><p>YOLO，一个统一的目标检测模型。 YOLO的模型很容易构建，可以直接在完整的图像上进行训练。 不同于基于分类器的方法，YOLO被训练的损失函数直接对应于检测性能，整个模型联合训练。</p>
-<p>快速YOLO是文献中最快的通用目标检测器，YOLO推动了实时目标检测中的最先进的技术。 YOLO也广泛适用于新的领域，使其成为依赖于快速，强大的目标检测的应用程序的理想选择。</p>
+<h2 id="6-Conclusion（结论）"><a href="#6-Conclusion（结论）" class="headerlink" title="6. Conclusion（结论）"></a>6. Conclusion（结论）</h2><p>　　YOLO，一个统一的目标检测模型。 YOLO的模型很容易构建，可以直接在完整的图像上进行训练。 不同于基于分类器的方法，YOLO被训练的损失函数直接对应于检测性能，整个模型联合训练。</p>
+<p>　　快速YOLO是文献中最快的通用目标检测器，YOLO推动了实时目标检测中的最先进的技术。 YOLO也广泛适用于新的领域，使其成为依赖于快速，强大的目标检测的应用程序的理想选择。</p>
+<h2 id="gt-YOLOv2"><a href="#gt-YOLOv2" class="headerlink" title="-&gt; YOLOv2"></a>-&gt; YOLOv2</h2><blockquote>
+<p>《YOLO9000:Better, Faster, Stronger》 by Joseph Redmon∗†, Ali Farhadi∗†</p>
+</blockquote>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>　　改进后的网络称为YOLO v2，在标准的检测任务中，比如PASCAL VOC和COCO，它也是一个先进的目标检测网络。<br>　　YOLO v2使用新颖的多尺度训练方法，相同的YOLOv2模型可以在不同的图像大小下运行，并在速度和准确度之间提供简单的权衡。<br>　　在VOC 2007数据集上，YOLOv2实现了67FPS和76.8mAP。在40FPS时，YOLOv2获得78.6mAP，优于最先进的方法，如使用ResNet和SSD的Faster R-CNN，同时运行速度明显更快。<br>　　论文提出了一个联合训练目标检测和分类任务的方法。使用这个方法，我们在COCO检测数据集和ImageNet分类数据集上同时训练YOLO9000网络。<br>　　<strong>我们的联合训练使得YOLO9000可以预测没有标签的检测数据的对象类别。</strong>ImageNet的检测任务验证了网络的有效性：YOLO9000在ImageNet检测验证集上获得了19.7mAP，尽管在200个类中只有44个类具有检测数据。在COCO不包含的156个类别中，YOLO9000获得了16.0 mAP。 但YOLO可以检测到超过200个类别; 它预测了超过9000种不同对象类别的检测。并且它仍然可以实时运行。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-1.png" alt="YOLO v1 与 YOLO v2的对比"></p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>　　通用目标检测应该是快速的，准确的并且能够识别各种各样的物体。由于神经网络的发展，检测网络已经变得越来越快速和准确。<strong>然而，大多数检测网络仍然受限于很少的物体范围内。</strong><br>　　与用于分类和标记等其他任务的数据集相比，当前目标检测数据集是有限的。最常见的检测数据集包含数千到数十万个具有数十到数百个标签的图像。而分类数据集具有数百万个具有数十或数十万个类别的图像。<br>　　我们希望检测能扩展到物体分类的级别。然而，用于检测的标签图像比用于分类或标记的标签要昂贵得多（标记通常是用户免费提供的）。因此，我们不太可能在不久的将来看到与分类数据集相同规模的检测数据集。<br>　　我们提出了一种新方法来利用我们已有的大量的分类数据，并用它来扩展当前检测系统的范围。<strong>我们的方法使用物体分类的分层视图，允许我们将不同的数据集组合在一起。</strong><br>　　我们还提出了一种联合训练算法，<strong>该算法允许我们在检测和分类数据上训练目标检测网络。我们的方法利用标记的检测图像来学习精确定位物体，同时使用分类图像来增加其词汇量和鲁棒性。</strong><br>　　使用这种方法，我们训练YOLO9000，一个可以检测超过9000种不同物体类别的实时目标检测网络。首先，我们改进了基础YOLO检测网络，以得到YOLOv2，这是一种先进的实时检测网络。然后我们使用<strong>数据集组合方法</strong>和<strong>联合训练算法</strong>来训练来自ImageNet以及COCO检测数据的超过9000个类的模型。</p>
+<h2 id="2-Better"><a href="#2-Better" class="headerlink" title="2. Better"></a>2. Better</h2><p>　　与先进的检测系统相比，YOLO存在各种缺点。与Fast R-CNN相比，YOLO的错误分析表明YOLO产生了大量的定位误差。 此外，与基于region proposal的方法相比，YOLO具有相对较低的召回率。 因此，我们主要关注改善召回率和定位，同时保持分类准确性。<br>　　计算机视觉通常趋向于更大，更深的网络。更好的性能通常取决于训练更大的网络或集合多个模型。但是，对于YOLOv2，我们需要更准确的检测，但速度仍然很快。我们没有扩展网络，而是简化网络，然后使特征表示更容易学习。我们将过去工作中的各种想法与我们自己的新思想结合起来，以提高YOLO的性能。</p>
+<ul>
+<li><font color="blue">关于召回率：Recall是被正确识别出来的样本个数与测试集中所有样本的个数的比值。</font></li>
+</ul>
+<h3 id="2-1-Batch-Normalization"><a href="#2-1-Batch-Normalization" class="headerlink" title="2.1 Batch Normalization"></a>2.1 Batch Normalization</h3><p>　　批量归一化导致收敛的显着改善，同时消除了对其他形式的正则化的需要。通过在YOLO中的所有卷积层上添加批量标准化，我们可以使mAP提高2％以上。批量标准化也有助于模型正则化。通过批量标准化，我们可以从模型中删除dropout而不会过度拟合。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/bc-1.png" alt="批量归一化原理"></p>
+<ul>
+<li><font color="blue">加入BN层的优点:<ul>
+<li>加快训练速度，这样我们就可以使用较大的学习率来训练网络。</li>
+<li>提高网络的泛化能力。</li>
+<li>BN层本质上是一个归一化网络层，可以替代局部响应归一化层（LRN层）。</li>
+<li>可以打乱样本训练顺序（这样就不可能出现同一张照片被多次选择用来训练）论文中提到可以提高1%的精度。</li></ul></font></li>
+</ul>
+
+
+<h3 id="2-2-High-Resolution-Classifier"><a href="#2-2-High-Resolution-Classifier" class="headerlink" title="2.2 High Resolution Classifier"></a>2.2 High Resolution Classifier</h3><p>　　所有最先进的检测方法都使用在ImageNet上预先训练的分类器。从AlexNet开始，大多数分类器在小于256 * 256的输入图像上运行。原始的YOLO训练分类器网络为<strong>224 * 224</strong>并增加分辨率为<strong>448 * 448</strong>进行检测。这意味着<strong>网络必须同时切换到学习目标检测并调整到新的输入分辨率</strong>。</p>
+<ul>
+<li><font color="blue">关于ImageNet：ImageNet项目是一个用于视觉对象识别软件研究的大型可视化数据库。超过1400万的图像URL被ImageNet手动注释，以指示图片中的对象;在至少一百万个图像中，还提供了边界框。ImageNet包含2万多个类别; [2]一个典型的类别，如“气球”或“草莓”，包含数百个图像。</font></li>
+</ul>
+<p>　　对于YOLOv2，我们首先在ImageNet上以<strong>完整的448 * 448分辨率</strong>微调分类网络10个epoch。这使网络有时间调整其卷积核，以便在更高分辨率的输入上更好地工作。然后我们在检测时对生成的网络进行微调。<strong>高分辨率分类网络使我们的mAP增加了近4％。</strong></p>
+<h3 id="2-3-Convolutional-With-Anchor-Boxes"><a href="#2-3-Convolutional-With-Anchor-Boxes" class="headerlink" title="2.3 Convolutional With Anchor Boxes"></a>2.3 Convolutional With Anchor Boxes</h3><p>　　YOLO直接使用卷积特征提取器顶部的全连接层预测边界框的坐标。而不是直接预测坐标的Faster R-CNN使用手工挑选的先验预测边界框。仅使用卷积层，Faster R-CNN中的区域提议网络（RPN）预测anchor boxes的偏移和置信度。由于预测层是卷积的，因此RPN在特征图中的每个位置预测这些偏移。预测偏移而不是坐标简化了问题，使网络更容易学习。<br>　　我们移除了YOLO网络中的全连接层并使用anchor boxes来预测边界框。首先，我们移除一个pooling层，使网络卷积层的输出分辨率更高。我们还缩小网络以在416 * 416输入图像而不是448 * 448上操作。我们这样做是因为我们想要在我们的特征图中有奇数个位置，所以只有一个中心单元格。物体，特别是大物体，往往占据图像的中心，因此最好在中心有一个位置来预测这些物体而不是附近的四个位置。YOLO的卷积层将图像缩小了32倍，因此通过使用416 * 416的输入图像，我们得到13 * 13的输出特征图。</p>
+<ul>
+<li><font color="blue">关于Anchor box：其实就是从训练集中将所有的矩形框的大小尺寸统计处最常出现的某几个矩形框，这里我们可以采用K-Means来得到。这样也就不难理解使用anchor的目的了：目标先验。即我们提前告诉模型，应该去用多大的矩形框去寻找目标，帮助模型快速收敛。</font></li>
+</ul>
+<p>　　当我们使用anchor boxes时，我们还将类预测机制与空间位置预测分离，而是预测每个anchor box的类和objectness（指anchor boxes中是否有物体）。同YOLO网络一样，objectness预测仍然预测真实框与预测框之间的IOU（Pr(Object) * IOU），并且类别预测在给定存在对象的情况下预测该类的条件概率（Pr(Class[i] | Object)）。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-2.png" alt="计算过程如图所示"><br>　　使用anchor boxes我们的准确性会<strong>略有下降</strong>。 YOLO仅预测每张图片98个boxes，但是使用anchor boxes我们的模型预测超过1000个boxes。没有anchor boxes，我们的中间模型获得69.5 mAP，召回率为81％。使用anchor boxes，我们的模型获得69.2 mAP，召回率为88％。<strong>虽然mAP减少，召回的增加也意味着我们的模型有更大的改进空间。</strong></p>
+<h3 id="2-4-Dimension-Clusters"><a href="#2-4-Dimension-Clusters" class="headerlink" title="2.4 Dimension Clusters"></a>2.4 Dimension Clusters</h3><p>　　在YOLO网络中使用anchor boxes时，我们遇到了两个问题。首先是box维度是手工挑选的。网络可以学会适当地调整框，如果我们从网络中选择更好的先验，我们可以让网络更容易学习预测好的检测。</p>
+<ul>
+<li><font color="blue">关于此处K-means的使用：在使用K-Means前，需要将标注数据转换获得每个bounding box(标注框)的高宽并归一化(假设你的标注数据是voc数据集的格式)，接下来就是使用K-Means算法将刚刚处理后的bounding box的高宽集合进行分类。K-Means中的距离计算使用1-IOU，每个bounding box的坐标由其高宽表示。记住：我们要寻找的是高宽相似的bounding box聚类后中心box作为anchor box。</font><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">def</span> <span class="token function">iou</span><span class="token punctuation">(</span>bbox<span class="token punctuation">,</span> clusters<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  "
+  计算某一个bounding box与当前的聚类中心框<span class="token punctuation">(</span>这里为<span class="token number">9</span>个<span class="token punctuation">)</span>的交并比。
+  <span class="token punctuation">:</span>param bbox<span class="token punctuation">:</span>单个待归类的bounding box
+  <span class="token punctuation">:</span>param clusters<span class="token punctuation">:</span>当前的聚类中心框
+  <span class="token punctuation">:</span><span class="token keyword">return</span><span class="token punctuation">:</span> 交并比
+  "
+  <span class="token comment" spellcheck="true"># 将clusters中的中心框宽限定不大于当前box的宽</span>
+  x <span class="token operator">=</span> np<span class="token punctuation">.</span>minimum<span class="token punctuation">(</span>clusters<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> box<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true"># 将clusters中的中心框高限定不大于当前box的高</span>
+  y <span class="token operator">=</span> np<span class="token punctuation">.</span>minimum<span class="token punctuation">(</span>clusters<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> box<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> np<span class="token punctuation">.</span>count_nonzero<span class="token punctuation">(</span>x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">or</span> np<span class="token punctuation">.</span>np<span class="token punctuation">.</span>count_nonzero<span class="token punctuation">(</span>y <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+      <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">'This box is invalid!'</span><span class="token punctuation">)</span>
+  intersection <span class="token operator">=</span> x <span class="token operator">*</span> y
+  box_area <span class="token operator">=</span> box<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> box<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+  clusters_area <span class="token operator">=</span> clusters<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> clusters<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+  <span class="token comment" spellcheck="true">#交并比公式</span>
+  box_iou <span class="token operator">=</span> intersection <span class="token operator">/</span> <span class="token punctuation">(</span>box_area <span class="token operator">+</span> cluster_area <span class="token operator">-</span> intersection<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> box_iou
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<font color="blue">解释一下上面的intersection，即我们用某一个box去和clusters中每一个中心框求交并比，所以主要地，也就是两个框的共同覆盖区域。那么，共同覆盖区域自然地也就是两者高宽中较小的，因此求得了任意两个框的共同覆盖区域=intersection。</font><br>　　我们不是手动选择先验，而是在训练集边界框上运行k-means聚类，以自动找到好的先验。 如果我们使用具有欧几里德距离的标准k-means，那么较大的框会产生比较小的框更多的误差。然而，我们真正想要的是能够获得良好IOU分数的先验，这与盒子boxes的大小无关。 因此，对于我们的距离度量，我们使用：<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-3.png"><br>　　我们为各种k值运行k-means并绘制具有最接近聚类中心的平均IOU，参见Figure2。我们选择k = 5作为模型复杂度和高召回率之间的良好权衡。<strong>聚类中心与与手工挑选的anchor boxes明显不同。宽，短的boxes更少，相反高，瘦的boxes更多。</strong><br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/v2-1.png" alt="Figure 2"><br>　　我们比较聚类策略和手工挑选anchor boxes的平均IOU，如Table 1所示。只有5个聚类中心时的性能与9个anchor boxes性能类似，即平均IOU为61.0 VS. 60.9。如果我们使用9个聚类中心，我们会看到更高的平均IOU (67.2)。<strong>这表明使用k-means生成我们的边界框会以更好的表示方式启动模型，使任务更容易学习。</strong></li>
+</ul>
+<h3 id="2-5-Direct-Location-Prediction"><a href="#2-5-Direct-Location-Prediction" class="headerlink" title="2.5  Direct Location Prediction"></a>2.5  Direct Location Prediction</h3><p>　　在YOLO网络中使用anchor boxes时，我们遇到了第二个问题：模型不稳定，特别是在早期迭代期间。大多数不稳定性来自于预测box的（x, y）位置。在区域提议网络RPN中，网络预测值 tx 和 ty，并且（x, y）中心坐标计算为：<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-4.png"><br>　　<strong>例如，tx = 1的预测会将框box向右移动anchor box的宽度，tx = -1的预测会将其向左移动相同的量。</strong><br>　　这个公式是不受约束的，因此任何anchor box都可以在图像中的任何位置结束，无论预测box的位置如何。随机初始化，模型需要很长时间才能稳定以预测合理的偏移。<br>　　我们不是预测偏移offset，而是遵循YOLO的方法，预测相对于网格单元的位置坐标。 这将真实框限制在0和1之间。我们使用逻辑激活logistics activation来约束网络预测落在此范围内。<br>　　网络在输出的feature map中预测每个单元格的5个边界框。网络预测每个边界框的 5 个坐标，tx，ty，tw，th和to。如果单元格从图像的左上角偏移（cx, cy）并且前面的边界框具有宽度和高度pw，ph，则预测对应于：<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-5.png"><br>　　由于我们约束位置进行预测，因此参数化更容易学习，使网络更稳定。<strong>使用维度聚类以及直接预测边界框中心位置可使YOLO比使用anchor boxes的版本提高近5％。</strong></p>
+<h3 id="2-6-Fine-Grained-Features"><a href="#2-6-Fine-Grained-Features" class="headerlink" title="2.6 Fine-Grained Features"></a>2.6 Fine-Grained Features</h3><p>　　改进后的YOLO在13 * 13特征图上预测检测。虽然这对于大型物体来说已足够，但它可能会受益于用于定位较小对象的更细粒度的特征。Faster R-CNN和SSD都在网络中的各种特征图上运行其提议网络RPN，以获得一系列分辨率。我们采用不同的方法，只需添加一个直通层passthrough layer，以26 * 26的分辨率从较早的层中获取特征。<br>　　直通层通过将相邻特征堆叠到不同的通道而不是空间位置，将较高分辨率的特征与低分辨率特征连接起来，类似于ResNet中的identity mappings。这将 26 * 26 * 512 特征图转换为 13 * 13 * 2048 特征图，可以与原始特征连接。我们的检测器运行在这个扩展的特征图之上，因此它可以访问细粒度的特征。这使得性能提高1％。</p>
+<ul>
+<li><font color="blue">关于直通层：本质其实就是特征重排，26x26x512的feature map分别按行和列隔点采样，可以得到4幅13x13x512的特征，把这4张特征按channel串联起来，就是最后的13x13x2048的feature map.还有就是，passthrough layer本身是不学习参数的，直接用前面的层的特征重排后拼接到后面的层，越在网络前面的层，感受野越小，有利于小目标的检测。</font></li>
+</ul>
+<h3 id="2-7-Multi-Scale-Training"><a href="#2-7-Multi-Scale-Training" class="headerlink" title="2.7 Multi-Scale Training"></a>2.7 Multi-Scale Training</h3><p>　　最初的YOLO使用输入分辨率为448 * 448。通过添加锚定框，我们将分辨率更改为416 * 416。但是，由于我们的模型<strong>仅使用卷积和池化层，因此可以动态调整大小</strong>。我们希望YOLOv2能够在<strong>不同尺寸的图像</strong>上运行，因此我们将其训练到模型中。<br>　　这种方式迫使网络学习如何在各种输入维度上做好预测。这意味着同一网络可以预测不同分辨率的检测。网络在较小的图像尺寸运行得更快，因此YOLOv2可在速度和精度之间轻松权衡。<br>　　<strong>在低分辨率下，YOLOv2作为相当精确的检测器运行。</strong>在288 * 288分辨率时，它的运行速度超过90 FPS，mAP几乎与Fast R-CNN一样好。这使其成为较小GPU，高帧率视频或多视频流的理想选择。<br>　　<strong>在高分辨率下，YOLOv2是最先进的检测器，在VOC 2007上具有78.6 mAP，同时仍然高于实时速度。</strong>有关YOLOv2与VOC 2007其他框架的比较，请参阅Table 3，Figure 4.<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/v2-2.png" alt="Figure 4"><br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/v2-3.png" alt="Table 3"></p>
+<h3 id="2-8-Further-Experiment"><a href="#2-8-Further-Experiment" class="headerlink" title="2.8 Further Experiment"></a>2.8 Further Experiment</h3><p>　　我们训练YOLOv2用于<strong>检测VOC 2012数据集</strong>。Table 4 展示了YOLOv2与其他最先进的检测系统的性能比较。YOLOv2达到73.4 mAP，同时检测速度比其它方法快得多。我们还在<strong>COCO数据集</strong>上进行训练并在Table 5 中的其他方法进行比较。在VOC指标（IOU = 0.5）上，YOLOv2达到44.0 mAP，与SSD和更快的R-CNN相当。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/2-6.png" alt="Table 4"><br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/v2-4.png" alt="Table 5"></p>
 ]]></content>
       
         <categories>
@@ -136,46 +294,6 @@
         <tags>
             
             <tag> 基础知识 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[网络空间安全导论]]></title>
-      <url>/2021/03/06/%5BD2%5D%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E5%AF%BC%E8%AE%BA/</url>
-      <content type="html"></content>
-      
-        <categories>
-            
-            <category> 网络空间安全 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 大学课程 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[计算机组成原理]]></title>
-      <url>/2021/03/06/%5BD2%5D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
-      <content type="html"></content>
-      
-        <categories>
-            
-            <category> 网络空间安全 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 大学课程 </tag>
             
         </tags>
         
@@ -366,6 +484,46 @@
 </li>
 </ul>
 <h2 id="Chapter-3-内存访问"><a href="#Chapter-3-内存访问" class="headerlink" title="Chapter 3 - 内存访问"></a>Chapter 3 - 内存访问</h2><h2 id="Chapter-4-基础知识"><a href="#Chapter-4-基础知识" class="headerlink" title="Chapter 4 - 基础知识"></a>Chapter 4 - 基础知识</h2><h2 id="Chapter-5-基础知识"><a href="#Chapter-5-基础知识" class="headerlink" title="Chapter 5 - 基础知识"></a>Chapter 5 - 基础知识</h2><h2 id="Chapter-6-基础知识"><a href="#Chapter-6-基础知识" class="headerlink" title="Chapter 6 - 基础知识"></a>Chapter 6 - 基础知识</h2><h2 id="Chapter-7-基础知识"><a href="#Chapter-7-基础知识" class="headerlink" title="Chapter 7 - 基础知识"></a>Chapter 7 - 基础知识</h2>]]></content>
+      
+        <categories>
+            
+            <category> 网络空间安全 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 大学课程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[网络空间安全导论]]></title>
+      <url>/2021/03/06/%5BD2%5D%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E5%AF%BC%E8%AE%BA/</url>
+      <content type="html"></content>
+      
+        <categories>
+            
+            <category> 网络空间安全 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 大学课程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[计算机组成原理]]></title>
+      <url>/2021/03/06/%5BD2%5D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
+      <content type="html"></content>
       
         <categories>
             
