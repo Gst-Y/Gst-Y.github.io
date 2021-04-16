@@ -3,119 +3,147 @@
   
     
     <entry>
-      <title><![CDATA[《汇编语言》]]></title>
-      <url>/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5BD2%5D%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/</url>
-      <content type="html"><![CDATA[<h2 id="Chapter-1-基础知识"><a href="#Chapter-1-基础知识" class="headerlink" title="Chapter 1 - 基础知识"></a>Chapter 1 - 基础知识</h2><h3 id="gt-机器语言与汇编语言"><a href="#gt-机器语言与汇编语言" class="headerlink" title="&gt; 机器语言与汇编语言"></a>&gt; 机器语言与汇编语言</h3><blockquote>
-<p>机器语言是机器指令的集合（机器可以正确执行的命令，由0和1组成）。</p>
+      <title><![CDATA[Python3 爬虫入门]]></title>
+      <url>/2021/03/20/%5BUP%5D%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/</url>
+      <content type="html"><![CDATA[<h2 id="Chapter-1-Urlib"><a href="#Chapter-1-Urlib" class="headerlink" title="Chapter 1 - Urlib"></a>Chapter 1 - Urlib</h2><blockquote>
+<p>在Python3.x中，我们可以使用urlib这个组件抓取网页。</p>
 </blockquote>
+<p>urllib是一个URL处理包，这个包中集合了一些处理URL的模块，如下：</p>
 <ul>
-<li>计算机是指由CPU和其他受CPU直接或间接控制的芯片、器件、设备组成的计算机系统。</li>
-<li>0和1代表了<strong>电平脉冲</strong>。</li>
-<li>汇编语言的主体是<strong>汇编指令</strong>，汇编语言=汇编指令+伪指令+其他符号。</li>
-<li>汇编指令是机器指令便于记忆的书写格式，决定了汇编语言的特性。</li>
+<li>urllib.request可以用来发送request和获取request的结果</li>
+<li>urllib.error包含了urllib.request产生的异常</li>
+<li>urllib.parse用来解析和处理URL</li>
+<li>urllib.robotparse用来解析页面的robots.txt文件</li>
 </ul>
-<h3 id="gt-计算机部件"><a href="#gt-计算机部件" class="headerlink" title="&gt; 计算机部件"></a>&gt; 计算机部件</h3><h4 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h4><ul>
-<li>CPU 是计算机的核心部件．它控制整个计算机的运作并进行运算，要想让一个CPU 工作，就必须向它提供指令和数据。<ul>
-<li>寄存器：CPU中可以存储数据的器件，一个CPU中有多个寄存器。</li>
-<li>存储器：指令和数据在存储器中存放，也就是平时所说的内存，磁盘上的数据或程序如果不读到内存中，就无法被CPU使用。<ul>
-<li>被划分为若干个存储单元，每个存储单元从0开始顺序编号。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-1.png" alt="存储器示例图"></li>
-<li>例如：一个存储器有128个存储单元，编号从0~127。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>CPU要想进行数据的读写，必须和外部器件（标准的说法是芯片）进行三类信息的交互：<ul>
-<li>存储单元的地址（地址信息）</li>
-<li>器件的选择，读或写命令（控制信息）</li>
-<li>读或写的数据（数据信息）</li>
-<li>注：电子计算机能处理、传输的信息都是电信号，电信号用导线传送。</li>
-</ul>
-</li>
-</ul>
-<h4 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h4><ul>
-<li>在计算机中专门有连接CPU和其他芯片的导线，通常称为总线。<ul>
-<li>物理上：一根根导线的集合。</li>
-<li>逻辑上：划分为 地址总线、数据总线、控制总线。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-2.png" alt="逻辑划分示意图"></li>
-</ul>
-</li>
-<li>地址总线：指定存储单元，地址总线上能传送多少个不同的信息，CPU就可以对多少个存储单元进行寻址。<br>   <img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-3.png" alt="地址总线示例图"><ul>
-<li>一个CPU有N根地址总线，则可以说这个CPU的地址总线的宽度为N。</li>
-<li>这样的CPU最多可以寻找<strong>2的N次方</strong>个内存单元。</li>
-</ul>
-</li>
-<li>数据总线：负责CPU与内存或其它器件之间的数据传送。<ul>
-<li>数据总线的宽度决定了CPU和外界的数据传送速度。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-4.png" alt="8位数据总线上传送的信息"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-5.png" alt="16位数据总线上传送的信息"></li>
-</ul>
-</li>
-<li>控制总线：实现CPU对外部器件的控制，控制总线是一些不同控制线的集合。<ul>
-<li>控制总线的数量意味着CPU提供了对外部器件的多少种控制，其宽度决定了CPU对<strong>外部器件</strong>的控制能力。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-6.png" alt="控制总线示例图"></li>
-<li>内存读或写命令是由控制线综合发出的：<ul>
-<li>有一根名为读信号输出控制线负责由CPU向外传送读信号，CPU向该控制线上输出低电平表示将要读取数据；</li>
-<li>有一根名为写信号输出控制线负责由CPU向外传送写信号。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h4><ul>
-<li>主板：在每一台PC机中，都有一个主板，主板上有核心器件和一些主要器件，器件通过总线（地址总线、数据总线、控制总线）相连。</li>
-</ul>
-<h4 id="接口卡"><a href="#接口卡" class="headerlink" title="接口卡"></a>接口卡</h4><ul>
-<li>接口卡：计算机系统中，所有可用程序控制其工作的设备，必须受到CPU的控制，但CPU对外部设备不能直接控制，如显示器、音箱、打印机等；<strong>直接控制这些设备进行工作的是插在扩展插槽上的接口卡</strong>。</li>
-<li>各类存储器芯片：<ul>
-<li>从读写属性上看分为两类：随机存储器（RAM）和只读存储器（ROM）</li>
-<li>从功能和连接上分类：随机存储器RAM - 装有BIOS的ROM - 接口卡上的RAM<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-7.png" alt="PC集中各类存储器的逻辑连接"></li>
-</ul>
-</li>
-</ul>
-<h3 id="gt-内存地址空间"><a href="#gt-内存地址空间" class="headerlink" title="&gt; 内存地址空间"></a>&gt; 内存地址空间</h3><ul>
-<li>内存地址空间：一个CPU的地址线宽度为10，那么可以寻址1024个内存单元，这1024个可寻到的内存单元就构成这个CPU的内存地址空间。<ul>
-<li>上述的存储器在物理上是独立的器件，但在以下两点上相同：<ul>
-<li>都和CPU的总线相连。</li>
-<li>CPU对它们进行读或写的时候都通过控制线发出内存读写命令。</li>
-</ul>
-</li>
-<li>所有的物理存储器被看作一个由若干存储单元组成的逻辑存储器；每个物理存储器在这个逻辑存储器中占有一个地址段，即一段地址空间；CPU在这段地址空间中读写数据，实际上就是在相对应的物理存储器中读写数据。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-8.png" alt="将各类存储器看作一个逻辑存储器"></li>
-<li>不同的计算机系统的内存地址空间分配情况是不同的。</li>
-<li>假设，上图中的内存空间地址段分配如下：<br>地址<strong>0~7FFFH</strong>的32KB空间为<strong>主随机存储器</strong>的地址空间；<br>地址<strong>8000H~9FFFH</strong>的8KB空间为<strong>显存</strong>地址空间；<br>地址<strong>A000H~FFFFH</strong>的24KB空间为<strong>各个ROM</strong>的地址空间。<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-9.png" alt="8086PC机的内存地址空间分配"></li>
-</ul>
-</li>
-<li>最终运行程序的是CPU，我们用汇编编程的时候，必须要从CPU角度考虑问题：<br><br>对CPU来讲，系统中的所有存储器中的存储单元都处于一个统一的逻辑存储器中，它的容量受CPU寻址能力的限制。这个逻辑存储器即是我们所说的内存地址空间。</li>
-</ul>
-<h3 id="gt-小结"><a href="#gt-小结" class="headerlink" title="&gt; 小结"></a>&gt; 小结</h3><ul>
-<li>汇编指令是机器指令的助记符，同机器指令一一对应。</li>
-<li>每一种CPU都有自己的汇编指令集。</li>
-<li>CPU可以直接使用的信息在存储器中存放。</li>
-<li>在存储器中指令和数据没有任何区别，都是二进制信息。</li>
-<li>存储单元从零开始顺序编号。</li>
-<li>一个存储单元可以存储 8 个 bit （用作单位写成“b”），即 8 位二进制数。<br>$$ 1B = 8b    - 1KB = 1024B - 1MB = 1024KB - 1GB = 1024MB $$</li>
-<li>每一个CPU芯片都有许多管脚，这些管脚和总线相连。也可以说，这些管脚引出总线。一个CPU可以引出三种总线的宽度标志了这个CPU的不同方面的性能：<ul>
-<li>地址总线的宽度决定了CPU的寻址能力；</li>
-<li>数据总线的宽度决定了CPU与其它器件进行数据传送时的一次数据传送量；</li>
-<li>控制总线宽度决定了CPU对系统中其它器件的控制能力。</li>
-</ul>
-</li>
-</ul>
-<h2 id="Chapter-2-寄存器"><a href="#Chapter-2-寄存器" class="headerlink" title="Chapter 2 - 寄存器"></a>Chapter 2 - 寄存器</h2><h2 id="Chapter-3-基础知识"><a href="#Chapter-3-基础知识" class="headerlink" title="Chapter 3 - 基础知识"></a>Chapter 3 - 基础知识</h2><h2 id="Chapter-4-基础知识"><a href="#Chapter-4-基础知识" class="headerlink" title="Chapter 4 - 基础知识"></a>Chapter 4 - 基础知识</h2><h2 id="Chapter-5-基础知识"><a href="#Chapter-5-基础知识" class="headerlink" title="Chapter 5 - 基础知识"></a>Chapter 5 - 基础知识</h2><h2 id="Chapter-6-基础知识"><a href="#Chapter-6-基础知识" class="headerlink" title="Chapter 6 - 基础知识"></a>Chapter 6 - 基础知识</h2><h2 id="Chapter-7-基础知识"><a href="#Chapter-7-基础知识" class="headerlink" title="Chapter 7 - 基础知识"></a>Chapter 7 - 基础知识</h2>]]></content>
+<p>使用urllib.request.urlopen()这个接口函数就可以很轻松的打开一个网站，读取并打印信息。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    response <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://fanyi.baidu.com"</span><span class="token punctuation">)</span>
+    html <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+]]></content>
       
         <categories>
             
-            <category> 网络空间安全 </category>
+            <category> Python </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 大学课程 </tag>
+            <tag> 基础拓展 </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[《计算机组成原理》]]></title>
-      <url>/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5BD2%5D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
+      <title><![CDATA[YOLO算法原理]]></title>
+      <url>/2021/03/12/%5BMA%5DYOLO%E7%AE%97%E6%B3%95/</url>
+      <content type="html"><![CDATA[<h2 id="Abstract（引言）"><a href="#Abstract（引言）" class="headerlink" title="Abstract（引言）"></a>Abstract（引言）</h2><blockquote>
+<p>先前的目标检测工作使用了执行检测的分类器，而YOLO目标检测方法将目标检测当作了一个回归问题，以在空间上分离的bounding boxes(边界盒？)和相关的class probabilities(类的概率)进行框架化。</p>
+</blockquote>
+<p>　　单个神经网络在一次评估中直接从完整图像预测bounding boxes和class probabilities,由于整个检测流水线是单个网络，因此可以直接在检测性能上进行端对端优化。</p>
+<p>　　<strong>当从自然图像泛化到其他领域（如图像）时，它的性能优于其他检测方法，包括DPM和R-CNN</strong><br>　　但是，YOLO的准确率没有最好的检测系统准确率高。YOLO可以快速识别图像中的目标，但是准确定位目标（特别是小目标）有点困难。</p>
+<h2 id="1-Introduction（介绍）"><a href="#1-Introduction（介绍）" class="headerlink" title="1.Introduction（介绍）"></a>1.Introduction（介绍）</h2><blockquote>
+<p>用于object detection的快速和准确的算法将允许计算机无需专门的传感器来驱动汽车，使辅助设备能够将实时场景信息传达给人类用户。</p>
+</blockquote>
+<p>　　现在的检测系统重新使用了分类器来实现检测。为了检测一个对象，这些系统对该对象进行分类，并在测试图像中的各种位置和比例下进行评估。诸如可变形部件模型（DPM）的系统使用滑动窗口方法，其中分类器在整个图像上以均匀间隔的位置运行.</p>
+<p>　　更先进的一点的方法（例如R-CNN）使用region proposal的方法在一张图片上产生bounding boxes，然后在这些boxes上执行分类。分类后，后处理用于微调bounding boxes，和消除重复检测，并根据场景中的其他对象重新确定框。这些复杂的途径难以优化，因为每个单独的组件必须分开训练。</p>
+<p>　　YOLO把object detection视作一个单独的回归问题，直接从图像像素到bounding boxes坐标和类概率，只需要看一眼就知道图片上有什么并且在哪里。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-1.png" alt="YOLO使用示例 - 1.将图片resize到488*488 2.送入CNN网络 3.非极大值抑制去重"></p>
+<p>　　YOLO是比较简单的：如上图。一个单个卷积神经网络能够同时预测多个bounding boxes以及他们的概率。YOLO在完整的图像上训练，能够直接优化检测性能。这种统一的模型比传统的object detection方法有几个好处。</p>
+<p>　1.快，非常快。YOLO的基础版在Titan X GPU上可以达到45帧/s； 快速版可以达到150帧/s。因此，YOLO可以实现实时检测。<br>　2.YOLO采用全图信息来进行预测。与滑动窗口方法和region proposal-based方法不同，YOLO在训练和预测过程中可以<strong>利用全图信息</strong>。Fast R-CNN检测方法会错误的将背景中的斑块检测为目标，原因在于Fast R-CNN在检测中无法看到全局图像。相对于Fast R-CNN，YOLO背景预测错误率低一半。</p>
+<h2 id="2-Unified-Detection（统一检测）"><a href="#2-Unified-Detection（统一检测）" class="headerlink" title="2.Unified Detection（统一检测）"></a>2.Unified Detection（统一检测）</h2><blockquote>
+<p>YOLO将object detection的单独组件统一为单个神经网络。YOLO的网络使用整个图像的特征来预测每个bounding boxes，同时还可以预测所有的类的bounding boxes，可实现端到端训练和实时检测，同时保持较高的平均精度。</p>
+</blockquote>
+<p>　　系统将输入的图片划分为S X S(默认是7*7)个小格子，如果物体的中心(应该是指ground truth box中的物体的中心)落入到某一个小格中，则对应的小格负责检测这个物体。<br>　　每个小格子预测B个bounding boxes以及对应的置信度(confidence scores),这些置信度反映了box包含物体的信心以及<strong>准确度</strong>。我们定义置信度为:<img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/l-1.png"><br>　　如果box中不存在物体，那么confidence scores为0（即意味着Pr(Object) =0），否则，我们希望预测的置信值和ground truth的intersection over union (IOU)相同（即意味着Pr(Object) =1）。<br>每个bounding box由五个预测值组成:x,y,w,h和confidence。(x,y)坐标表示相对于网格单元边界的框的中心。(w,h)为与全图信息相关的box的宽和高。confidence代表了predicted box和任何 ground truth box的IOU。<br>　　每个网格单元还预测 C 条件类概率Pr(Classi|Object)，这些概率适用于包含对象的网格单元格，概率值C代表了格子包含一个目标的概率，每个小格子只预测一组类概率，而不考虑框B的数量。在测试时，每个box通过类别概率和box置信度相乘来得到特定类别置信度：<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-2.png" alt="这个分数代表该类别出现在box中的概率和box和目标的合适度"><br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-3.png" alt="For evaluating YOLO on PASCAL VOC, we use S = 7,B = 2. PASCAL VOC has 20 labelled classes so C = 20.Our final prediction is a 7 × 7 × 30 tensor."></p>
+<h3 id="2-1-Network-Design（网络结构）"><a href="#2-1-Network-Design（网络结构）" class="headerlink" title="2.1 Network Design（网络结构）"></a>2.1 Network Design（网络结构）</h3><p>　　模型采用卷积神经网络结构。开始的卷积层提取图像特征，全连接层预测输出概率。模型结构类似于GoogleNet，如下图所示。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-4.png" alt="YOLO的架构示意图"><br>　　除此之外，还训练了YOLO的快速版本（fast YOLO）。Fast YOLO模型卷积层和filter更少。最终输出为7×7×30的tensor。<br>　　两个小细节：<br>　　<strong>1.作者先在ImageNet数据集上预训练网络，而且网络只采用fig3的前面20个卷积层，输入是224x224大小的图像然后在检测的时候加上随机化的4个卷积层和2个全连接层，同时输入改为更高分辨率的448x448。<br>　　2.Relu层改为pRelu，即当x&lt;0时，激活值是0.1*x，而不是传统的0。</strong></p>
+<h3 id="2-2-Training（训练）"><a href="#2-2-Training（训练）" class="headerlink" title="2.2 Training（训练）"></a>2.2 Training（训练）</h3><ul>
+<li>采用ImageNet 1000-class 数据集来预训练卷积层。预训练阶段，采用图2-2网络中的前20卷积层，外加average pooling层和全连接层。模型训练了一周，获得了top-5 accuracy为0.88（ImageNet2012 validation set），与GoogleNet模型准确率相当。</li>
+<li>将模型转换为检测模型。作者向预训练模型中加入了4个卷积层和两层全连接层，提高了模型输入分辨率（224×224–&gt;448×448）</li>
+<li>最终层预测类概率和bounding boxes坐标。 通过图像宽度和高度将边界框宽度和高度归一化，使得它们落在0和1之间。我们将边界框x和y坐标参数化为特定网格单元位置的偏移，使得它们也在0和1之间 。</li>
+<li>顶层采用linear activation，其它层使用 leaky rectified linear。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-5.png" alt="leaky rectified linear"></li>
+<li>使用sum-squared error,因为很容易优化，但它不完全符合我们的最大化平均精度的目标。预测概率的维数比预测bounding box的维数要高，把他们同等对待是不理想的。此外，在每个图像中，许多网格单元不包含任何对象。 这将这些网格单元的“置信度”为零，通常压倒包含对象的网格的梯度。 这可能导致模型不稳定，导致训练早期发散。为了弥补这一点，采用一个办法就是加权，赋予不同的权值，对于Pr(object)=0的格子令 λ_noobj = 0.5,对于Pr(object)=1的格子令 λ_coord = 5.</li>
+<li>对不同大小的bounding box预测中，相比于大box预测偏一点，小box预测偏一点肯定更不能被忍受的。而sum-square error loss中对同样的偏移loss是一样。因此预测边界框宽度和高度的平方根，而不是宽度和高度（因为平方根函数的图像随着x的增大会变得平缓）.</li>
+</ul>
+<h4 id="gt-loss-function（代价函数）"><a href="#gt-loss-function（代价函数）" class="headerlink" title="-&gt; loss function（代价函数）"></a>-&gt; loss function（代价函数）</h4><p><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-6.png" alt="代价函数"><br>　　传统的均方误差在这里效果并不好：<br>　　　1.bbox的维度和class预测向量的维度不同，显然不应该平权。<br>　　　2.对于背景box，confidence为0，这会导致网络不稳定，甚至发散。<br>　　论文采用的方法是加权处理，即对bbox和confidence施加不同的权重。<br>　　　1.bbox预测赋予​ [公式]<br>　　　2.对于背景box，confidence的损失为​ [公式]<br>　　　3.有object的box，loss weight=1。<br>　　但仍然有一个问题：<strong>尺寸小的bbox的偏移误差相对于尺寸大的bbox的偏移误差来说更难以接受。</strong><br>　　这里作者用了一个比较巧妙的方法，将bbox的width和height取平方根，代替原本的width和height。使得发生相同偏移时，尺寸小的bbox反应大。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-7.png"><br>注：引用自 <a href="https://zhuanlan.zhihu.com/p/147380339">https://zhuanlan.zhihu.com/p/147380339</a> by 稚与</p>
+<ul>
+<li>只有当某个网格中有object的时候才对classification error进行惩罚。</li>
+<li>只有当某个box predictor对某个ground truth box负责的时候，才会对box的coordinate error进行惩罚，而对哪个ground truth box负责就看其预测值和ground truth box的IoU是不是在那个cell的所有box中最大。</li>
+</ul>
+<h3 id="2-3-Inference-推论"><a href="#2-3-Inference-推论" class="headerlink" title="2.3 Inference (推论)"></a>2.3 Inference (推论)</h3><p>　　对于PASCAL VOC数据集，模型需要对每张图片预测98个bounding box和对应的类别。对于大部分目标只包含一个box；其它有些面积大的目标包含了多个boxes，采用了Non-maximal suppression（非最大值抑制）来提高准确率。</p>
+<h3 id="2-4-Limitations-of-YOLO-不足之处"><a href="#2-4-Limitations-of-YOLO-不足之处" class="headerlink" title="2.4 Limitations of YOLO (不足之处)"></a>2.4 Limitations of YOLO (不足之处)</h3><ul>
+<li>YOLO的每一个网格只预测两个boxes，一种类别。这导致模型对相邻目标预测准确率下降。因此，YOLO对成队列的目标（如 一群鸟）识别准确率较低。</li>
+<li>YOLO是从数据中学习预测bounding boxes，因此，对新的或者不常见角度的目标无法识别。</li>
+<li>YOLO的loss函数对small bounding boxes和large bounding boxes的error平等对待，影响了模型识别准确率。因为对于小的bounding boxes，small error影响更大。</li>
+</ul>
+<h2 id="3-Comparison-to-Other-Detection-Systems（与其他检测系统的比较）"><a href="#3-Comparison-to-Other-Detection-Systems（与其他检测系统的比较）" class="headerlink" title="3.Comparison to Other Detection Systems（与其他检测系统的比较）"></a>3.Comparison to Other Detection Systems（与其他检测系统的比较）</h2><blockquote>
+<p>目标检测是计算机视觉中的核心问题。</p>
+</blockquote>
+<p>　　检测管道通常从输入图像（Haar [25]，SIFT [23]，HOG [4]，卷积特征[6]）提取一组鲁棒特征开始。 然后，使用分类器[36,21,13,10]或定位器[1,32]来识别特征空间中的目标。这些分类器或定位器以滑动窗口方式在整个图像上或在图像中的一些区域子集上运行[35,15,39]。我们将YOLO检测系统与几个顶级检测框架进行比较，强调了关键的相似点和差异。</p>
+<ul>
+<li><strong>Deformable parts models</strong>：使用滑动窗口方法目标检测。DPM使用不相交管道来提取静态特征，分类区域，预测高评分区域的边界框等。YOLO用单个卷积神经网络替换所有这些不同的部分。网络执行特征提取，边界框预测，最大抑制和上下文推理。代替静态特征，网络训练串联的特征并且优化它们用于检测任务。YOLO的统一架构造就了比DPM更快，更准确的模型。</li>
+<li><strong>R-CNN</strong>：RCNN及其变体使用region proposals，而不是滑动窗口来找到图像中的目标。选择性搜索生成潜在的边界框，卷积网络提取特征，SVM分数框，线性模型调整边界框，非最大抑制消除重复检测。这个复杂流水线的每个阶段都必须独立进行精确调整，得到的系统非常慢，在测试时间每个图像需要超过40秒。<br>YOLO与RCNN有一些相似之处：每个网格单元提出了潜在的边界框并使用卷积特征对那些框进行分数。 然而，YOLO的系统将空间约束放在网格单元建议上，这有助于减轻同一目标的多个检测。 YOLO还提出了很少的边界框，每个图像只有98个，而选择性搜索约为2000个。最后，YOLO系统将这些单独的组件组合成一个单独的，联合优化的模型。</li>
+<li><strong>Other Fast Detectors</strong>：Fast和faster RCNN专注于通过共享计算和使用神经网络来提高区域而不是选择性搜索来加速RCNN框架。 虽然他们提供的速度和准确性的改进超过RCNN，但仍然低于实时性能。许多研究工作集中在加速DPM管道。 他们加速HOG计算，使用级联，并推动计算到GPU。 然而，实际上只有30Hz的DPM 实时运行。<br>YOLO完全抛去管道，而不是尝试优化大型检测管道的单个组件，因此设计快(<strong>is fast by design？</strong>)。单个类如面部或人的检测器可以高度优化，因为它们必须处理更少的variation。YOLO是一个通用的检测器，可以同时检测多种物体。</li>
+<li><strong>Deep MultiBox</strong>：与RCNN不同，Szegedy et al等人训练卷积神经网络以预测感兴趣的区域，而不是使用选择性搜索。MultiBox还可以通过用单个类别预测替换置信预测来执行单个目标检测。然而，MultiBox不能执行一般的目标检测，并且仍然只是一个更大的检测管道中的一块，需要进一步的图像补丁分类。YOLO和MultiBox都使用卷积网络来预测图像中的边界框，但YOLO是一个完整的检测系统。</li>
+<li><strong>OverFeat</strong>：Sermanet等人训练卷积神经网络以执行定位并使该定位器适于执行检测。 Over-Feat有效地执行滑动窗口检测，但它仍然是一个不相交的系统。Over-Feat优化了本地化，而不是检测性能。像DPM一样，定位器在进行预测时仅看到本地信息。OverFeat不能推测全局上下文，因此需要大量的后处理来产生相干检测。</li>
+<li><strong>MultiGrasp</strong>：YOLO的工作在设计上类似于Redmon等人的抓握检测工作。YOLO的网格方法到边界框预测是基于Multi-Grasp系统用于回归到抓握。然而，抓取检测是比目标检测简单得多的任务。Multi-Grasp只需要为包含一个目标的图像预测单个可抓取区域。它不必估计目标的大小，位置或边界或预测它的类，只找到适合抓握的区域。YOLO预测图像中多个类的多个目标的边界框和类概率。</li>
+</ul>
+<h2 id="4-Experiments（实验）"><a href="#4-Experiments（实验）" class="headerlink" title="4. Experiments（实验）"></a>4. Experiments（实验）</h2><p>　　首先，我们在PASCAL VOC 2007上比较YOLO和其他实时检测系统。为了理解YOLO和RCNN变体之间的差异，我们探讨了YOLO和Fast RCNN在性能最高的版本之一 的RCNN [14]。 基于不同的误差曲线，我们显示YOLO可以用于重排fast RCNN检测，并减少背景误报的误差，提供显着的性能提升。 我们还提出VOC 2012结果，并将mAP与当前最先进的方法进行比较。 最后，我们表明YOLO推广到新的领域比其他探测器两个艺术品数据集。</p>
+<h3 id="4-1-Comparison-to-Other-Real-Time-Systems（与其他实时系统的比较）"><a href="#4-1-Comparison-to-Other-Real-Time-Systems（与其他实时系统的比较）" class="headerlink" title="4.1. Comparison to Other Real-Time Systems（与其他实时系统的比较）"></a>4.1. Comparison to Other Real-Time Systems（与其他实时系统的比较）</h3><p>　　目标检测中的许多研究工作重点在于快速制作标准检测流水线。但是，只有Sadeghi et al等实际上产生实时运行的检测系统（每秒30帧或更好）。我们将YOLO与其在30Hz或100Hz运行的DPM的GPU实现进行比较。尽管其他努力没有达到实时里程碑，我们还比较了它们的相对mAP和速度，以检查目标检测系统中可用的精度性能权衡。</p>
+<ul>
+<li>Fast YOLO是PASCAL上最快的目标检测方法;据我们所知，它是最快的现存目标检测器。使用52.7％的mAP，它是以前的实时检测工作的两倍以上。YOLO将mAP推向63.4％，同时仍保持实时性能。</li>
+<li>我们还使用VGG-16训练YOLO。这个模型更准确，但也明显慢于YOLO。它对于与依赖VGG-16的其他检测系统的比较是有用的，但是由于它比实时慢，所以本文的其余部分集中在我们更快的模型上。</li>
+<li>最快的DPM有效地加速DPM，而不牺牲许多mAP，但它仍然错过2倍的实时性能[38]。它也受到DPM相对于神经网络方法的相对低的检测精度的限制。</li>
+<li>RCNN减R代替选择性搜索与静态边界框建议[20]。 虽然它比RCNN快得多，但仍然没有实时性，并且由于没有好的建议而产生显着的准确性。</li>
+<li>Fast RCNN加速了RCNN的分类阶段，但它仍然依赖于选择性搜索，每个图像可以花费大约2秒来生成边界框提议。 因此，它具有高mAP，但是在0.5fps它仍然远离实时。<br>最近的faster RCNN取代了选择性搜索与神经网络提出边界框，类似于Szegedy等人在我们的测试中，他们最准确的模型达到7 fps，而较小的，不太准确的模式以18 fps运行。 Faster RCNN的VGG-16版本是10 个百分点的mAP或更高，但是也比YOLO慢6倍。Zeiler-Fergus的faster RCNN只比YOLO慢2.5倍，但也不太准确。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/t-1.png" alt="Comparison"></li>
+</ul>
+<h3 id="4-2-VOC-2007-Error-Analysis（VOC-2007数据集上误差分析）"><a href="#4-2-VOC-2007-Error-Analysis（VOC-2007数据集上误差分析）" class="headerlink" title="4.2. VOC 2007 Error Analysis（VOC 2007数据集上误差分析）"></a>4.2. VOC 2007 Error Analysis（VOC 2007数据集上误差分析）</h3><p>　　为了进一步检验YOLO和最先进的检测器之间的差异，我们将详细分析VOC 2007的结果。我们将YOLO与Fast RCNN进行比较，因为快速RCNN是最高性能的检测器之一 P ASCAL，它的检测是公开的。</p>
+<p>　　我们使用Hoiem等人的方法和工具。对于测试时的每个类别，我们查看该类别的前N个预测。 每个预测是正确的或者基于错误的类型分类：</p>
+<ul>
+<li>正确：正确的类和IOU &gt; .5</li>
+<li>定位：正确的类，.1 &lt; IOU &lt;.5</li>
+<li>类似：类相似，IOU &gt; .1</li>
+<li>其他：类错了，IOU &gt; .1</li>
+<li>背景：对于任何目标，IOU &lt;.1</li>
+</ul>
+<p><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-8.png" alt="误差分析"></p>
+<p>　　误差分析：fast RCNN与YOLO这些图表显示各种类别（在该类别中N =＃个目标）的前N个检测中的定位和背景错误的百分比。<br>　　图中显示了在所有20个类中平均的每个错误类型的细分。<br>　　YOLO努力正确地定位目标。 定位错误占所有YOLO的错误比所有其他来源组合。 Fast RCNN使定位误差少得多，但背景误差大得多。 它的13.6％的顶部检测是假阳性，不包含任何目标。 快速RCNN比YOLO预测背景检测的可能性高出3倍。</p>
+<h3 id="4-3-Combining-Fast-R-CNN-and-YOLO（结合fast-RCNN和YOLO）"><a href="#4-3-Combining-Fast-R-CNN-and-YOLO（结合fast-RCNN和YOLO）" class="headerlink" title="4.3. Combining Fast R-CNN and YOLO（结合fast RCNN和YOLO）"></a>4.3. Combining Fast R-CNN and YOLO（结合fast RCNN和YOLO）</h3><p>　　YOLO比Fast RCNN的背景错误少得多。通过使用YOLO来消除Fast RCNN的背景检测，我们获得了显着的性能提升。对于RCNN预测的每个边界框，我们检查YOLO是否预测类似的框。如果是，我们基于由YOLO预测的概率和两个框之间的重叠，给予该预测增强。<br>　　最好的Fast RCNN模型在VOC 2007测试集上达到71.8％的mAP。当与YOLO组合时，其mAP增加了3.2％至75.0％。我们还尝试结合顶部fast RCNN模型与其他几个版本的Fast RCNN。这些集合在mAP中产生0.3％和0.6％之间的小的增加，详见表2。<br>　　来自YOLO的提升不仅仅是模型组合的副产品，因为组合不同版本的Fast RCNN几乎没有什么好处。相反，它是正确的因为YOLO在测试时产生了不同的错误，它在提升Fast RCNN的性能方面非常有效。<br>　　不幸的是，这种组合并没有受益于YOLO的速度，因为我们分别运行每个模型，然后组合结果。然而，由于YOLO是如此之快，与快速RCNN相比它不增加任何显着的计算时间。<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/t-2.png" alt="对VOC 2007的模型组合实验"><br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/t-3.png" alt="PASCAL VOC 2012排行榜"></p>
+<h3 id="4-4-VOC-2012-Results（VOC-2012结果）"><a href="#4-4-VOC-2012-Results（VOC-2012结果）" class="headerlink" title="4.4. VOC 2012 Results（VOC 2012结果）"></a>4.4. VOC 2012 Results（VOC 2012结果）</h3><p>　　在VOC 2012测试集上，YOLO得分为57.9％mAP。这低于现有技术水平，更接近使用VGG-16的原始RCNN，参见表3.我们的系统与小目标相比，其最接近的竞争对手。在类别如瓶，羊和电视/显示器YOLO得分比RCNN或特征编辑低8-10％。 然而，在其他类别如猫和火车YOLO实现更高的性能。</p>
+<p>　　fast RCNN + YOLO模型是最高性能的检测方法之一。 快速RCNN从与YOLO的组合得到了2.3％的改进，提高了5个点在公众排行榜上。</p>
+<h3 id="4-5-Generalizability-Person-Detection-in-Artwork（通用性：艺术品中的人检测）"><a href="#4-5-Generalizability-Person-Detection-in-Artwork（通用性：艺术品中的人检测）" class="headerlink" title="4.5. Generalizability: Person Detection in Artwork（通用性：艺术品中的人检测）"></a>4.5. Generalizability: Person Detection in Artwork（通用性：艺术品中的人检测）</h3><p>　　用于目标检测的学术数据集从相同的分布中抽取训练和测试数据。在实际应用中，很难预测所有可能的用例，测试数据可能与系统在[3]之前所看到的不同。我们比较YOLO与Picasso数据集[12]和人 - 艺术数据集[3]上的其他检测系统，两个数据集用于测试艺术品上的人物检测。</p>
+<p>　　图5显示YOLO和其他检测方法之间的比较性能。作为参考，我们给VOC 2007检测人上面的AP，其中所有模型仅训练VOC 2007数据。毕加索模型在VOC 2012培训，而人 - 艺术培训VOC 2010。</p>
+<p>　　RCNN在VOC 2007上具有高AP。然而，当应用于艺术品时，RCNN显着下降。 RCNN使用选择性搜索来调整自然图像的边界框建议。RCNN中的分类器步骤仅仅看到小区域并且需要好的建议。</p>
+<p>　　DPM在应用于艺术品时保持其AP良好。先前的工作理论认为DPM执行良好，因为它具有强大的目标的形状和布局的空间模型。尽管DPM不会降低与RCNN一样多，但是它从较低的AP开始。</p>
+<p>　　YOLO在VOC 2007上具有良好的性能，并且当应用于艺术品时，其AP降解少于其他方法。相似的DPM，YOLO模拟目标的大小和形状，以及目标之间的关系以及目标通常出现的位置。图像和自然图像在像素级别上非常不同，但是它们在目标的大小和形状方面是相似的，因此YOLO仍然可以预测良好的边界框和检测。</p>
+<h2 id="5-Real-Time-Detection-In-The-Wild（野外实时检测）"><a href="#5-Real-Time-Detection-In-The-Wild（野外实时检测）" class="headerlink" title="5. Real-Time Detection In The Wild（野外实时检测）"></a>5. Real-Time Detection In The Wild（野外实时检测）</h2><p>　　YOLO是一个快速，精确的目标检测器，使其成为计算机视觉应用的理想选择。 我们将YOLO连接到网络摄像头，并验证其是否保持实时性能，包括从相机获取图像并显示检测结果的时间。</p>
+<p>　　结果系统是互动和参与。 虽然YOLO单独处理图像，但当连接到网络摄像头时，它的功能类似于跟踪系统，检测目标在移动时的外观变化。 系统演示和源代码可以在我们的项目网站上找到：http：//pjreddie.com/yolo/<br><img src="/2021/03/12/[MA]YOLO%E7%AE%97%E6%B3%95/1-9.png"></p>
+<h2 id="6-Conclusion（结论）"><a href="#6-Conclusion（结论）" class="headerlink" title="6. Conclusion（结论）"></a>6. Conclusion（结论）</h2><p>YOLO，一个统一的目标检测模型。 YOLO的模型很容易构建，可以直接在完整的图像上进行训练。 不同于基于分类器的方法，YOLO被训练的损失函数直接对应于检测性能，整个模型联合训练。</p>
+<p>快速YOLO是文献中最快的通用目标检测器，YOLO推动了实时目标检测中的最先进的技术。 YOLO也广泛适用于新的领域，使其成为依赖于快速，强大的目标检测的应用程序的理想选择。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 人工智能 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基础知识 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[网络空间安全导论]]></title>
+      <url>/2021/03/06/%5BD2%5D%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E5%AF%BC%E8%AE%BA/</url>
       <content type="html"></content>
       
         <categories>
@@ -134,8 +162,229 @@
     </entry>
     
     <entry>
+      <title><![CDATA[计算机组成原理]]></title>
+      <url>/2021/03/06/%5BD2%5D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
+      <content type="html"></content>
+      
+        <categories>
+            
+            <category> 网络空间安全 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 大学课程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[汇编语言]]></title>
+      <url>/2021/03/06/%5BD2%5D%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/</url>
+      <content type="html"><![CDATA[<h2 id="Chapter-1-基础知识"><a href="#Chapter-1-基础知识" class="headerlink" title="Chapter 1 - 基础知识"></a>Chapter 1 - 基础知识</h2><h3 id="gt-机器语言与汇编语言"><a href="#gt-机器语言与汇编语言" class="headerlink" title="&gt; 机器语言与汇编语言"></a>&gt; 机器语言与汇编语言</h3><blockquote>
+<p>机器语言是机器指令的集合（机器可以正确执行的命令，由0和1组成）。</p>
+</blockquote>
+<ul>
+<li>计算机是指由CPU和其他受CPU直接或间接控制的芯片、器件、设备组成的计算机系统。</li>
+<li>0和1代表了<strong>电平脉冲</strong>。</li>
+<li>汇编语言的主体是<strong>汇编指令</strong>，汇编语言=汇编指令+伪指令+其他符号。</li>
+<li>汇编指令是机器指令便于记忆的书写格式，决定了汇编语言的特性。</li>
+</ul>
+<h3 id="gt-计算机部件"><a href="#gt-计算机部件" class="headerlink" title="&gt; 计算机部件"></a>&gt; 计算机部件</h3><h4 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h4><ul>
+<li>CPU 是计算机的核心部件．它控制整个计算机的运作并进行运算，要想让一个CPU 工作，就必须向它提供指令和数据。<ul>
+<li>寄存器：CPU中可以存储数据的器件，一个CPU中有多个寄存器。</li>
+<li>存储器：指令和数据在存储器中存放，也就是平时所说的内存，磁盘上的数据或程序如果不读到内存中，就无法被CPU使用。<ul>
+<li>被划分为若干个存储单元，每个存储单元从0开始顺序编号。<br><br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-1.png" alt="存储器示例图"></li>
+<li>例如：一个存储器有128个存储单元，编号从0~127。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CPU要想进行数据的读写，必须和外部器件（标准的说法是芯片）进行三类信息的交互：<ul>
+<li>存储单元的地址（地址信息）</li>
+<li>器件的选择，读或写命令（控制信息）</li>
+<li>读或写的数据（数据信息）</li>
+<li>注：电子计算机能处理、传输的信息都是电信号，电信号用导线传送。</li>
+</ul>
+</li>
+</ul>
+<h4 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h4><ul>
+<li>在计算机中专门有连接CPU和其他芯片的导线，通常称为总线。<ul>
+<li>物理上：一根根导线的集合。</li>
+<li>逻辑上：划分为 地址总线、数据总线、控制总线。<br><br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-2.png" alt="逻辑划分示意图"></li>
+</ul>
+</li>
+<li>地址总线：指定存储单元，地址总线上能传送多少个不同的信息，CPU就可以对多少个存储单元进行寻址。<br>   <img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-3.png" alt="地址总线示例图"><ul>
+<li>一个CPU有N根地址总线，则可以说这个CPU的地址总线的宽度为N。</li>
+<li>这样的CPU最多可以寻找<strong>2的N次方</strong>个内存单元。</li>
+</ul>
+</li>
+<li>数据总线：负责CPU与内存或其它器件之间的数据传送。<ul>
+<li>数据总线的宽度决定了CPU和外界的数据传送速度。<br><br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-4.png" alt="8位数据总线上传送的信息"><br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-5.png" alt="16位数据总线上传送的信息"></li>
+</ul>
+</li>
+<li>控制总线：实现CPU对外部器件的控制，控制总线是一些不同控制线的集合。<ul>
+<li>控制总线的数量意味着CPU提供了对外部器件的多少种控制，其宽度决定了CPU对<strong>外部器件</strong>的控制能力。<br><br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-6.png" alt="控制总线示例图"></li>
+<li>内存读或写命令是由控制线综合发出的：<ul>
+<li>有一根名为读信号输出控制线负责由CPU向外传送读信号，CPU向该控制线上输出低电平表示将要读取数据；</li>
+<li>有一根名为写信号输出控制线负责由CPU向外传送写信号。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h4><ul>
+<li>主板：在每一台PC机中，都有一个主板，主板上有核心器件和一些主要器件，器件通过总线（地址总线、数据总线、控制总线）相连。</li>
+</ul>
+<h4 id="接口卡"><a href="#接口卡" class="headerlink" title="接口卡"></a>接口卡</h4><ul>
+<li>接口卡：计算机系统中，所有可用程序控制其工作的设备，必须受到CPU的控制，但CPU对外部设备不能直接控制，如显示器、音箱、打印机等；<strong>直接控制这些设备进行工作的是插在扩展插槽上的接口卡</strong>。</li>
+<li>各类存储器芯片：<ul>
+<li>从读写属性上看分为两类：随机存储器（RAM）和只读存储器（ROM）</li>
+<li>从功能和连接上分类：随机存储器RAM - 装有BIOS的ROM - 接口卡上的RAM<br><br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-7.png" alt="PC集中各类存储器的逻辑连接"></li>
+</ul>
+</li>
+</ul>
+<h3 id="gt-内存地址空间"><a href="#gt-内存地址空间" class="headerlink" title="&gt; 内存地址空间"></a>&gt; 内存地址空间</h3><ul>
+<li>内存地址空间：一个CPU的地址线宽度为10，那么可以寻址1024个内存单元，这1024个可寻到的内存单元就构成这个CPU的内存地址空间。<ul>
+<li>上述的存储器在物理上是独立的器件，但在以下两点上相同：<ul>
+<li>都和CPU的总线相连。</li>
+<li>CPU对它们进行读或写的时候都通过控制线发出内存读写命令。</li>
+</ul>
+</li>
+<li>所有的物理存储器被看作一个由若干存储单元组成的逻辑存储器；每个物理存储器在这个逻辑存储器中占有一个地址段，即一段地址空间；CPU在这段地址空间中读写数据，实际上就是在相对应的物理存储器中读写数据。<br><br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-8.png" alt="将各类存储器看作一个逻辑存储器"></li>
+<li>不同的计算机系统的内存地址空间分配情况是不同的。</li>
+<li>假设，上图中的内存空间地址段分配如下：<br>地址<strong>0~7FFFH</strong>的32KB空间为<strong>主随机存储器</strong>的地址空间；<br>地址<strong>8000H~9FFFH</strong>的8KB空间为<strong>显存</strong>地址空间；<br>地址<strong>A000H~FFFFH</strong>的24KB空间为<strong>各个ROM</strong>的地址空间。<br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/1-9.png" alt="8086PC机的内存地址空间分配"></li>
+</ul>
+</li>
+<li>最终运行程序的是CPU，我们用汇编编程的时候，必须要从CPU角度考虑问题：<br><br>对CPU来讲，系统中的所有存储器中的存储单元都处于一个统一的逻辑存储器中，它的容量受CPU寻址能力的限制。这个逻辑存储器即是我们所说的内存地址空间。</li>
+</ul>
+<h3 id="gt-小结"><a href="#gt-小结" class="headerlink" title="&gt; 小结"></a>&gt; 小结</h3><ul>
+<li>汇编指令是机器指令的助记符，同机器指令一一对应。</li>
+<li>每一种CPU都有自己的汇编指令集。</li>
+<li>CPU可以直接使用的信息在存储器中存放。</li>
+<li>在存储器中指令和数据没有任何区别，都是二进制信息。</li>
+<li>存储单元从零开始顺序编号。</li>
+<li>一个存储单元可以存储 8 个 bit （用作单位写成“b”），即 8 位二进制数。<br>$$<br>1B = 8b //<br>1KB = 1024B //<br>1MB = 1024KB //<br>1GB = 1024MB //<br>$$</li>
+<li>每一个CPU芯片都有许多管脚，这些管脚和总线相连。也可以说，这些管脚引出总线。一个CPU可以引出三种总线的宽度标志了这个CPU的不同方面的性能：<ul>
+<li>地址总线的宽度决定了CPU的寻址能力；</li>
+<li>数据总线的宽度决定了CPU与其它器件进行数据传送时的一次数据传送量；</li>
+<li>控制总线宽度决定了CPU对系统中其它器件的控制能力。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-2-寄存器"><a href="#Chapter-2-寄存器" class="headerlink" title="Chapter 2 - 寄存器"></a>Chapter 2 - 寄存器</h2><h3 id="gt-通用寄存器"><a href="#gt-通用寄存器" class="headerlink" title="&gt; 通用寄存器"></a>&gt; 通用寄存器</h3><blockquote>
+<p>CPU由运算器、控制器、寄存器等器件组成，这些器件靠内部总线相连。</p>
+<ul>
+<li>内部总线实现CPU内部各个器件之间的联系。</li>
+<li>外部总线实现CPU和主板上其它器件的联系。</li>
+</ul>
+</blockquote>
+<ul>
+<li>8086CPU有14个寄存器，它们的名称为：AX、BX、CX、DX、SI、DI、SP、BP、IP、CS、SS、DS、ES、PSW</li>
+<li>accumulator, base, count, data, source index, destination index, stack pointer, base pointer, instruction pointer<br>, code segment, stack segment, data segment, extra segment, program state word</li>
+<li>8086CPU所有的寄存器都是16位的，可以存放两个字节。</li>
+<li>AX、BX、CX、DX 通常用来存放一般性数据被称为通用寄存器。<br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/2-1.png" alt="16位存储器"></li>
+<li>8086上一代CPU中的寄存器都是8位的，为保证兼容性，这四个寄存器都可以分为两个独立的8位寄存器使用：<ul>
+<li>AX可以分为AH和AL</li>
+<li>BX可以分为BH和BL</li>
+<li>CX可以分为CH和CL</li>
+<li>DX可以分为DH和DL</li>
+<li>一个字（word）可以存在一个16位寄存器中，这个字的高位字节和低位字节自然就存在这个寄存器的高8位寄存器和低8位寄存器中。<br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/2-2.png" alt="AX与AH+AL"></li>
+</ul>
+</li>
+<li>关于数制的讨论：<ul>
+<li>一个内存单元可以存放 8位数据，CPU中的寄存器又可存放 n 个 8位数据。</li>
+<li>计算机中的数据大多是由1~N个8位数据构成的。</li>
+<li>用十六进制来表示数据可以直观的看出这个数据是由哪些8位数据构成的。</li>
+</ul>
+</li>
+<li>寄存器中数据的溢出<br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/2-3.png" alt="AL溢出的情况"></li>
+<li>物理地址：CPU访问内存单元时要给出内存单元的地址。<ul>
+<li>所有的内存单元构成的存储空间是一个一维的线性空间。每一个内存单元在这个空间中都有唯一的地址，这个唯一的地址称为<strong>物理地址</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="gt-16位CPU"><a href="#gt-16位CPU" class="headerlink" title="&gt; 16位CPU"></a>&gt; 16位CPU</h3><ul>
+<li>CPU具有以下几个方面特征：<ul>
+<li>1.运算器一次最多可以处理16位的数据。</li>
+<li>2.寄存器的最大宽度为16位。</li>
+<li>3.寄存器和运算器之间的通路是16位的。</li>
+</ul>
+</li>
+<li>8086CPU：<ul>
+<li>8086有20位地址总线：<ul>
+<li>可传送20位地址，寻址能力为1M。</li>
+</ul>
+</li>
+<li>8086内部为16位结构：<ul>
+<li>它只能传送16位的地址，表现出的寻址能力却只有64K。</li>
+</ul>
+</li>
+<li><strong>8086CPU采用一种在内部用两个16位地址合成的方法来形成一个20位的物理地址。</strong><br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/2-4.png" alt="8086CPU相关部件逻辑结构"></li>
+</ul>
+</li>
+<li>地址加法器：物理地址=段地址×16+偏移地址<br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/2-5.png" alt="地址加法器工作过程"></li>
+<li><strong>内存并没有分段，段的划分来自于CPU。</strong>由于8086CPU用“（段地址×16）+偏移地址=物理地址”的方式给出内存单元的物理地址，使得我们可以用分段的方式来管理内存。<br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/2-6.png" alt="段的概念"></li>
+<li>关于段需要注意的两点：<ul>
+<li>段地址×16必然是16的倍数，所以一个段的起始地址也一定是16的倍数</li>
+<li>偏移地址为16位，16 位地址的寻址能力为 64K，所以一个段的长度最大为64K</li>
+</ul>
+</li>
+<li>小结：<ul>
+<li>CPU访问内存单元时，必须向内存提供内存单元的物理地址。</li>
+<li>8086CPU在内部用段地址和偏移地址移位相加的方法形成最终的物理地址。</li>
+<li>偏移地址16位，变化范围为0~FFFFH，仅用偏移地址来寻址最多可寻64K个内存单元。</li>
+<li>（a）数据存在内存2000:1F60单元中 = （b）数据存在内存的2000H段中的1F60H单元中。</li>
+</ul>
+</li>
+</ul>
+<h3 id="gt-段寄存器"><a href="#gt-段寄存器" class="headerlink" title="&gt; 段寄存器"></a>&gt; 段寄存器</h3><blockquote>
+<p>8086CPU有4个段寄存器：CS、DS、SS、ES（当要访问内存时，由这4个段寄存器提供内存单元的段地址）</p>
+</blockquote>
+<ul>
+<li>工作过程的简要描述：<ul>
+<li>1.从CS:IP指向内存单元读取指令，读取的指令进入指令缓冲器</li>
+<li>2.IP = IP + 所读取指令的长度，从而指向下一条指令</li>
+<li>3.执行指令，转到步骤 （1），重复这个过程</li>
+</ul>
+</li>
+<li>内存中指令和数据没有任何区别，都是二进制信息，CPU在工作的时候把有的信息看作指令，有的信息看作数据。</li>
+<li>CPU将CS:IP指向的内存单元中的内容看作指令。<ul>
+<li>在8086CPU加电启动或复位后（即CPU刚开始工作时）CS和IP被设置为CS=FFFFH，IP=0000H，即在8086PC机刚启动时，CPU从内存FFFF0H（BIOS的地址）单元中读取指令执行，FFFF0H单元中的指令是8086PC机开机后执行的第一条指令。</li>
+<li>如果说，内存中的一段信息曾被CPU执行过的话，那么，它所在的内存单元必然被CS:IP指向过。</li>
+</ul>
+</li>
+<li>mov指令<strong>不能用于设置CS、IP的值</strong>，8086CPU没有提供这样的功能,但8086CPU为CS、IP提供了另外的指令来改变它们的值，用指令中给出的段地址修改CS，偏移地址修改IP：<br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/2-8.png" alt="同时修改CS、IP的内容"><br><img src="/2021/03/06/[D2]%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/2-7.png" alt="仅修改IP的内容"></li>
+<li>小结：<ul>
+<li>1、段地址在8086CPU的寄存器中存放。当8086CPU要访问内存时，由段寄存器提供内存单元的段地址。8086CPU有4个段寄存器，其中CS用来存放指令的段地址。</li>
+<li>2.CS存放指令的段地址，IP存放指令的偏移地址。8086机中，任意时刻，CPU将CS:IP指向的内容当作指令执行。</li>
+<li>3.8086CPU提供转移指令修改CS、IP的内容。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-3-内存访问"><a href="#Chapter-3-内存访问" class="headerlink" title="Chapter 3 - 内存访问"></a>Chapter 3 - 内存访问</h2><h2 id="Chapter-4-基础知识"><a href="#Chapter-4-基础知识" class="headerlink" title="Chapter 4 - 基础知识"></a>Chapter 4 - 基础知识</h2><h2 id="Chapter-5-基础知识"><a href="#Chapter-5-基础知识" class="headerlink" title="Chapter 5 - 基础知识"></a>Chapter 5 - 基础知识</h2><h2 id="Chapter-6-基础知识"><a href="#Chapter-6-基础知识" class="headerlink" title="Chapter 6 - 基础知识"></a>Chapter 6 - 基础知识</h2><h2 id="Chapter-7-基础知识"><a href="#Chapter-7-基础知识" class="headerlink" title="Chapter 7 - 基础知识"></a>Chapter 7 - 基础知识</h2>]]></content>
+      
+        <categories>
+            
+            <category> 网络空间安全 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 大学课程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[人工智能之机器学习]]></title>
-      <url>/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%5BMA%5D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
+      <url>/2021/03/06/%5BMA%5D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
       <content type="html"><![CDATA[<h2 id="1-绪论：初始机器学习"><a href="#1-绪论：初始机器学习" class="headerlink" title="[1] 绪论：初始机器学习"></a>[1] 绪论：初始机器学习</h2><blockquote>
 <p>机器学习专门研究计算机怎样模拟或实现人类的学习行为，以获取新的知识或技能，重新组织已有的知识结构使之不断改善自身的性能。</p>
 </blockquote>
@@ -235,51 +484,51 @@
 <li>常用的表达：<ul>
 <li>n表示特征的数量</li>
 <li>x^(i)表示第i个训实例，是特征矩阵的第i行，是一个向量。</li>
-<li>xj^(i)代表特征矩阵中第i行的第j个特征，也就是第i个训练实例的第j个特征。<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-1.png"></li>
-<li>因此我们需要对假设函数进行修改，将所有特征量相加：<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-2.png"></li>
+<li>xj^(i)代表特征矩阵中第i行的第j个特征，也就是第i个训练实例的第j个特征。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-1.png"></li>
+<li>因此我们需要对假设函数进行修改，将所有特征量相加：<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-2.png"></li>
 <li>若将所有参数写成向量，对于x需要从x0=1开始写。</li>
-<li>最终公式转化为：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-3.png"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-4.png"></li>
+<li>最终公式转化为：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-3.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-4.png"></li>
 </ul>
 </li>
 </ul>
 <h3 id="gt-多元梯度下降法"><a href="#gt-多元梯度下降法" class="headerlink" title="&gt; 多元梯度下降法"></a>&gt; 多元梯度下降法</h3><h5 id="多变量梯度下降（Gradient-descent-for-multiple-variables）"><a href="#多变量梯度下降（Gradient-descent-for-multiple-variables）" class="headerlink" title="多变量梯度下降（Gradient descent for multiple variables）:"></a>多变量梯度下降（Gradient descent for multiple variables）:</h5><ul>
-<li>不断更新每个θj的参数，通过θj减去α乘以导数项。<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-5.png"></li>
-<li>新的算法，更新规则应用于多元线性回归：<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-6.png"></li>
+<li>不断更新每个θj的参数，通过θj减去α乘以导数项。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-5.png"></li>
+<li>新的算法，更新规则应用于多元线性回归：<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-6.png"></li>
 </ul>
 <h5 id="特征缩放-feature-scaling"><a href="#特征缩放-feature-scaling" class="headerlink" title="特征缩放 (feature scaling)"></a>特征缩放 (feature scaling)</h5><ul>
-<li>如果有一个有多个特征的机器学习问题。若能确保这些特征都处在一个相近的范围（确保不同特征的取值在相近的范围内），这样梯度下降法就能更快地收敛。具体来说，假如你有一个具有两个特征的问题，其中x1 是房屋面积大小，它的取值在0到2000之间，x2 是卧室的数量，这个值取值范围在1到5之间。如果画出代价函数J(θ) 的轮廓图：<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-7.png"></li>
+<li>如果有一个有多个特征的机器学习问题。若能确保这些特征都处在一个相近的范围（确保不同特征的取值在相近的范围内），这样梯度下降法就能更快地收敛。具体来说，假如你有一个具有两个特征的问题，其中x1 是房屋面积大小，它的取值在0到2000之间，x2 是卧室的数量，这个值取值范围在1到5之间。如果画出代价函数J(θ) 的轮廓图：<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-7.png"></li>
 <li>那么这个轮廓看起来，应该是如上图左边的样子。J(θ) 是一个关于参数 θ0 、θ1 和 θ2 的函数，我在此处忽略 θ0 （暂时不考虑 θ0）。并假想一个函数的参数，只有 θ1 和 θ2，但如果变量 x1 的取值范围远远大于 x2 的取范围的话，那么最终画出来的代价函数 J(θ) 的轮廓图就会呈现出这样一种非常偏斜并且椭圆的形状。2000和5的比例会让这个椭圆更加瘦长。所以，这是一个又瘦又高的椭圆形轮廓图，正是这些非常高大细长的椭圆形构成了代价函数 (θ)，如果你用这个代价函数来进行梯度下降的话，你要得到梯度值最终可能需要花很长一段时间才能得到。并且可能会来回波动，然后会经过很长时间，最终才收敛到全局最小值。事实上，你可以想像如果这些轮廓再被放大一些的话如上图最左边的那样（如果你画的再夸张一些，把它画的更细更长），那么可能情况会更糟糕。<strong>梯度下降的过程可能更加缓慢，需要花更长的时间，反复来回振荡，最终才找到一条正确通往全局最小值的路</strong>。</li>
 <li>在这样的情况下一种有效的方法是进行特征缩放(feature scaling)。(如右图)举例来说，<strong>把特征 x 定义为房子的面积大小除以2000，并且把 x2 定义为卧室的数量除以5</strong>。如此一来，通过特征缩放，通过“消耗掉”这些值的范围（在这个例子中，我们最终得到的两个特征 x1 和 x2 都在 0 和 1 之间），你得到的梯度下降算法就会更快地收敛。表示代价函数 J(θ)的轮廓图的形状偏就会没那么严重，也许看起来会更圆一些。</li>
 <li>如果你用这样的代价函数，来进行梯度下降的话，那么梯度下降算法就会找到一条更快捷的路径通向全局最小，而不是像刚才那样，沿着一条让人摸不着头脑的路径、一条复杂得多的轨迹来找到全局最小值。</li>
 <li>更一般地，我们执行特征缩放，将特征的取值约束到-1 到 +1 的范围内（注意：特征 x0 是总是等于1，已经在这个范围内）。但对其他的特征，我们可能需要通过除以不同的数来让它们处于同一范围内。-1 和 +1 这两个数字并不是太重要（但不能过大或者过小）。</li>
 </ul>
 <h5 id="均值归一化-mean-normalization"><a href="#均值归一化-mean-normalization" class="headerlink" title="均值归一化(mean normalization)"></a>均值归一化(mean normalization)</h5><ul>
-<li>有一个特征 xi，用 xi - μi 来替换它，通过这样做，让特征值具有为0的平均值（μi 指所有 xi 的平均值）。<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-8.png"></li>
+<li>有一个特征 xi，用 xi - μi 来替换它，通过这样做，让特征值具有为0的平均值（μi 指所有 xi 的平均值）。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-8.png"></li>
 <li>在这两种情况下你可以算出新的特征 x1 和 x2，这样它们的范围，可以在 -0.5 和 +0.5 之间(x2 的值实际上有可能会大于0.5但很接近)。</li>
 <li>更一般的规律是，你可以用如下的公式来替换原来的特征 x1：<br>$$<br>(x1 - μ1)/S1<br>$$<br>其中定义μ1为训练集中特征x1的平均值，s1则是该特征值的范围（标准差）。</li>
 </ul>
 <h5 id="学习率α（Learning-rate）："><a href="#学习率α（Learning-rate）：" class="headerlink" title="学习率α（Learning rate）："></a>学习率α（Learning rate）：</h5><ul>
 <li>如何调试（也就是如何确定梯度下降是正常工作的）以及如何选择学习率 α。</li>
-<li>梯度下降算法所做的事情就是为你找到一个 θ 值，并希望它能够最小化代价函数 J(θ)。我们通常可以在梯度下降算法运行时绘制出代价函数 J(θ) 的值。（注意这里的 x 轴是表示梯度下降算法的迭代步数）<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-9.png"></li>
+<li>梯度下降算法所做的事情就是为你找到一个 θ 值，并希望它能够最小化代价函数 J(θ)。我们通常可以在梯度下降算法运行时绘制出代价函数 J(θ) 的值。（注意这里的 x 轴是表示梯度下降算法的迭代步数）<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-9.png"></li>
 <li>曲线上一点的含义是这样的：假如当我运行完100步的梯度下降迭代之后，无论我得到什么 θ 值（无论如何，100步迭代之后，我将得到一个 θ 值），根据100步迭代之后得到的这个 θ 值，我们可以计算出代价函数 J(θ) 的值，而这个点的垂直高度就代表梯度下降算法经过100步迭代之后而算出的 J(θ) 值。</li>
 <li>如果梯度下降算法正常工作，那么每一步迭代之后J(θ) 都应该下降。这条曲线用处在于，它可以告知你一些信息：例如，在这里400步迭代的时候，梯度下降算法基本上已经收敛了，因为代价函数并没有继续下降，观察这条曲线可以帮助你判断梯度下降算法是否已经收敛。</li>
 <li>也许对于某一个问题，梯度下降算法只需要30步迭代就可以收敛；然而换一个问题，也许梯度下降算法就需要3000步迭代；再对于另一个机器学习问题而言，则可能需要三百万步迭代。实际上，我们很难提前判断梯度下降算法需要多少步迭代才能收敛。因此，通常我们需要画出这类曲线，画出代价函数随迭代步数增加的变化曲线。我们可以通过看这种曲线，来试着判断梯度下降算法是否已经收敛。</li>
-<li><strong>此外，也可以进行一些自动的收敛测试</strong>，也就是说用一种算法，来告诉你梯度下降算法是否已经收敛。自动收敛测试一个非常典型的例子是：如果代价函数 J(θ) 的下降小于一个很小的值 ε ，那么就认为已经收敛（比如可以选择1e-3），但是通常要选择一个合适的阈值 ε 是相当困难的。因此为了检查梯度下降算法是否收敛，我们实际上还是通过观察之前介绍的代价函数随迭代步数增加的变化曲线，而不是依靠自动收敛测试。<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-10.png"></li>
-<li>此外，这种曲线图也可以在算法没有正常工作时，提前警告你。<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-11.png"><br>具体地说，如果代价函数 J(θ) 随迭代步数的变化曲线是上图左上角的这个样子，J(θ) 实际上在不断上升，那么这就很明确的表示梯度下降算法没有正常工作。而这样的曲线图，通常意味着你应该使用较小的学习率 α。同样的 有时你可能看到上图左下角这种形状的 J(θ) 曲线，它先下降，然后上升，接着又下降，然后又上升，如此往复。而解决这种情况的方法，通常同样是选择较小 α 值。</li>
+<li><strong>此外，也可以进行一些自动的收敛测试</strong>，也就是说用一种算法，来告诉你梯度下降算法是否已经收敛。自动收敛测试一个非常典型的例子是：如果代价函数 J(θ) 的下降小于一个很小的值 ε ，那么就认为已经收敛（比如可以选择1e-3），但是通常要选择一个合适的阈值 ε 是相当困难的。因此为了检查梯度下降算法是否收敛，我们实际上还是通过观察之前介绍的代价函数随迭代步数增加的变化曲线，而不是依靠自动收敛测试。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-10.png"></li>
+<li>此外，这种曲线图也可以在算法没有正常工作时，提前警告你。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-11.png"><br>具体地说，如果代价函数 J(θ) 随迭代步数的变化曲线是上图左上角的这个样子，J(θ) 实际上在不断上升，那么这就很明确的表示梯度下降算法没有正常工作。而这样的曲线图，通常意味着你应该使用较小的学习率 α。同样的 有时你可能看到上图左下角这种形状的 J(θ) 曲线，它先下降，然后上升，接着又下降，然后又上升，如此往复。而解决这种情况的方法，通常同样是选择较小 α 值。</li>
 <li>总结一下：<strong>如果学习率 α 太小，你会遇到收敛速度慢的问题，而如果学习率 α 太大，代价函数 J(θ) 可能不会在每次迭代都下降，甚至可能不收敛，在某些情况下，如果学习率 α 过大，也可能出现收敛缓慢的问题。但更常见的情况是，你会发现代价函数 J(θ)，并不会在每次迭代之后都下降。</strong>为了调试所有这些情况，绘制J(θ)随迭代步数变化的曲线，通常可以帮助你弄清楚到底发生了什么。</li>
 <li>我们运行梯度下降算法时，通常会尝试一系列α值，如：…,0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1,…对于这些不同的 α 值，绘制 J(θ)随迭代步数变化的曲线，然后选择看上去使得 J(θ)快速下降的一个 α 值。</li>
 </ul>
-<p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-12.png"></p>
+<p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-12.png"></p>
 <h3 id="gt-特征和多项式回归"><a href="#gt-特征和多项式回归" class="headerlink" title="&gt; 特征和多项式回归"></a>&gt; 特征和多项式回归</h3><p>选择特征的方法以及如何得到不同的学习算法。当选择了合适的特征后，这些算法往往是非常有效的。多项式回归，使得能够使用线性回归的方法来拟合非常复杂的函数，甚至是非线性函数。<br>$$<br>例子：hθ(X) = θ0 +θ1 × X1+ θ2 × X2 + θ3 × X3<br>$$</p>
 <ul>
 <li>第一个特征 x1 设为房子的面积，将第二个特征 x2 设为房屋面积的平方，将第三个特征 x3 设为房子面积的立方。也可以理解为通过设置3个特征，从而将模型转化为线性回归模型。(注：如果我们采用多项式回归模型，在运行梯度下降算法前，进行特征缩放非常有必要。)</li>
 <li>需要说明的是，如果你像这样选择特征，那么特征的归一化就变得更重要了，因为这三个特征的范围有很大的不同。因此，如果使用梯度下降法，使用特征值的归一化是非常重要的，这样才能将他们的值的范围变得具有可比性。</li>
-<li>再来看一个例子，关于如何使你真正选择出要使用的特征。此前我们谈到一个像这样的二次模型并不是理想的，因为你知道也许一个二次模型能很好地拟合这个数据，但二次函数最后会下降，这是我们不希望看到的。但是，除了转而建立一个三次模型以外，你也许有其他的选择特征的方法，如下：<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-13.png"></li>
+<li>再来看一个例子，关于如何使你真正选择出要使用的特征。此前我们谈到一个像这样的二次模型并不是理想的，因为你知道也许一个二次模型能很好地拟合这个数据，但二次函数最后会下降，这是我们不希望看到的。但是，除了转而建立一个三次模型以外，你也许有其他的选择特征的方法，如下：<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-13.png"></li>
 <li>注意在使用特征时的选择性。例如，我们不使用房屋的临街宽度和纵深，而是把它们乘在一起，从而得到房子的土地面积这个特征。</li>
 </ul>
 <h3 id="gt-正规方程"><a href="#gt-正规方程" class="headerlink" title="&gt; 正规方程"></a>&gt; 正规方程</h3><ul>
 <li>对于某些线性回归问题，正规方程式是更好的解决方案。</li>
-<li>正规方程通过求解以下方程：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-14.png"><br><br>来求出使得代价函数最小的参数。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-15.png"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-16.png"></li>
+<li>正规方程通过求解以下方程：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-14.png"><br><br>来求出使得代价函数最小的参数。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-15.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-16.png"></li>
 <li>通过删除多余特征或影响较小的特征或使用正则化方法，解决矩阵X^T*X不可逆的情况。</li>
 </ul>
 <h2 id="4-线性代数回顾"><a href="#4-线性代数回顾" class="headerlink" title="[4] 线性代数回顾"></a>[4] 线性代数回顾</h2><blockquote>
@@ -316,51 +565,51 @@
 <h2 id="5-Logistic回归"><a href="#5-Logistic回归" class="headerlink" title="[5] Logistic回归"></a>[5] Logistic回归</h2><blockquote>
 <p>预测的变量 y 是一个离散的值情况下的分类问题。</p>
 </blockquote>
-<h3 id="gt-分类"><a href="#gt-分类" class="headerlink" title="&gt; 分类"></a>&gt; 分类</h3><p>现在有这样一个分类任务，需要根据肿瘤大小来判断肿瘤的良性与否。训练集如上图所示，横轴代表肿瘤大小，纵轴表示肿瘤的良性与否，注意，纵轴只有两个取值，1（代表恶性肿瘤）和0（代表良性肿瘤）。通过之前的博文，我们已经知道对于以上数据集使用线性回归来处理，实际上就是用一条直线去拟合这些数据。因此，你得到的 Hypothesis 可能如下：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-1.png"></p>
+<h3 id="gt-分类"><a href="#gt-分类" class="headerlink" title="&gt; 分类"></a>&gt; 分类</h3><p>现在有这样一个分类任务，需要根据肿瘤大小来判断肿瘤的良性与否。训练集如上图所示，横轴代表肿瘤大小，纵轴表示肿瘤的良性与否，注意，纵轴只有两个取值，1（代表恶性肿瘤）和0（代表良性肿瘤）。通过之前的博文，我们已经知道对于以上数据集使用线性回归来处理，实际上就是用一条直线去拟合这些数据。因此，你得到的 Hypothesis 可能如下：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-1.png"></p>
 <ul>
-<li>此时如果你想做出预测，一种可行的方式是如下：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-2.png"></li>
-<li>现在，我们对以上问题稍作一些改动。将横轴向右扩展，并且增加一个训练样本，如下：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-3.png"><br><br>此时，我们使用线性回归，会得到一条新的直线：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-4.png"></li>
+<li>此时如果你想做出预测，一种可行的方式是如下：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-2.png"></li>
+<li>现在，我们对以上问题稍作一些改动。将横轴向右扩展，并且增加一个训练样本，如下：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-3.png"><br><br>此时，我们使用线性回归，会得到一条新的直线：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-4.png"></li>
 <li><strong>此时，我们再用0.5作为阈值来预测肿瘤的良性与否，就不合适了。</strong></li>
 </ul>
 <h3 id="gt-假设陈述"><a href="#gt-假设陈述" class="headerlink" title="&gt; 假设陈述"></a>&gt; 假设陈述</h3><ul>
 <li>当有个一个分类问题的时候，我们要使用哪个方程？<br></li>
-<li>定义函数g如下：g(z) = 1/1+e^(-z)   　　　(sigmoid函数或称为logistic函数)<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-5.png"></li>
-<li>对于假设函数的输出值意义的解释：假如将一个病人肿瘤大小输出得到0.7，则可以认为该病人有70%几率患有恶性肿瘤。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-6.png"></li>
+<li>定义函数g如下：g(z) = 1/1+e^(-z)   　　　(sigmoid函数或称为logistic函数)<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-5.png"></li>
+<li>对于假设函数的输出值意义的解释：假如将一个病人肿瘤大小输出得到0.7，则可以认为该病人有70%几率患有恶性肿瘤。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-6.png"></li>
 </ul>
-<h3 id="gt-决策界限"><a href="#gt-决策界限" class="headerlink" title="&gt; 决策界限"></a>&gt; 决策界限</h3><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-7.png"></p>
+<h3 id="gt-决策界限"><a href="#gt-决策界限" class="headerlink" title="&gt; 决策界限"></a>&gt; 决策界限</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-7.png"></p>
 <ul>
 <li>即预测y=0只需要θ^Tx&gt;=0</li>
-<li>有如下一个例子：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-8.png"><br><br>我们可以画出一个界限X1+X2=3，即为决策边界。</li>
-<li>又有如下一个例子：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-9.png"><br><br>我们可以画出一个界限X1^2+X2^2=1，即为决策边界。</li>
+<li>有如下一个例子：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-8.png"><br><br>我们可以画出一个界限X1+X2=3，即为决策边界。</li>
+<li>又有如下一个例子：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-9.png"><br><br>我们可以画出一个界限X1^2+X2^2=1，即为决策边界。</li>
 </ul>
 <h3 id="gt-代价函数-1"><a href="#gt-代价函数-1" class="headerlink" title="&gt; 代价函数"></a>&gt; 代价函数</h3><ul>
-<li>我们需要定义<strong>优化目标</strong>或者<strong>代价函数</strong>来拟合参数θ，这便是监督学习问题中的逻辑回归模型的拟合问题。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-10.png"></li>
+<li>我们需要定义<strong>优化目标</strong>或者<strong>代价函数</strong>来拟合参数θ，这便是监督学习问题中的逻辑回归模型的拟合问题。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-10.png"></li>
 <li>需要解决的问题：我们有一个训练集，里面有m个训练样本，同之前一样，我们的每个样本使用n+1维的特征向量表示（x0 = 1）。并且由于是分类问题，我们训练集中的所有y，取值不是0就是1。假设函数的参数即为θ。那么，对于这个给定的训练集，我们如何拟合参数θ（或者说是选择参数θ）？</li>
-<li>之前，我们使用线性回归模型来拟合假说参数θ时，使用了如下的代价函数，我们稍作改变，将原先的1/2m中的原先的1/2放到了求和符号里面。<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-11.png"></li>
-<li>现在我们使用另一种方式，来书写代价函数：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-12.png"></li>
+<li>之前，我们使用线性回归模型来拟合假说参数θ时，使用了如下的代价函数，我们稍作改变，将原先的1/2m中的原先的1/2放到了求和符号里面。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-11.png"></li>
+<li>现在我们使用另一种方式，来书写代价函数：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-12.png"></li>
 <li>在线性回归中，代价项（Cost函数）会被定义为：1/2乘以预测值h和实际值观测的结果y的差的平方。这个代价值可以很好地用在线性回归里，但是对于逻辑回归却是不合适的。</li>
-<li>如果我们可以最小化代价函数J(θ)中的代价项（Cost函数），那么我们的确可以使用该代价项。但实际上，如果我们使用该代价项，那么代价函数J(θ)会变成关于参数θ的非凸函数。因为<strong>对于逻辑回归来说，这里的h函数是非线性的</strong>，是一个很复杂的非线性函数，因此如果用h函数来构造我们在线性回归中所使用的代价项（Cost函数），接着再用该代价项来构造代价函数J(θ)。那么J(θ)可能有很多局部最优值：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-13.png"></li>
+<li>如果我们可以最小化代价函数J(θ)中的代价项（Cost函数），那么我们的确可以使用该代价项。但实际上，如果我们使用该代价项，那么代价函数J(θ)会变成关于参数θ的非凸函数。因为<strong>对于逻辑回归来说，这里的h函数是非线性的</strong>，是一个很复杂的非线性函数，因此如果用h函数来构造我们在线性回归中所使用的代价项（Cost函数），接着再用该代价项来构造代价函数J(θ)。那么J(θ)可能有很多局部最优值：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-13.png"></li>
 <li>实际上，这就是一个非凸函数。不难发现，如果你把梯度下降法用在一个这样的函数上的话，我们并不能保证它会收敛到<strong>全局最小值</strong>。</li>
 <li>显然，我们希望我们的代价函数J(θ)是一个凸函数，也就是一个单弓形函数。因此我们对Cost函数进行修改：<br></li>
-<li>y=1与y=0的两种情况：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-14.png"></li>
-<li>如果预测值趋于0，而实际y=1，那么代价便趋于无穷以惩罚算法。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-15.png"></li>
-<li>如果预测值趋于1，而实际y=0，那么代价便趋于无穷以惩罚算法。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-16.png"></li>
-<li>简化代价函数的方法：<br>$$<br>Cost(hθ(x),y) = -ylog(hθ(x))-(1-y)log(1-hθ(x))<br>$$<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-17.png"></li>
-<li>写为如下形式：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-18.png"></li>
-<li>最小化代价函数：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-19.png"></li>
+<li>y=1与y=0的两种情况：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-14.png"></li>
+<li>如果预测值趋于0，而实际y=1，那么代价便趋于无穷以惩罚算法。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-15.png"></li>
+<li>如果预测值趋于1，而实际y=0，那么代价便趋于无穷以惩罚算法。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-16.png"></li>
+<li>简化代价函数的方法：<br>$$<br>Cost(hθ(x),y) = -ylog(hθ(x))-(1-y)log(1-hθ(x))<br>$$<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-17.png"></li>
+<li>写为如下形式：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-18.png"></li>
+<li>最小化代价函数：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-19.png"></li>
 </ul>
 <h3 id="gt-高级优化"><a href="#gt-高级优化" class="headerlink" title="&gt; 高级优化"></a>&gt; 高级优化</h3><ul>
 <li>有更多更高级更复杂的优化算法（BFGS、L-BFGS）</li>
 </ul>
 <h3 id="gt-多元分类：一对多"><a href="#gt-多元分类：一对多" class="headerlink" title="&gt; 多元分类：一对多"></a>&gt; 多元分类：一对多</h3><ul>
 <li>多类别分类问题：如天气有晴天(y=0)，雨天(y=1)，阴天(y=2)，下雪天(y=3)</li>
-<li>一次选择一个类别，将其他设置为负类别,得到多个分类器。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-20.png"></li>
+<li>一次选择一个类别，将其他设置为负类别,得到多个分类器。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-20.png"></li>
 <li>在多个分类器输入x，最后选择h最大的类别。</li>
 </ul>
 <h2 id="6-正则化"><a href="#6-正则化" class="headerlink" title="[6] 正则化"></a>[6] 正则化</h2><blockquote>
 <p>解决过拟合问题。</p>
 </blockquote>
-<h3 id="gt-欠拟合与过拟合"><a href="#gt-欠拟合与过拟合" class="headerlink" title="&gt; 欠拟合与过拟合"></a>&gt; 欠拟合与过拟合</h3><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-1.png" alt="线性回归"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-2.png" alt="逻辑回归"></p>
+<h3 id="gt-欠拟合与过拟合"><a href="#gt-欠拟合与过拟合" class="headerlink" title="&gt; 欠拟合与过拟合"></a>&gt; 欠拟合与过拟合</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-1.png" alt="线性回归"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-2.png" alt="逻辑回归"></p>
 <ul>
 <li>欠拟合：或者叫高偏差——如果用线性回归这个算法去拟合训练数据，那么该算法实际上会产生一个非常大的偏差或者说存在一个很强的偏见。</li>
 <li>过拟合：或者叫高方差——拟合一个高阶多项式，这个函数能很好的拟合训练集（能拟合几乎所有的训练数据），但这也就面临函数可能太过庞大的问题，变量太多。同时如果我们没有足够的数据集（训练集）去约束这个变量过多的模型，那么就会发生过拟合。</li>
@@ -376,7 +625,7 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="gt-代价函数-2"><a href="#gt-代价函数-2" class="headerlink" title="&gt; 代价函数"></a>&gt; 代价函数</h3><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-3.png" alt="代价前"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-4.png" alt="代价后"></p>
+<h3 id="gt-代价函数-2"><a href="#gt-代价函数-2" class="headerlink" title="&gt; 代价函数"></a>&gt; 代价函数</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-3.png" alt="代价前"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-4.png" alt="代价后"></p>
 <ul>
 <li>思想：这些参数的值越小，通常对应于越光滑的函数，也就是更加简单的函数。因此就不易发生过拟合的问题。</li>
 <li>注意：<ul>
@@ -393,13 +642,13 @@
 </li>
 </ul>
 <h3 id="gt-应用于线性回归"><a href="#gt-应用于线性回归" class="headerlink" title="&gt; 应用于线性回归"></a>&gt; 应用于线性回归</h3><ul>
-<li>基于梯度下降算法：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-5.png" alt="梯度下降"></li>
-<li>基于正规方程算法：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-6.png" alt="正规方程"></li>
+<li>基于梯度下降算法：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-5.png" alt="梯度下降"></li>
+<li>基于正规方程算法：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-6.png" alt="正规方程"></li>
 </ul>
 <h3 id="gt-应用于逻辑回归"><a href="#gt-应用于逻辑回归" class="headerlink" title="&gt; 应用于逻辑回归"></a>&gt; 应用于逻辑回归</h3><ul>
-<li>代价函数：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-7.png"></li>
-<li>梯度下降：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-8.png" alt="梯度下降"></li>
-<li>在高级优化算法中。实际上是自己定义costFunction函数：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-9.png" alt="梯度下降"><ul>
+<li>代价函数：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-7.png"></li>
+<li>梯度下降：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-8.png" alt="梯度下降"></li>
+<li>在高级优化算法中。实际上是自己定义costFunction函数：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-9.png" alt="梯度下降"><ul>
 <li>我们自定义的 costFunction 的输入为向量 θ ，返回值有两项，分别是代价函数 jVal 以及 梯度gradient。<br>我们需要的就是这个自定义函数costFunction，针对Octave而言，我们可以将这个函数作为参数传入到 fminunc 系统函数中（fminunc 用来求函数的最小值，将@costFunction作为参数代进去，注意 @costFunction 类似于C语言中的函数指针），fminunc返回的是函数 costFunction 在无约束条件下的最小值，即我们提供的代价函数 jVal 的最小值，当然也会返回向量 θ 的解。</li>
 </ul>
 </li>
@@ -407,68 +656,75 @@
 <h2 id="7-神经网络学习"><a href="#7-神经网络学习" class="headerlink" title="[7] 神经网络学习"></a>[7] 神经网络学习</h2><blockquote>
 <p>神经网络，它在解决复杂的非线性分类问题上，被证明是是一种好得多的算法，即使你的输入特征空间或输入的特征维数 n 很大，也能轻松搞定。</p>
 </blockquote>
-<h3 id="gt-非线性假设"><a href="#gt-非线性假设" class="headerlink" title="&gt; 非线性假设"></a>&gt; 非线性假设</h3><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-1.png"></p>
+<h3 id="gt-非线性假设"><a href="#gt-非线性假设" class="headerlink" title="&gt; 非线性假设"></a>&gt; 非线性假设</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-1.png"></p>
 <ul>
 <li>对于许多复杂的机器学习问题而言，涉及的特征量往往多于两项。</li>
 <li>随着特征个数n的增加，二次项的个数大约以n^2的量级增长。</li>
-<li>项数过多，会导致最后的结果很有可能是过拟合的。<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-2.png"></li>
+<li>项数过多，会导致最后的结果很有可能是过拟合的。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-2.png"></li>
 <li>对于计算机视觉来说问题就变成了根据这个像素点亮度矩阵来告诉我们这些数值是否代表某个物品。</li>
 <li>出一个带标签的样本集，其中一些样本是各类汽车，而另一部分样本是其他任何东西。将这个样本集输入给学习算法以训练出一个分类器，当训练完毕后，我们输入一幅新的图片，让分类器判定“这是什么东西？”</li>
 <li>以50*50的图片为例，如果存储的是每个像素点的灰度值，那么每个元素的值应该在 0 到 255 之间。因此，这个问题中 n=2500。如果我们用的是RGB彩色图像，每个像素点包含红、绿、蓝三个子像素，那么 n=7500。因此，如果我们非要通过包含所有的二次项来解决这个非线性问题，那么仅仅二次项 xi * xj 总共大约有300万个（2500^2/2 ）</li>
 </ul>
 <h3 id="gt-神经元与大脑"><a href="#gt-神经元与大脑" class="headerlink" title="&gt; 神经元与大脑"></a>&gt; 神经元与大脑</h3><ul>
-<li>模仿大脑学习数据的算法。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-3.png"></li>
+<li>模仿大脑学习数据的算法。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-3.png"></li>
 <li>黄色的圆圈就代表了神经元，X为输入向量，θ 代表神经元的权重（实际上就是我们之前所说的模型参数），hθ (X)代表激励函数。<ul>
 <li>在神经网络术语中，激励函数只是对类似非线性函数g(z)的另一个术语称呼。</li>
 </ul>
 </li>
 <li><strong>实际上，你可以这样理解，神经元就是权重θ。</strong></li>
 <li>计算XT*θ会有一个输出，这个输出再送入激励函数中，便得到了神经元的真实输出。</li>
-<li>通常绘制输入节点 x1、x2、x3等等，但有时也可以增加一个额外的节点 x0 ，这个 x0 节点有时也被称作<strong>偏置单位或偏置神经元</strong>。<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-4.png"></li>
+<li>通常绘制输入节点 x1、x2、x3等等，但有时也可以增加一个额外的节点 x0 ，这个 x0 节点有时也被称作<strong>偏置单位或偏置神经元</strong>。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-4.png"></li>
 <li>神经网络就是不同的神经元组合在一起。第一层为输入层，最后一层为输出层，而中间的所有层均为隐藏层。</li>
 <li>我们可以在这里添加一个a0(2)，这和 x0 一样，代表一个额外的偏度单元，它的值永远是1</li>
-<li><strong>a1(2) 、 a2(2) 和 a3(2) 中计算的是g(XTθ)的值，而a0(2)中存放的就是偏置1。</strong><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-5.png"></li>
-<li>如果一个网络在第 j 层有 sj 个单元，在 j+1 层有 sj +1 个单元，那么矩阵 θ(j) 即控制第 j 层到第 j+1 层的映射。<br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-6.png"></li>
-<li><strong>计算的过程称为前向传播。</strong><br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-7.png"></li>
-<li><strong>实际上就是逻辑回归，但输入逻辑回归的特征是通过隐藏层计算的这些数值。</strong><br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-8.png"></li>
+<li><strong>a1(2) 、 a2(2) 和 a3(2) 中计算的是g(XTθ)的值，而a0(2)中存放的就是偏置1。</strong><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-5.png"></li>
+<li>如果一个网络在第 j 层有 sj 个单元，在 j+1 层有 sj +1 个单元，那么矩阵 θ(j) 即控制第 j 层到第 j+1 层的映射。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-6.png"></li>
+<li><strong>计算的过程称为前向传播。</strong><br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-7.png"></li>
+<li><strong>实际上就是逻辑回归，但输入逻辑回归的特征是通过隐藏层计算的这些数值。</strong><br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-8.png"></li>
 <li>神经网络的<strong>架构</strong></li>
 </ul>
 <h3 id="gt-实例"><a href="#gt-实例" class="headerlink" title="&gt; 实例"></a>&gt; 实例</h3><ul>
-<li>可以运用神经网络，解决“与”、“或”、“同或”的分类问题。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-9.png"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-10.png"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-11.png"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-12.png"></li>
+<li>可以运用神经网络，解决“与”、“或”、“同或”的分类问题。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-9.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-10.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-11.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-12.png"></li>
 </ul>
-<h3 id="gt-多元分类"><a href="#gt-多元分类" class="headerlink" title="&gt; 多元分类"></a>&gt; 多元分类</h3><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-14.png"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-13.png"></p>
+<h3 id="gt-多元分类"><a href="#gt-多元分类" class="headerlink" title="&gt; 多元分类"></a>&gt; 多元分类</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-14.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-13.png"></p>
 <h2 id="8-神经网络参数的反向传播算法"><a href="#8-神经网络参数的反向传播算法" class="headerlink" title="[8] 神经网络参数的反向传播算法"></a>[8] 神经网络参数的反向传播算法</h2><blockquote>
 <p>神经网络，它在解决复杂的非线性分类问题上，被证明是是一种好得多的算法，即使你的输入特征空间或输入的特征维数 n 很大，也能轻松搞定。</p>
 </blockquote>
-<h3 id="gt-代价函数-3"><a href="#gt-代价函数-3" class="headerlink" title="&gt; 代价函数"></a>&gt; 代价函数</h3><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-1.png"></p>
+<h3 id="gt-代价函数-3"><a href="#gt-代价函数-3" class="headerlink" title="&gt; 代价函数"></a>&gt; 代价函数</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-1.png"></p>
 <ul>
-<li>可以把K当作<strong>输出层的单元个数</strong>。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-2.png"></li>
+<li>可以把K当作<strong>输出层的单元个数</strong>。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-2.png"></li>
 <li>神经网络的代价函数，实际上是<strong>逻辑回归中的代价函数的一般形式</strong>，变成了k个输出单元之和。</li>
-<li>tensorflow 实现最小化代价函数。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loss &#x3D; tf.reduce_mean(tf.square(y-prediction))</span><br><span class="line">train &#x3D; tf.train.GradientDescentOptimizer(0.2).minimize(loss)</span><br></pre></td></tr></table></figure></li>
+<li>tensorflow 实现最小化代价函数。<pre><code>loss = tf.reduce_mean(tf.square(y-prediction))
+train = tf.train.GradientDescentOptimizer(0.2).minimize(loss)
+</code></pre>
+</li>
 </ul>
-<h3 id="gt-反向传播算法"><a href="#gt-反向传播算法" class="headerlink" title="&gt; 反向传播算法"></a>&gt; 反向传播算法</h3><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-3.png"></p>
+<h3 id="gt-反向传播算法"><a href="#gt-反向传播算法" class="headerlink" title="&gt; 反向传播算法"></a>&gt; 反向传播算法</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-3.png"></p>
 <ul>
-<li>前向传播过程的<strong>向量化</strong>。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-4.png"></li>
+<li>前向传播过程的<strong>向量化</strong>。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-4.png"></li>
 <li>反向传播：相对与前向传播，从输出层开始计算δ，然后返回到上一层计算上一层的δ，即是将输出层的误差传到了前面几层。</li>
 <li>最终我们可以<strong>粗略的认为</strong>偏导项等于右侧项。</li>
-<li>全部过程分析：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-5.png"></li>
+<li>全部过程分析：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-5.png"></li>
 </ul>
-<h3 id="gt-反向传播的理解"><a href="#gt-反向传播的理解" class="headerlink" title="&gt; 反向传播的理解"></a>&gt; 反向传播的理解</h3><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-7.png"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-6.png"></p>
+<h3 id="gt-反向传播的理解"><a href="#gt-反向传播的理解" class="headerlink" title="&gt; 反向传播的理解"></a>&gt; 反向传播的理解</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-7.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-6.png"></p>
 <h3 id="gt-梯度检测"><a href="#gt-梯度检测" class="headerlink" title="&gt; 梯度检测"></a>&gt; 梯度检测</h3><ul>
-<li>当θ是实数：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-8.png"></li>
-<li>当θ是向量：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-9.png"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-10.png"></li>
-<li>总结：<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-11.png"></li>
+<li>当θ是实数：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-8.png"></li>
+<li>当θ是向量：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-9.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-10.png"></li>
+<li>总结：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-11.png"></li>
 </ul>
-<h3 id="gt-随机初始化"><a href="#gt-随机初始化" class="headerlink" title="&gt; 随机初始化"></a>&gt; 随机初始化</h3><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-12.png"></p>
+<h3 id="gt-随机初始化"><a href="#gt-随机初始化" class="headerlink" title="&gt; 随机初始化"></a>&gt; 随机初始化</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-12.png"></p>
 <ul>
-<li>如果初始值同样为0，意味着整个过程中不同神经元的值都是相等的，多个隐藏单元都在计算相同的特征，高度冗余，最终得到一个特征。<br><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-13.png"></li>
-<li>tensorflow 中的随机初始化：按照正态分布初始化权重，mean是正态分布的平均值，stddev是正态分布的标准差（standard deviation），seed是作为分布的random seed。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def weight_variable(shape):</span><br><span class="line">    initial &#x3D; tf.truncated_normal(shape,stddev&#x3D;0.1) ##正态分布</span><br><span class="line">    return tf.Variable(initial)</span><br></pre></td></tr></table></figure></li>
+<li>如果初始值同样为0，意味着整个过程中不同神经元的值都是相等的，多个隐藏单元都在计算相同的特征，高度冗余，最终得到一个特征。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-13.png"></li>
+<li>tensorflow 中的随机初始化：按照正态分布初始化权重，mean是正态分布的平均值，stddev是正态分布的标准差（standard deviation），seed是作为分布的random seed。<pre><code>def weight_variable(shape):
+  initial = tf.truncated_normal(shape,stddev=0.1) ##正态分布
+  return tf.Variable(initial)
+</code></pre>
+</li>
 </ul>
-<h3 id="gt-总结"><a href="#gt-总结" class="headerlink" title="&gt; 总结"></a>&gt; 总结</h3><h4 id="选择神经网络结构"><a href="#选择神经网络结构" class="headerlink" title="选择神经网络结构"></a>选择神经网络结构</h4><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-13.png"></p>
+<h3 id="gt-总结"><a href="#gt-总结" class="headerlink" title="&gt; 总结"></a>&gt; 总结</h3><h4 id="选择神经网络结构"><a href="#选择神经网络结构" class="headerlink" title="选择神经网络结构"></a>选择神经网络结构</h4><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-13.png"></p>
 <ul>
 <li>一般只有一个隐藏层（隐藏层的数量越多越好，但计算量也更大），多个隐藏层神经元数目一般应相等。</li>
 </ul>
-<h4 id="训练的步骤"><a href="#训练的步骤" class="headerlink" title="训练的步骤"></a>训练的步骤</h4><p><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-15.png"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-16.png"><br><img src="/2021/03/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-17.png"></p>
+<h4 id="训练的步骤"><a href="#训练的步骤" class="headerlink" title="训练的步骤"></a>训练的步骤</h4><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-15.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-16.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-17.png"></p>
 <ul>
 <li>反向传播算法的目的是算出梯度下降的方向。</li>
 </ul>

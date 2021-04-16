@@ -1,0 +1,1778 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="人工智能之机器学习, GWorld">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>人工智能之机器学习 | GWorld</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">GWorld</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>档案馆</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">GWorld</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			档案馆
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/b1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">人工智能之机器学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                                <span class="chip bg-color">基础知识</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="post-category">
+                                人工智能
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-06
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    8.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    29 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1-绪论：初始机器学习"><a href="#1-绪论：初始机器学习" class="headerlink" title="[1] 绪论：初始机器学习"></a>[1] 绪论：初始机器学习</h2><blockquote>
+<p>机器学习专门研究计算机怎样模拟或实现人类的学习行为，以获取新的知识或技能，重新组织已有的知识结构使之不断改善自身的性能。</p>
+</blockquote>
+<h3 id="gt-机器学习的定义"><a href="#gt-机器学习的定义" class="headerlink" title="&gt; 机器学习的定义"></a>&gt; 机器学习的定义</h3><ul>
+<li><p>一个适当的学习问题定义如下：<br>　　计算机程序从经验E中学习，解决某一问题T，进行某一性能度量P，通过P测定在T上的表现因经验E而提高。</p>
+</li>
+<li><p>对于一个跳棋游戏：<br>　　经验E -&gt;　程序与自己下几万次跳棋<br>　　任务T　-&gt;　玩跳棋<br>　　性能度量P -&gt; 与新对手玩跳棋时赢的概率</p>
+</li>
+</ul>
+<h3 id="gt-监督学习"><a href="#gt-监督学习" class="headerlink" title="&gt; 监督学习"></a>&gt; 监督学习</h3><ul>
+<li>我们给予算法一个数据集，里面包含了<strong>正确答案</strong>。<ul>
+<li>回归：我们设法预测连续值的属性。</li>
+<li>分类：我们设法预测一个离散值输出。</li>
+</ul>
+</li>
+</ul>
+<h3 id="gt-无监督学习"><a href="#gt-无监督学习" class="headerlink" title="&gt; 无监督学习"></a>&gt; 无监督学习</h3><ul>
+<li><p>数据都具有相同的标签或者都没有标签，即得到一个数据集但我们不知道要拿它来做什么，也不知道每个数据点究竟是什么。</p>
+</li>
+<li><p>聚类算法：比如一个数据集中一部分数据集中在一部分区域，另一部分数据集中在另一部分区域，则可以将数据分为两个簇。（谷歌搜索引擎利用了聚类算法，又如鸡尾酒聚会问题中不同音频源的分离。）</p>
+</li>
+<li><p>Cocktail Party problem algorithm [鸡尾酒聚会问题算法]：<br> $$<br> [W,s,v]=svd((repmat(sum(x.*x,1),size(x,1),1).*x)*x’);<br> $$</p>
+</li>
+</ul>
+<h2 id="2-单变量线性回归"><a href="#2-单变量线性回归" class="headerlink" title="[2] 单变量线性回归"></a>[2] 单变量线性回归</h2><blockquote>
+<p>因为只含有一个特征/输入变量,因此这样的问题叫作单变量线性回归。</p>
+</blockquote>
+<h3 id="gt-模型描述"><a href="#gt-模型描述" class="headerlink" title="&gt; 模型描述"></a>&gt; 模型描述</h3><ul>
+<li><p>经常使用的一些符号定义：</p>
+<ul>
+<li>m 代表训练集中实例的数量</li>
+<li>x 代表特征/输入变量</li>
+<li>y 代表目标变量/输出变量</li>
+<li>(x,y) 代表训练集中的实例</li>
+<li>(x^(i),y^(i)) 代表第i个观察实例</li>
+<li>h 代表学习算法的解决方案或函数也称为假设(hypothesis)</li>
+</ul>
+</li>
+<li><p>监督学习的工作过程：</p>
+<ul>
+<li>我们向学习算法提供训练集，学习算法的任务是输出一个函数h（假设函数），作用为把x作为输入变量输出相应的预测y值（引导从x得到y）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="gt-代价函数"><a href="#gt-代价函数" class="headerlink" title="&gt; 代价函数"></a>&gt; 代价函数</h3><ul>
+<li><p>假设函数： hθ(x) = θ0 +θ1x</p>
+<ul>
+<li>θ0 和 θ1 通常称其为模型参数。</li>
+<li>选择不同的参数θ0和θ1我们会得到不同的假设函数。</li>
+</ul>
+</li>
+<li><p>在线性回归中，我们要解决的是一个最小化问题</p>
+<ul>
+<li>选择的参数 θ0 和 θ1 决定了我们得到的直线相对于我们的训练集的准确程度，模型所预测的值与训练集中实际值之间的差距就是建模误差（modeling error）- 例如房子预测卖出价格与实际卖出价格的差的平方 - 为使数字更加直白，一般对这个求和值的二分之一求最小值。</li>
+<li>我们的目标便是选择出可以使得建模误差的平方和能够最小的模型参数。即使得代价函数（平方误差函数）：<br><img src="https://images0.cnblogs.com/blog/663864/201410/120416270935721.png"></li>
+<li>误差平方代价函数对于大多数问题，特别是回归问题，都是一个合理的选择。</li>
+<li>若是绘制一个等高线图，三个坐标分别为 θ0 和 θ1 和J(θ0 ,θ1)可以看出在三维空间中存在一个使得J(θ0,θ1)最小的点：<br><br><img src="https://images0.cnblogs.com/blog/663864/201410/120416527809869.png"></li>
+<li>等高线图的例子：<br><br><img src="https://images0.cnblogs.com/blog/663864/201410/120417333746870.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="gt-梯度下降"><a href="#gt-梯度下降" class="headerlink" title="&gt; 梯度下降"></a>&gt; 梯度下降</h3><ul>
+<li><p><strong>梯度下降算法</strong>，该算法可以将代价函数 J 最小化。它不仅被用在线性回归上，并且被广泛的应用于机器学习的众多领域中，之后为了解决其他线性回归问题，我们也将使用梯度下降法来最小化其他函数。</p>
+<ul>
+<li>首先我们要做的是对 θ0  和 θ1 进行初始化(实际上，它们到底是什么其实并不重要)。通常的选择是将 θ0 设为0<br>，同时也将 θ1 也设为0，即将它们都初始化为0。我们在梯度下降算法中要做的就是不停地一点点地改变 θ0 和 θ1 ，试图通过这种改变使得 J(θ0 ,θ1) 变小，直到我们找到 J(θ0 ,θ1) 的最小值（或许是局部最小值）。</li>
+<li>注意坐标轴 θ0 和 θ1 在水平轴上，而函数 J(θ0 ,θ1) 在垂直坐标轴上，图形表面高度即是 J(θ0 ,θ1) 的值。我们希望最小化这个函数，因此我们从 θ0 和 θ1 的某个值出发。所以想象一下，对 θ0 和 θ1 赋以某个初值，也就是对应于从这个函数表面上的某个起始点出发。<br><img src="https://images0.cnblogs.com/blog/663864/201410/120418255623880.png"><br><img src="https://images0.cnblogs.com/blog/663864/201410/120419033744366.png"></li>
+<li>此外这种下降有一个有趣的特点，不同的起始点开始进行梯度下降算法，你会得到一个非常不同的局部最优解，这就是梯度下降算法的一个特点。</li>
+</ul>
+</li>
+<li><p><strong>梯度下降算法的定义</strong>：<br> <img src="https://images0.cnblogs.com/blog/663864/201410/120419518439473.png"></p>
+<ul>
+<li>符号：=表示赋值，符号=表示真假判断。</li>
+<li>α是学习率，用来控制梯度下降时候的步长。</li>
+<li>不断<strong>同时</strong>更新θ0与更新θ1，如上图下式，要做到同步更新。</li>
+</ul>
+</li>
+<li><p>梯度下降算法中更新时减去的项（α*偏导数项）的解释</p>
+<ul>
+<li>偏导数项可以令下一个更新数更接近最低点（正负）。</li>
+<li>如果α学习速率太小，这样就需要很多步才能到达最低点。如果α学习速率太大，那么梯度下降法可能会越过最低点，甚至可能无法收敛。实际上，会离最低点越来越远，因此，如果α太大，会导致无法收敛，甚至发散。</li>
+<li>如果你的参数已经处于局部最低点，那么梯度下降法更新其实什么都没做（求导为0），它不会改变参数的值，这也正是你想要的，因为它使你的解始终保持在局部最优点，这也解释了为什么即使学习速率 α 保持不变时，梯度下降也可以收敛到局部最低点。</li>
+<li>梯度下降一步后，新的导数会变小一点点。随着梯度下降法的运行，你移动的幅度会自动变得越来越小，直到最终移动幅度非常小，你会发现已经收敛到局部极小值。<br>在梯度下降法中，当我们接近局部最低点时，梯度下降法会自动采取更小的幅度。这是因为当我们接近局部最低点时（很显然在局部最低时导数等于零 ），导数值会自动变得越来越小，所以梯度下降将自动采取较小的幅度，这就是梯度下降的做法，所以实际上没有必要再另外减小α。<br><img src="https://images0.cnblogs.com/blog/663864/201410/120421081713359.png"></li>
+</ul>
+</li>
+<li><p>线性回归的梯度下降</p>
+<ul>
+<li>偏导数项计算：<br><img src="https://images0.cnblogs.com/blog/663864/201410/120421379211981.png"><br>代入原来的算法即为：<br><img src="https://images0.cnblogs.com/blog/663864/201410/120421593902439.png"></li>
+<li>实际上，用于线性回归的代价函数总是呈现一个弓形的样子，这个函数的专业术语是凸函数。这个函数没有任何局部最优解，只有一个全局最优解。<br><img src="https://images0.cnblogs.com/blog/663864/201410/120422292808805.png"></li>
+<li>Batch梯度下降意味着每一次梯度下降都遍历了整个训练集的样本。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-多变量线性回归"><a href="#3-多变量线性回归" class="headerlink" title="[3] 多变量线性回归"></a>[3] 多变量线性回归</h2><blockquote>
+<p>适用于多个变量或者特征量，Multiple features（多维特征）。</p>
+</blockquote>
+<h3 id="gt-多功能"><a href="#gt-多功能" class="headerlink" title="&gt; 多功能"></a>&gt; 多功能</h3><ul>
+<li>常用的表达：<ul>
+<li>n表示特征的数量</li>
+<li>x^(i)表示第i个训实例，是特征矩阵的第i行，是一个向量。</li>
+<li>xj^(i)代表特征矩阵中第i行的第j个特征，也就是第i个训练实例的第j个特征。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-1.png"></li>
+<li>因此我们需要对假设函数进行修改，将所有特征量相加：<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-2.png"></li>
+<li>若将所有参数写成向量，对于x需要从x0=1开始写。</li>
+<li>最终公式转化为：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-3.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-4.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="gt-多元梯度下降法"><a href="#gt-多元梯度下降法" class="headerlink" title="&gt; 多元梯度下降法"></a>&gt; 多元梯度下降法</h3><h5 id="多变量梯度下降（Gradient-descent-for-multiple-variables）"><a href="#多变量梯度下降（Gradient-descent-for-multiple-variables）" class="headerlink" title="多变量梯度下降（Gradient descent for multiple variables）:"></a>多变量梯度下降（Gradient descent for multiple variables）:</h5><ul>
+<li>不断更新每个θj的参数，通过θj减去α乘以导数项。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-5.png"></li>
+<li>新的算法，更新规则应用于多元线性回归：<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-6.png"></li>
+</ul>
+<h5 id="特征缩放-feature-scaling"><a href="#特征缩放-feature-scaling" class="headerlink" title="特征缩放 (feature scaling)"></a>特征缩放 (feature scaling)</h5><ul>
+<li>如果有一个有多个特征的机器学习问题。若能确保这些特征都处在一个相近的范围（确保不同特征的取值在相近的范围内），这样梯度下降法就能更快地收敛。具体来说，假如你有一个具有两个特征的问题，其中x1 是房屋面积大小，它的取值在0到2000之间，x2 是卧室的数量，这个值取值范围在1到5之间。如果画出代价函数J(θ) 的轮廓图：<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-7.png"></li>
+<li>那么这个轮廓看起来，应该是如上图左边的样子。J(θ) 是一个关于参数 θ0 、θ1 和 θ2 的函数，我在此处忽略 θ0 （暂时不考虑 θ0）。并假想一个函数的参数，只有 θ1 和 θ2，但如果变量 x1 的取值范围远远大于 x2 的取范围的话，那么最终画出来的代价函数 J(θ) 的轮廓图就会呈现出这样一种非常偏斜并且椭圆的形状。2000和5的比例会让这个椭圆更加瘦长。所以，这是一个又瘦又高的椭圆形轮廓图，正是这些非常高大细长的椭圆形构成了代价函数 (θ)，如果你用这个代价函数来进行梯度下降的话，你要得到梯度值最终可能需要花很长一段时间才能得到。并且可能会来回波动，然后会经过很长时间，最终才收敛到全局最小值。事实上，你可以想像如果这些轮廓再被放大一些的话如上图最左边的那样（如果你画的再夸张一些，把它画的更细更长），那么可能情况会更糟糕。<strong>梯度下降的过程可能更加缓慢，需要花更长的时间，反复来回振荡，最终才找到一条正确通往全局最小值的路</strong>。</li>
+<li>在这样的情况下一种有效的方法是进行特征缩放(feature scaling)。(如右图)举例来说，<strong>把特征 x 定义为房子的面积大小除以2000，并且把 x2 定义为卧室的数量除以5</strong>。如此一来，通过特征缩放，通过“消耗掉”这些值的范围（在这个例子中，我们最终得到的两个特征 x1 和 x2 都在 0 和 1 之间），你得到的梯度下降算法就会更快地收敛。表示代价函数 J(θ)的轮廓图的形状偏就会没那么严重，也许看起来会更圆一些。</li>
+<li>如果你用这样的代价函数，来进行梯度下降的话，那么梯度下降算法就会找到一条更快捷的路径通向全局最小，而不是像刚才那样，沿着一条让人摸不着头脑的路径、一条复杂得多的轨迹来找到全局最小值。</li>
+<li>更一般地，我们执行特征缩放，将特征的取值约束到-1 到 +1 的范围内（注意：特征 x0 是总是等于1，已经在这个范围内）。但对其他的特征，我们可能需要通过除以不同的数来让它们处于同一范围内。-1 和 +1 这两个数字并不是太重要（但不能过大或者过小）。</li>
+</ul>
+<h5 id="均值归一化-mean-normalization"><a href="#均值归一化-mean-normalization" class="headerlink" title="均值归一化(mean normalization)"></a>均值归一化(mean normalization)</h5><ul>
+<li>有一个特征 xi，用 xi - μi 来替换它，通过这样做，让特征值具有为0的平均值（μi 指所有 xi 的平均值）。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-8.png"></li>
+<li>在这两种情况下你可以算出新的特征 x1 和 x2，这样它们的范围，可以在 -0.5 和 +0.5 之间(x2 的值实际上有可能会大于0.5但很接近)。</li>
+<li>更一般的规律是，你可以用如下的公式来替换原来的特征 x1：<br>$$<br>(x1 - μ1)/S1<br>$$<br>其中定义μ1为训练集中特征x1的平均值，s1则是该特征值的范围（标准差）。</li>
+</ul>
+<h5 id="学习率α（Learning-rate）："><a href="#学习率α（Learning-rate）：" class="headerlink" title="学习率α（Learning rate）："></a>学习率α（Learning rate）：</h5><ul>
+<li>如何调试（也就是如何确定梯度下降是正常工作的）以及如何选择学习率 α。</li>
+<li>梯度下降算法所做的事情就是为你找到一个 θ 值，并希望它能够最小化代价函数 J(θ)。我们通常可以在梯度下降算法运行时绘制出代价函数 J(θ) 的值。（注意这里的 x 轴是表示梯度下降算法的迭代步数）<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-9.png"></li>
+<li>曲线上一点的含义是这样的：假如当我运行完100步的梯度下降迭代之后，无论我得到什么 θ 值（无论如何，100步迭代之后，我将得到一个 θ 值），根据100步迭代之后得到的这个 θ 值，我们可以计算出代价函数 J(θ) 的值，而这个点的垂直高度就代表梯度下降算法经过100步迭代之后而算出的 J(θ) 值。</li>
+<li>如果梯度下降算法正常工作，那么每一步迭代之后J(θ) 都应该下降。这条曲线用处在于，它可以告知你一些信息：例如，在这里400步迭代的时候，梯度下降算法基本上已经收敛了，因为代价函数并没有继续下降，观察这条曲线可以帮助你判断梯度下降算法是否已经收敛。</li>
+<li>也许对于某一个问题，梯度下降算法只需要30步迭代就可以收敛；然而换一个问题，也许梯度下降算法就需要3000步迭代；再对于另一个机器学习问题而言，则可能需要三百万步迭代。实际上，我们很难提前判断梯度下降算法需要多少步迭代才能收敛。因此，通常我们需要画出这类曲线，画出代价函数随迭代步数增加的变化曲线。我们可以通过看这种曲线，来试着判断梯度下降算法是否已经收敛。</li>
+<li><strong>此外，也可以进行一些自动的收敛测试</strong>，也就是说用一种算法，来告诉你梯度下降算法是否已经收敛。自动收敛测试一个非常典型的例子是：如果代价函数 J(θ) 的下降小于一个很小的值 ε ，那么就认为已经收敛（比如可以选择1e-3），但是通常要选择一个合适的阈值 ε 是相当困难的。因此为了检查梯度下降算法是否收敛，我们实际上还是通过观察之前介绍的代价函数随迭代步数增加的变化曲线，而不是依靠自动收敛测试。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-10.png"></li>
+<li>此外，这种曲线图也可以在算法没有正常工作时，提前警告你。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-11.png"><br>具体地说，如果代价函数 J(θ) 随迭代步数的变化曲线是上图左上角的这个样子，J(θ) 实际上在不断上升，那么这就很明确的表示梯度下降算法没有正常工作。而这样的曲线图，通常意味着你应该使用较小的学习率 α。同样的 有时你可能看到上图左下角这种形状的 J(θ) 曲线，它先下降，然后上升，接着又下降，然后又上升，如此往复。而解决这种情况的方法，通常同样是选择较小 α 值。</li>
+<li>总结一下：<strong>如果学习率 α 太小，你会遇到收敛速度慢的问题，而如果学习率 α 太大，代价函数 J(θ) 可能不会在每次迭代都下降，甚至可能不收敛，在某些情况下，如果学习率 α 过大，也可能出现收敛缓慢的问题。但更常见的情况是，你会发现代价函数 J(θ)，并不会在每次迭代之后都下降。</strong>为了调试所有这些情况，绘制J(θ)随迭代步数变化的曲线，通常可以帮助你弄清楚到底发生了什么。</li>
+<li>我们运行梯度下降算法时，通常会尝试一系列α值，如：…,0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1,…对于这些不同的 α 值，绘制 J(θ)随迭代步数变化的曲线，然后选择看上去使得 J(θ)快速下降的一个 α 值。</li>
+</ul>
+<p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-12.png"></p>
+<h3 id="gt-特征和多项式回归"><a href="#gt-特征和多项式回归" class="headerlink" title="&gt; 特征和多项式回归"></a>&gt; 特征和多项式回归</h3><p>选择特征的方法以及如何得到不同的学习算法。当选择了合适的特征后，这些算法往往是非常有效的。多项式回归，使得能够使用线性回归的方法来拟合非常复杂的函数，甚至是非线性函数。<br>$$<br>例子：hθ(X) = θ0 +θ1 × X1+ θ2 × X2 + θ3 × X3<br>$$</p>
+<ul>
+<li>第一个特征 x1 设为房子的面积，将第二个特征 x2 设为房屋面积的平方，将第三个特征 x3 设为房子面积的立方。也可以理解为通过设置3个特征，从而将模型转化为线性回归模型。(注：如果我们采用多项式回归模型，在运行梯度下降算法前，进行特征缩放非常有必要。)</li>
+<li>需要说明的是，如果你像这样选择特征，那么特征的归一化就变得更重要了，因为这三个特征的范围有很大的不同。因此，如果使用梯度下降法，使用特征值的归一化是非常重要的，这样才能将他们的值的范围变得具有可比性。</li>
+<li>再来看一个例子，关于如何使你真正选择出要使用的特征。此前我们谈到一个像这样的二次模型并不是理想的，因为你知道也许一个二次模型能很好地拟合这个数据，但二次函数最后会下降，这是我们不希望看到的。但是，除了转而建立一个三次模型以外，你也许有其他的选择特征的方法，如下：<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-13.png"></li>
+<li>注意在使用特征时的选择性。例如，我们不使用房屋的临街宽度和纵深，而是把它们乘在一起，从而得到房子的土地面积这个特征。</li>
+</ul>
+<h3 id="gt-正规方程"><a href="#gt-正规方程" class="headerlink" title="&gt; 正规方程"></a>&gt; 正规方程</h3><ul>
+<li>对于某些线性回归问题，正规方程式是更好的解决方案。</li>
+<li>正规方程通过求解以下方程：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-14.png"><br><br>来求出使得代价函数最小的参数。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-15.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/5-16.png"></li>
+<li>通过删除多余特征或影响较小的特征或使用正则化方法，解决矩阵X^T*X不可逆的情况。</li>
+</ul>
+<h2 id="4-线性代数回顾"><a href="#4-线性代数回顾" class="headerlink" title="[4] 线性代数回顾"></a>[4] 线性代数回顾</h2><blockquote>
+<p>在大一学过的线性代数。</p>
+</blockquote>
+<h3 id="gt-矩阵和向量"><a href="#gt-矩阵和向量" class="headerlink" title="&gt; 矩阵和向量"></a>&gt; 矩阵和向量</h3><ul>
+<li>矩阵：由数字组成的矩形阵列。<br><br>Aij表达矩阵中第i行第j列的数。</li>
+<li>向量：只有一列的矩阵。<br><br>yi表达向量中第i个元素（一般使用1-下标向量）。</li>
+<li>大写字母表示矩阵，小写字母y表示向量。</li>
+</ul>
+<h3 id="gt-加法和标量乘法"><a href="#gt-加法和标量乘法" class="headerlink" title="&gt; 加法和标量乘法"></a>&gt; 加法和标量乘法</h3><ul>
+<li>矩阵加法——行列对应相加，必须维度相同。</li>
+<li>标量乘法：逐一和标量相乘。</li>
+</ul>
+<h3 id="gt-矩阵向量乘法"><a href="#gt-矩阵向量乘法" class="headerlink" title="&gt; 矩阵向量乘法"></a>&gt; 矩阵向量乘法</h3><ul>
+<li>矩阵向量相乘：多行一列得多项。</li>
+<li>用第一列全1得矩阵在代码中运算得到预测值。</li>
+</ul>
+<h3 id="gt-矩阵乘法"><a href="#gt-矩阵乘法" class="headerlink" title="&gt; 矩阵乘法"></a>&gt; 矩阵乘法</h3><ul>
+<li>矩阵向量相乘：多行多列得多项。</li>
+<li>同时计算多个假设函数可以放置在同一个矩阵中。</li>
+</ul>
+<h3 id="gt-矩阵乘法特征"><a href="#gt-矩阵乘法特征" class="headerlink" title="&gt; 矩阵乘法特征"></a>&gt; 矩阵乘法特征</h3><ul>
+<li>不能随意颠倒AxB的顺序。</li>
+<li>可以使用结合律。</li>
+<li>对角线全为1的单位矩阵。</li>
+</ul>
+<h3 id="gt-逆和转置"><a href="#gt-逆和转置" class="headerlink" title="&gt; 逆和转置"></a>&gt; 逆和转置</h3><ul>
+<li>逆矩阵：相乘后等于单位矩阵。</li>
+<li>Octave中输入pinv（A）即可快速得到逆矩阵。</li>
+<li>奇异矩阵：不存在逆矩阵。</li>
+<li>转置行列对换。</li>
+</ul>
+<h2 id="5-Logistic回归"><a href="#5-Logistic回归" class="headerlink" title="[5] Logistic回归"></a>[5] Logistic回归</h2><blockquote>
+<p>预测的变量 y 是一个离散的值情况下的分类问题。</p>
+</blockquote>
+<h3 id="gt-分类"><a href="#gt-分类" class="headerlink" title="&gt; 分类"></a>&gt; 分类</h3><p>现在有这样一个分类任务，需要根据肿瘤大小来判断肿瘤的良性与否。训练集如上图所示，横轴代表肿瘤大小，纵轴表示肿瘤的良性与否，注意，纵轴只有两个取值，1（代表恶性肿瘤）和0（代表良性肿瘤）。通过之前的博文，我们已经知道对于以上数据集使用线性回归来处理，实际上就是用一条直线去拟合这些数据。因此，你得到的 Hypothesis 可能如下：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-1.png"></p>
+<ul>
+<li>此时如果你想做出预测，一种可行的方式是如下：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-2.png"></li>
+<li>现在，我们对以上问题稍作一些改动。将横轴向右扩展，并且增加一个训练样本，如下：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-3.png"><br><br>此时，我们使用线性回归，会得到一条新的直线：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-4.png"></li>
+<li><strong>此时，我们再用0.5作为阈值来预测肿瘤的良性与否，就不合适了。</strong></li>
+</ul>
+<h3 id="gt-假设陈述"><a href="#gt-假设陈述" class="headerlink" title="&gt; 假设陈述"></a>&gt; 假设陈述</h3><ul>
+<li>当有个一个分类问题的时候，我们要使用哪个方程？<br></li>
+<li>定义函数g如下：g(z) = 1/1+e^(-z)   　　　(sigmoid函数或称为logistic函数)<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-5.png"></li>
+<li>对于假设函数的输出值意义的解释：假如将一个病人肿瘤大小输出得到0.7，则可以认为该病人有70%几率患有恶性肿瘤。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-6.png"></li>
+</ul>
+<h3 id="gt-决策界限"><a href="#gt-决策界限" class="headerlink" title="&gt; 决策界限"></a>&gt; 决策界限</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-7.png"></p>
+<ul>
+<li>即预测y=0只需要θ^Tx&gt;=0</li>
+<li>有如下一个例子：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-8.png"><br><br>我们可以画出一个界限X1+X2=3，即为决策边界。</li>
+<li>又有如下一个例子：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-9.png"><br><br>我们可以画出一个界限X1^2+X2^2=1，即为决策边界。</li>
+</ul>
+<h3 id="gt-代价函数-1"><a href="#gt-代价函数-1" class="headerlink" title="&gt; 代价函数"></a>&gt; 代价函数</h3><ul>
+<li>我们需要定义<strong>优化目标</strong>或者<strong>代价函数</strong>来拟合参数θ，这便是监督学习问题中的逻辑回归模型的拟合问题。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-10.png"></li>
+<li>需要解决的问题：我们有一个训练集，里面有m个训练样本，同之前一样，我们的每个样本使用n+1维的特征向量表示（x0 = 1）。并且由于是分类问题，我们训练集中的所有y，取值不是0就是1。假设函数的参数即为θ。那么，对于这个给定的训练集，我们如何拟合参数θ（或者说是选择参数θ）？</li>
+<li>之前，我们使用线性回归模型来拟合假说参数θ时，使用了如下的代价函数，我们稍作改变，将原先的1/2m中的原先的1/2放到了求和符号里面。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-11.png"></li>
+<li>现在我们使用另一种方式，来书写代价函数：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-12.png"></li>
+<li>在线性回归中，代价项（Cost函数）会被定义为：1/2乘以预测值h和实际值观测的结果y的差的平方。这个代价值可以很好地用在线性回归里，但是对于逻辑回归却是不合适的。</li>
+<li>如果我们可以最小化代价函数J(θ)中的代价项（Cost函数），那么我们的确可以使用该代价项。但实际上，如果我们使用该代价项，那么代价函数J(θ)会变成关于参数θ的非凸函数。因为<strong>对于逻辑回归来说，这里的h函数是非线性的</strong>，是一个很复杂的非线性函数，因此如果用h函数来构造我们在线性回归中所使用的代价项（Cost函数），接着再用该代价项来构造代价函数J(θ)。那么J(θ)可能有很多局部最优值：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-13.png"></li>
+<li>实际上，这就是一个非凸函数。不难发现，如果你把梯度下降法用在一个这样的函数上的话，我们并不能保证它会收敛到<strong>全局最小值</strong>。</li>
+<li>显然，我们希望我们的代价函数J(θ)是一个凸函数，也就是一个单弓形函数。因此我们对Cost函数进行修改：<br></li>
+<li>y=1与y=0的两种情况：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-14.png"></li>
+<li>如果预测值趋于0，而实际y=1，那么代价便趋于无穷以惩罚算法。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-15.png"></li>
+<li>如果预测值趋于1，而实际y=0，那么代价便趋于无穷以惩罚算法。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-16.png"></li>
+<li>简化代价函数的方法：<br>$$<br>Cost(hθ(x),y) = -ylog(hθ(x))-(1-y)log(1-hθ(x))<br>$$<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-17.png"></li>
+<li>写为如下形式：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-18.png"></li>
+<li>最小化代价函数：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-19.png"></li>
+</ul>
+<h3 id="gt-高级优化"><a href="#gt-高级优化" class="headerlink" title="&gt; 高级优化"></a>&gt; 高级优化</h3><ul>
+<li>有更多更高级更复杂的优化算法（BFGS、L-BFGS）</li>
+</ul>
+<h3 id="gt-多元分类：一对多"><a href="#gt-多元分类：一对多" class="headerlink" title="&gt; 多元分类：一对多"></a>&gt; 多元分类：一对多</h3><ul>
+<li>多类别分类问题：如天气有晴天(y=0)，雨天(y=1)，阴天(y=2)，下雪天(y=3)</li>
+<li>一次选择一个类别，将其他设置为负类别,得到多个分类器。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/6-20.png"></li>
+<li>在多个分类器输入x，最后选择h最大的类别。</li>
+</ul>
+<h2 id="6-正则化"><a href="#6-正则化" class="headerlink" title="[6] 正则化"></a>[6] 正则化</h2><blockquote>
+<p>解决过拟合问题。</p>
+</blockquote>
+<h3 id="gt-欠拟合与过拟合"><a href="#gt-欠拟合与过拟合" class="headerlink" title="&gt; 欠拟合与过拟合"></a>&gt; 欠拟合与过拟合</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-1.png" alt="线性回归"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-2.png" alt="逻辑回归"></p>
+<ul>
+<li>欠拟合：或者叫高偏差——如果用线性回归这个算法去拟合训练数据，那么该算法实际上会产生一个非常大的偏差或者说存在一个很强的偏见。</li>
+<li>过拟合：或者叫高方差——拟合一个高阶多项式，这个函数能很好的拟合训练集（能拟合几乎所有的训练数据），但这也就面临函数可能太过庞大的问题，变量太多。同时如果我们没有足够的数据集（训练集）去约束这个变量过多的模型，那么就会发生过拟合。</li>
+<li>过拟合曲线中，我们似乎对训练数据做了一个很好的拟合，因为这条曲线通过了所有的训练实例。但是，这实际上是一条很扭曲的曲线，它不停上下波动。因此，事实上我们并不认为它是一个预测房价的好模型。这样的曲线千方百计的去拟合训练数据，这样会导致它无法泛化到新的数据样本中，以至于无法预测新样本价格。（”泛化”指一个假设模型能够应用到新样本的能力）</li>
+</ul>
+<h3 id="gt-解决过拟合问题"><a href="#gt-解决过拟合问题" class="headerlink" title="&gt; 解决过拟合问题"></a>&gt; 解决过拟合问题</h3><ul>
+<li>方法一：<strong>尽量减少选取变量的数量</strong><blockquote>
+<p>人工检查每一项变量，并以此来确定哪些变量更为重要，然后，保留那些更为重要的特征变量。</p>
+</blockquote>
+</li>
+<li>方法二：<strong>正则化</strong><blockquote>
+<p>保留所有的特征变量，但是会减小特征变量的数量级。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="gt-代价函数-2"><a href="#gt-代价函数-2" class="headerlink" title="&gt; 代价函数"></a>&gt; 代价函数</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-3.png" alt="代价前"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-4.png" alt="代价后"></p>
+<ul>
+<li>思想：这些参数的值越小，通常对应于越光滑的函数，也就是更加简单的函数。因此就不易发生过拟合的问题。</li>
+<li>注意：<ul>
+<li>按照惯例，不需要惩罚 θ0。</li>
+<li>正则化项中的 λ 称做正则化参数。</li>
+</ul>
+</li>
+<li>λ 要做的就是控制在两个不同的目标中的平衡关系：<ul>
+<li>第一个目标就是我们想要训练使得假设更好地拟合训练数据。</li>
+<li>第二个目标是我们想要保持参数值较小。</li>
+<li>从而来保持假设的形式相对简单，来避免过度的拟合。</li>
+<li>值的选择很重要，如果过大的话最终得到一条平直线。</li>
+</ul>
+</li>
+</ul>
+<h3 id="gt-应用于线性回归"><a href="#gt-应用于线性回归" class="headerlink" title="&gt; 应用于线性回归"></a>&gt; 应用于线性回归</h3><ul>
+<li>基于梯度下降算法：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-5.png" alt="梯度下降"></li>
+<li>基于正规方程算法：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-6.png" alt="正规方程"></li>
+</ul>
+<h3 id="gt-应用于逻辑回归"><a href="#gt-应用于逻辑回归" class="headerlink" title="&gt; 应用于逻辑回归"></a>&gt; 应用于逻辑回归</h3><ul>
+<li>代价函数：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-7.png"></li>
+<li>梯度下降：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-8.png" alt="梯度下降"></li>
+<li>在高级优化算法中。实际上是自己定义costFunction函数：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/8-9.png" alt="梯度下降"><ul>
+<li>我们自定义的 costFunction 的输入为向量 θ ，返回值有两项，分别是代价函数 jVal 以及 梯度gradient。<br>我们需要的就是这个自定义函数costFunction，针对Octave而言，我们可以将这个函数作为参数传入到 fminunc 系统函数中（fminunc 用来求函数的最小值，将@costFunction作为参数代进去，注意 @costFunction 类似于C语言中的函数指针），fminunc返回的是函数 costFunction 在无约束条件下的最小值，即我们提供的代价函数 jVal 的最小值，当然也会返回向量 θ 的解。</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-神经网络学习"><a href="#7-神经网络学习" class="headerlink" title="[7] 神经网络学习"></a>[7] 神经网络学习</h2><blockquote>
+<p>神经网络，它在解决复杂的非线性分类问题上，被证明是是一种好得多的算法，即使你的输入特征空间或输入的特征维数 n 很大，也能轻松搞定。</p>
+</blockquote>
+<h3 id="gt-非线性假设"><a href="#gt-非线性假设" class="headerlink" title="&gt; 非线性假设"></a>&gt; 非线性假设</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-1.png"></p>
+<ul>
+<li>对于许多复杂的机器学习问题而言，涉及的特征量往往多于两项。</li>
+<li>随着特征个数n的增加，二次项的个数大约以n^2的量级增长。</li>
+<li>项数过多，会导致最后的结果很有可能是过拟合的。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-2.png"></li>
+<li>对于计算机视觉来说问题就变成了根据这个像素点亮度矩阵来告诉我们这些数值是否代表某个物品。</li>
+<li>出一个带标签的样本集，其中一些样本是各类汽车，而另一部分样本是其他任何东西。将这个样本集输入给学习算法以训练出一个分类器，当训练完毕后，我们输入一幅新的图片，让分类器判定“这是什么东西？”</li>
+<li>以50*50的图片为例，如果存储的是每个像素点的灰度值，那么每个元素的值应该在 0 到 255 之间。因此，这个问题中 n=2500。如果我们用的是RGB彩色图像，每个像素点包含红、绿、蓝三个子像素，那么 n=7500。因此，如果我们非要通过包含所有的二次项来解决这个非线性问题，那么仅仅二次项 xi * xj 总共大约有300万个（2500^2/2 ）</li>
+</ul>
+<h3 id="gt-神经元与大脑"><a href="#gt-神经元与大脑" class="headerlink" title="&gt; 神经元与大脑"></a>&gt; 神经元与大脑</h3><ul>
+<li>模仿大脑学习数据的算法。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-3.png"></li>
+<li>黄色的圆圈就代表了神经元，X为输入向量，θ 代表神经元的权重（实际上就是我们之前所说的模型参数），hθ (X)代表激励函数。<ul>
+<li>在神经网络术语中，激励函数只是对类似非线性函数g(z)的另一个术语称呼。</li>
+</ul>
+</li>
+<li><strong>实际上，你可以这样理解，神经元就是权重θ。</strong></li>
+<li>计算XT*θ会有一个输出，这个输出再送入激励函数中，便得到了神经元的真实输出。</li>
+<li>通常绘制输入节点 x1、x2、x3等等，但有时也可以增加一个额外的节点 x0 ，这个 x0 节点有时也被称作<strong>偏置单位或偏置神经元</strong>。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-4.png"></li>
+<li>神经网络就是不同的神经元组合在一起。第一层为输入层，最后一层为输出层，而中间的所有层均为隐藏层。</li>
+<li>我们可以在这里添加一个a0(2)，这和 x0 一样，代表一个额外的偏度单元，它的值永远是1</li>
+<li><strong>a1(2) 、 a2(2) 和 a3(2) 中计算的是g(XTθ)的值，而a0(2)中存放的就是偏置1。</strong><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-5.png"></li>
+<li>如果一个网络在第 j 层有 sj 个单元，在 j+1 层有 sj +1 个单元，那么矩阵 θ(j) 即控制第 j 层到第 j+1 层的映射。<br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-6.png"></li>
+<li><strong>计算的过程称为前向传播。</strong><br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-7.png"></li>
+<li><strong>实际上就是逻辑回归，但输入逻辑回归的特征是通过隐藏层计算的这些数值。</strong><br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-8.png"></li>
+<li>神经网络的<strong>架构</strong></li>
+</ul>
+<h3 id="gt-实例"><a href="#gt-实例" class="headerlink" title="&gt; 实例"></a>&gt; 实例</h3><ul>
+<li>可以运用神经网络，解决“与”、“或”、“同或”的分类问题。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-9.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-10.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-11.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-12.png"></li>
+</ul>
+<h3 id="gt-多元分类"><a href="#gt-多元分类" class="headerlink" title="&gt; 多元分类"></a>&gt; 多元分类</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-14.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/9-13.png"></p>
+<h2 id="8-神经网络参数的反向传播算法"><a href="#8-神经网络参数的反向传播算法" class="headerlink" title="[8] 神经网络参数的反向传播算法"></a>[8] 神经网络参数的反向传播算法</h2><blockquote>
+<p>神经网络，它在解决复杂的非线性分类问题上，被证明是是一种好得多的算法，即使你的输入特征空间或输入的特征维数 n 很大，也能轻松搞定。</p>
+</blockquote>
+<h3 id="gt-代价函数-3"><a href="#gt-代价函数-3" class="headerlink" title="&gt; 代价函数"></a>&gt; 代价函数</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-1.png"></p>
+<ul>
+<li>可以把K当作<strong>输出层的单元个数</strong>。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-2.png"></li>
+<li>神经网络的代价函数，实际上是<strong>逻辑回归中的代价函数的一般形式</strong>，变成了k个输出单元之和。</li>
+<li>tensorflow 实现最小化代价函数。<pre><code>loss = tf.reduce_mean(tf.square(y-prediction))
+train = tf.train.GradientDescentOptimizer(0.2).minimize(loss)
+</code></pre>
+</li>
+</ul>
+<h3 id="gt-反向传播算法"><a href="#gt-反向传播算法" class="headerlink" title="&gt; 反向传播算法"></a>&gt; 反向传播算法</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-3.png"></p>
+<ul>
+<li>前向传播过程的<strong>向量化</strong>。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-4.png"></li>
+<li>反向传播：相对与前向传播，从输出层开始计算δ，然后返回到上一层计算上一层的δ，即是将输出层的误差传到了前面几层。</li>
+<li>最终我们可以<strong>粗略的认为</strong>偏导项等于右侧项。</li>
+<li>全部过程分析：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-5.png"></li>
+</ul>
+<h3 id="gt-反向传播的理解"><a href="#gt-反向传播的理解" class="headerlink" title="&gt; 反向传播的理解"></a>&gt; 反向传播的理解</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-7.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-6.png"></p>
+<h3 id="gt-梯度检测"><a href="#gt-梯度检测" class="headerlink" title="&gt; 梯度检测"></a>&gt; 梯度检测</h3><ul>
+<li>当θ是实数：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-8.png"></li>
+<li>当θ是向量：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-9.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-10.png"></li>
+<li>总结：<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-11.png"></li>
+</ul>
+<h3 id="gt-随机初始化"><a href="#gt-随机初始化" class="headerlink" title="&gt; 随机初始化"></a>&gt; 随机初始化</h3><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-12.png"></p>
+<ul>
+<li>如果初始值同样为0，意味着整个过程中不同神经元的值都是相等的，多个隐藏单元都在计算相同的特征，高度冗余，最终得到一个特征。<br><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-13.png"></li>
+<li>tensorflow 中的随机初始化：按照正态分布初始化权重，mean是正态分布的平均值，stddev是正态分布的标准差（standard deviation），seed是作为分布的random seed。<pre><code>def weight_variable(shape):
+  initial = tf.truncated_normal(shape,stddev=0.1) ##正态分布
+  return tf.Variable(initial)
+</code></pre>
+</li>
+</ul>
+<h3 id="gt-总结"><a href="#gt-总结" class="headerlink" title="&gt; 总结"></a>&gt; 总结</h3><h4 id="选择神经网络结构"><a href="#选择神经网络结构" class="headerlink" title="选择神经网络结构"></a>选择神经网络结构</h4><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-13.png"></p>
+<ul>
+<li>一般只有一个隐藏层（隐藏层的数量越多越好，但计算量也更大），多个隐藏层神经元数目一般应相等。</li>
+</ul>
+<h4 id="训练的步骤"><a href="#训练的步骤" class="headerlink" title="训练的步骤"></a>训练的步骤</h4><p><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-15.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-16.png"><br><img src="/2021/03/06/[MA]%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/10-17.png"></p>
+<ul>
+<li>反向传播算法的目的是算出梯度下降的方向。</li>
+</ul>
+<h2 id="相关资源-Octave-Matlab安装"><a href="#相关资源-Octave-Matlab安装" class="headerlink" title="[相关资源] Octave/Matlab安装"></a>[相关资源] Octave/Matlab安装</h2><blockquote>
+<p>Octave/Matlab的安装。</p>
+</blockquote>
+<h3 id="gt-Octave软件下载"><a href="#gt-Octave软件下载" class="headerlink" title="&gt; Octave软件下载"></a>&gt; Octave软件下载</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://www.gnu.org/software/octave/download.html">http://www.gnu.org/software/octave/download.html</a></li>
+</ul>
+<h3 id="gt-Matlab软件下载"><a href="#gt-Matlab软件下载" class="headerlink" title="&gt; Matlab软件下载"></a>&gt; Matlab软件下载</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://pan.baidu.com/wap/init?surl=sk1NvtoiZoImEPH9SUHgxA">https://pan.baidu.com/wap/init?surl=sk1NvtoiZoImEPH9SUHgxA</a> 提取码：mk2z</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Gst_Y</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://stblog.tk/2021/03/06/%5BMA%5D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">http://stblog.tk/2021/03/06/%5BMA%5D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Gst_Y</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">基础知识</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'Soxz4R15Dr5CF1zyhssT0GFd-gzGzoHsz',
+        appKey: '34UY9eecQEyqKo8lLe1BGpVF',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/03/06/%5BD2%5D%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="汇编语言">
+                        
+                        <span class="card-title">汇编语言</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            汇编语言是直接在硬件之上工作的编程语言，首先要了解硬件系统的结构，才能有效的应用汇编语言对其编程。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8/" class="post-category">
+                                    网络空间安全
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">
+                        <span class="chip bg-color">大学课程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/06/%5BMA%5D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/b1.jpg" class="responsive-img" alt="人工智能之机器学习">
+                        
+                        <span class="card-title">人工智能之机器学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            机器学习专门研究计算机怎样模拟或实现人类的学习行为，以获取新的知识或技能，重新组织已有的知识结构使之不断改善自身的性能
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="post-category">
+                                    人工智能
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">基础知识</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('500')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: GWorld<br />'
+            + '文章作者: Gst_Y<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Gst_Y</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:by1134516880@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1134516880" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1134516880" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/cursor.js"></script>
+    <script src="/js/snow.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>
